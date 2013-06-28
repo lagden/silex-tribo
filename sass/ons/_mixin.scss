@@ -1,0 +1,153 @@
+// Size
+@mixin attr-size($attr, $size, $base:16, $unit:rem) {
+    #{$attr}: #{strip-units($size)}px;
+    #{$attr}: relative-size($size, $base, $unit);
+}
+
+// Clearfix
+@mixin cf() {
+    &:before,
+    &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    & {
+        zoom: 1;
+    }
+}
+
+// IE7 inline-block
+@mixin inline-block() {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+}
+
+// IE7 inline-block Important
+@mixin inline-block-important() {
+    display:inline-block !important;
+    *display:inline !important;
+    *zoom:1 !important;
+}
+
+// Font family Default
+@mixin sans-serif($prepend:false) {
+    $list: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: join($prepend,$list,comma);
+}
+
+@mixin serif($prepend:false) {
+    $list: "Times New Roman", Times, serif;
+    font-family: join($prepend,$list,comma);
+}
+
+// Webkit-style focus
+@mixin tab-focus() {
+// Default
+outline: thin dotted #333;
+// Webkit
+outline: 5px auto -webkit-focus-ring-color;
+outline-offset: -2px;
+}
+
+// Placeholder text
+@mixin placeholder($color: $placeholderText) {
+    &:-moz-placeholder {
+        color: $color;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+}
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+@mixin ie7-restore-left-whitespace() {
+    *margin-left: .3em;
+
+    &:first-child {
+        *margin-left: 0;
+    }
+}
+
+@mixin ie7-restore-right-whitespace() {
+    *margin-right: .3em;
+}
+
+// Reset filters for IE
+@mixin reset-filter() {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+// Gradient Bar Colors for buttons and alerts
+@mixin gradientBar($primaryColor, $secondaryColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+    color: $textColor;
+    text-shadow: $textShadow;
+    @include gradient-vertical($primaryColor, $secondaryColor);
+    border-color: $secondaryColor $secondaryColor darken($secondaryColor, 15%);
+    border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), 0.15);
+}
+
+@mixin gradient-vertical($startColor: #555, $endColor: #333) {
+    background-color: mix($startColor, $endColor, 60%);
+background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+background-image: linear-gradient(to bottom, $startColor, $endColor); // Standard, IE10
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=0); // IE9 and down
+}
+
+// Button backgrounds
+@mixin buttonBackground($startColor, $endColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+// gradientBar will set the background to a pleasing blend of these, to support IE<=9
+@include gradientBar($startColor, $endColor, $textColor, $textShadow);
+*background-color: $endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+@include reset-filter();
+
+// in these cases the gradient won't cover the background, so we override
+&:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    color: $textColor;
+    background-color: $endColor;
+    *background-color: darken($endColor, 5%);
+}
+
+// IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+&:active,
+&.active {
+    background-color: darken($endColor, 10%) \9;
+}
+}
+
+// Media Queries
+@mixin breakpoint($point, $maior: false) {
+
+    @each $c in $lista_break {
+        $break: nth($c, 1);
+        $size: nth($c, 2);
+        $calSize: nth($c, 3);
+        $calSpace: nth($c, 4);
+        $sizeX: calcBox(($calSize + 1), ($calSpace + 1));
+
+        @if $point == $break {
+            @if $point == 'size-8' { $maior: true; }
+            @if $maior { @media screen and (min-width: $size + 6){ @content; }; }
+            @else { @media screen and (min-width: $size + 6) and (max-width: $sizeX + 5){ @content; }; }
+        }
+    }
+}

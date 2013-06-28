@@ -1,0 +1,42 @@
+.sass-cache
+node_modules
+bower_components
+
+# ASP.NET MVC 4
+# Scripts/dist/*
+# Scripts/output*.js
+# Content/main.css
+# bin/*
+# obj/*
+# App_Data/*
+
+# Silex
+public/Scripts/dist
+public/Scripts/output*.js
+public/Content/main.css
+composer.lock
+vendor
+cache/*
+log/*
+
+# Cpanel
+cgi-bin
+error_log
+
+# OS Crap
+.DS_Store
+thumbs.db
+.*.swp
+*.tmproj
+*.mwb
+*.mwb.bak
+*.sublime-*
+
+# SCM files
+.arch-params
+.bzr
+_darcs
+.hg
+.monotone
+.svn
+.project

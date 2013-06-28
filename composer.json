@@ -1,0 +1,15 @@
+{
+    "name": "site-tribo",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "1.0.*@dev",
+        "symfony/twig-bridge": "~2.2",
+        "monolog/monolog": "~1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "tribo": "src/"
+        }
+    }
+}
