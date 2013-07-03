@@ -1,0 +1,24 @@
+// Geral
+$geral-layout: smart;
+$geral-sprites-dimensions: true;
+@import "sprites/geral/*.png";
+@include all-geral-sprites(true);
+
+// Helpers
+%complemento{
+    @include inline-block;
+    @include ie7-restore-right-whitespace;
+    vertical-align: middle;
+    padding: 0;
+}
+
+// [class^="ico-"],
+// [class*=" ico-"],
+// [class^="bg-"],
+// [class*=" bg-"],
+// [class^="opts-"],
+// [class*=" opts-"],
+[class^="geral-"],
+[class*=" geral-"]{
+    @extend %complemento;
+}

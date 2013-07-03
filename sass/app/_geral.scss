@@ -1,165 +1,57 @@
 // Geral
 // -------------------------
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html{
-    @include sans-serif($brand-face);
+    @include sans-serif;
     background-color: $grayLight;
     color: $gray;
 }
 
 .wrapper{
-    @include attr-size('width', $width);
-    @include attr-size('height', $height);
-    @include attr-size('margin-left', -($width / 2));
-    @include attr-size('margin-top', -($height / 2));
+    @extend .g-d-c;
+    background-color: green;
     overflow: hidden;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+}
+
+.packery{
+    margin-right: -$gutter-width;
+    margin-top: -$gutter-width;
+    overflow: hidden;
+    background-color: red;
+    @extend .cf;
+}
+
+.box{
+    $size: column-width(8, $col-width, $gutter-width);
+    @extend .g-d-8;
+    @include attr-size('min-height', $box-size-min-h);
+    @include attr-size('max-height', $box-size-max-h);
+    width: $size;
+    margin-left: 0;
+    margin-right: $gutter-width;
+    margin-top: $gutter-width;
+    background-color: blue;
+    overflow: hidden;
+}
+
+.box-max{
+    @include attr-size('height', $box-size-max-h);
+}
+
+.load-more{
+    display: block;
+    padding: $gutter-width;
     background-color: $white;
 }
 
-.bg-purple{
-    background-color: $purple;
-}
-
-.bg-purpleDark{
-    background-color: $purpleDark;
-}
-
-.fifty{
-    width: 50%;
-}
-
-.quarter{
-    @extend .bb;
-    width: 25%;
-    padding: 2%;
-}
-
-.logo{
-    @extend .inline-block;
-    @include attr-size('line-height', 20);
-    vertical-align: middle;
-    background-image: image_url('logo.png');
-    width: 99px;
-    height: 20px;
-    overflow: hidden;
-}
-
-.header{
-    @include attr-size('height', 150);
-    h1{
-        @include attr-size('height', 70);
-        @include attr-size('line-height', 70);
-        margin: 0;
-        @include attr-size('margin-left', (70 / 3));
-        padding: 0;
-        overflow: hidden;
-    }
-    .nav{
-        width: 100%;
-        font-size: 0;
-        > li{
-            a{
-                @include attr-size('height', 80);
-                @include attr-size('line-height', 80);
-                @include attr-size('font-size', 23);
-                @include link-colors($linkColor, $linkColor, $linkColor, $linkColor, $linkColor);
-                display: block;
-                text-decoration: none;
-                &.active,
-                &:hover{
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-}
-
-.slide{
-    width: 200%;
-    overflow: hidden;
-    font-size: 0;
-    position: relative;
-    left: 0;
-}
-
-.dia,
-.noite{
-    @extend .inline-block;
-    @extend .bb;
-    @include attr-size('height', 380);
-    vertical-align: top;
-    border: thin solid $white;
-    border-width: thin 0;
-    width: 50%;
-    position: relative;
-    background:{
-        color: $white;
-        repeat: no-repeat;
-        position: 0 0;
-    }
-    h2{
-        @include attr-size('width', 290);
-        @include attr-size('font-size', 29);
-        @include serif;
-        line-height: normal;
-        color: $purple;
-    }
-    p{
-        @include attr-size('width', 230);
-        @include attr-size('font-size', 15);
-        @include serif;
-    }
-    .content{
-        position: absolute;
-        .produto,
-        .elemento{
-            position: absolute;
-        }
-    }
-}
-
-.dia{
-    background-image: image_url('moca-dia.jpg');
-    .content{
-        top: 30px;
-        right: 140px;
-        .produto{
-            top: 60px;
-            right: -100px;
-        }
-        .elemento{
-            top: 60px;
-            right: -100px;
-        }
-    }
-}
-
-.noite{
-    background-image: image_url('moca-noite.jpg');
-    background-position: 100% 0;
-    .content{
-        top: 60px;
-        left: 60px;
-        .produto{
-            top: 30px;
-            left: 280px;
-        }
-        .elemento{
-            top: 30px;
-            left: 370px;
-        }
-    }
-}
-
-.footer{
-    @include attr-size('height', 170);
+body > footer{
+    @extend .g-d-c;
+    background-color: $black;
     color: $white;
-    p{
-        @include attr-size('font-size', 12);
-        margin: 0;
-        padding: 0;
-        line-height: normal;
-    }
+    overflow: hidden;
 }

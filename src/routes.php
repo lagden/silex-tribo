@@ -1,3 +1,6 @@
 <?php
-$app->mount('/', new controllers\home());
-$app->mount('/trabalho', new controllers\trabalho());
+use controllers\home;
+use controllers\trabalho;
+
+$app->mount('/', new home());
+$app->mount('/trabalho', new trabalho());

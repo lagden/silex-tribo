@@ -11,9 +11,8 @@ module.exports = function(grunt) {
             },
             frameworks: {
                 src: [
-                    // jQuery
-                    'bower_components/jquery/jquery.js'
-                ],
+                // jQuery
+                'bower_components/jquery/jquery.js'],
                 dest: 'public/Scripts/dist/frameworks.js'
             },
             vendor: {
@@ -26,16 +25,13 @@ module.exports = function(grunt) {
                     'bower_components/hasher/dist/js/hasher.js',
                     'bower_components/crossroads.js/dist/crossroads.js',
                     // Desandro
-                    'public/Scripts/desandro/packery.pkgd.js',
-                    'public/Scripts/desandro/draggabilly.pkgd.js',
-
+                    'public/Scripts/desandro/packery.pkgd.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },
             app: {
                 src: [
-                    'public/Scripts/main.js'
-                ],
+                    'public/Scripts/main.js'],
                 dest: 'public/Scripts/dist/base.js'
             },
             dev: {

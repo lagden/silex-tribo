@@ -1,5 +1,3 @@
-require 'zen-grids'
-
 http_path = "/"
 css_dir = "public/Content"
 sass_dir = "sass"

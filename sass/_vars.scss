@@ -22,5 +22,5 @@ $base-font-size: 16px;
 
 // Others
 // -------------------------
-$width: 800px;
-$height: 700px;
+$box-size-min-h: 235;
+$box-size-max-h: ($box-size-min-h * 2) + $gutter-width;

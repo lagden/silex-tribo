@@ -2,19 +2,23 @@
 
 @import "compass";
 
+// Grid
+@import "vendor/mueller.grid";
+
+// Media
+@import "media/default";
+
 // Vars
 @import "vars";
 
 // Add-ons
-@import "ons/function";
-@import "ons/mixin";
-@import "ons/helpers";
+@import "add-ons/function";
+@import "add-ons/mixin";
+@import "add-ons/helpers";
 
 // Vendors
 @import "vendor/inuit.css/inuit";
 
-// Grid
-@import "zen-grids";
-
 // App
+@import "app/sprites";
 @import "app/geral";
