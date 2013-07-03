@@ -3,17 +3,17 @@
 $black:                 #000000 !default;
 $grayDark:              #232323 !default;
 $gray:                  #535353 !default;
-$grayLight:             #f4f4f4 !default;
+$grayLight:             #c4c4c4 !default;
+$grayLighter:           #f4f4f4 !default;
 $white:                 #ffffff !default;
 
 // Custom colors
 // -------------------------
-$purple:                #935283 !default;
-$purpleDark:            #5f1943 !default;
+$orange:                #e4a72e !default;
 
 // Links
 // -------------------------
-$linkColor:             #ffffff !default;
+$linkColor:             #000000 !default;
 $linkColorHover:        $linkColor !default;
 
 // Typography
@@ -24,3 +24,12 @@ $base-font-size: 16px;
 // -------------------------
 $box-size-min-h: 235;
 $box-size-max-h: ($box-size-min-h * 2) + $gutter-width;
+
+// Margins e Paddings
+// -------------------------
+$margin_padding: ('margin' 'mar' 'padding' 'pad')
+                 ('margin-top' 'mar-t' 'padding-top' 'pad-t')
+                 ('margin-right' 'mar-r' 'padding-right' 'pad-r')
+                 ('margin-bottom' 'mar-b' 'padding-bottom' 'pad-b')
+                 ('margin-left' 'mar-l' 'padding-left' 'pad-l')
+                 ;

@@ -1,15 +1,13 @@
 // Geral
 // -------------------------
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 html{
     @include sans-serif;
-    background-color: $grayLight;
+    background-color: $grayLighter;
     color: $gray;
+}
+
+a{
+    @extend %base-link-color;
 }
 
 .wrapper{
@@ -47,11 +45,4 @@ html{
     display: block;
     padding: $gutter-width;
     background-color: $white;
-}
-
-body > footer{
-    @extend .g-d-c;
-    background-color: $black;
-    color: $white;
-    overflow: hidden;
 }

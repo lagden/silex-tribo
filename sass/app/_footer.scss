@@ -1,0 +1,10 @@
+body > footer{
+    @extend .g-d-c;
+    @include attr-size('font-size', 11);
+    background-color: $black;
+    color: $white;
+    overflow: hidden;
+    .opacity{
+        @include opacity(.3);
+    }
+}

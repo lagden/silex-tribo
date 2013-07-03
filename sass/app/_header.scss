@@ -1,0 +1,84 @@
+body > main > header{
+    @extend .g-d-c;
+    overflow: hidden;
+}
+
+.nav.tribo_menu{
+    font-size: 0;
+    > li{
+        @include attr-size('font-size', 12);
+        border-right: 1px solid $black;
+        text-transform: uppercase;
+        font-weight: bold;
+        &:last-child{
+            border-right-width: 0;
+        }
+        &.current{
+            a{
+                @include link-colors($orange, $orange, $orange, $orange, $orange);
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.logotipo-size{
+    $height: geral-sprite-height('logotipo');
+    @include attr-size('height', $height + 20);
+    overflow: hidden;
+}
+
+.lingua-and-slogan,
+.social-and-busca{
+    @extend .logotipo-size;
+    position: relative;
+    .bottom{
+        position: absolute;
+        @include attr-size('bottom', 1);
+    }
+}
+
+.lingua-and-slogan > .nav{
+    font-size: 0;
+    > li{
+        @include attr-size('font-size', 10);
+        @include attr-size('padding-left', 5);
+        @include attr-size('padding-right', 5);
+        border-right: 1px solid $black;
+        text-transform: uppercase;
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+            border-right-width: 0;
+        }
+        a{
+            @include link-colors($grayLight, $grayLight, $grayLight, $grayLight, $grayLight);
+            display: block;
+        }
+        &.current{
+            a{
+                @extend %base-link-color;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.social-and-busca > .nav{
+    > li{
+        @include attr-size('margin-right', 3);
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+.rule.gray{
+    color: $grayLight;
+}

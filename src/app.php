@@ -5,10 +5,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 
-
 $app = new Application();
-
-$app['title'] = "Tribo Interactive";
 
 $app->register(new HttpCacheServiceProvider());
 $app->register(new UrlGeneratorServiceProvider());
@@ -24,7 +21,8 @@ $app->register(new MonologServiceProvider(), array(
     'monolog.level'   => 300
 ));
 
-// Routes
+// Dados, Routes e Menu
+require __DIR__ . '/dados.php';
 require __DIR__ . '/routes.php';
 require __DIR__ . '/menu.php';
 

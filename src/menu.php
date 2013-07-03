@@ -6,10 +6,30 @@ use Knp\Menu\Silex\Voter\RouteVoter;
 
 $app->register(new KnpMenuServiceProvider());
 $app['tribo_menu'] = function($app) {
-
-    $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav']]);
-    $menu->addChild('Home', ['route' => 'homepage']);
+    $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav nav--banner nav--fit tribo_menu flush--bottom pad-t-20 pad-b-20']]);
+    $menu->addChild('A Tribo', ['route' => 'tribo']);
+    $menu->addChild('O que fazemos', ['route' => 'fazemos']);
     $menu->addChild('Trabalhos', ['route' => 'trabalho']);
+    $menu->addChild('Contato', ['route' => 'contato']);
+    $menu->addChild('Últimas', ['route' => 'ultima']);
+    return $menu;
+};
+
+$app['tribo_lingua'] = function($app) {
+    $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav flush--bottom']]);
+    $menu->addChild('English', ['route' => 'homepage']);
+    $menu->addChild('Português', ['route' => 'trabalho']);
+    return $menu;
+};
+
+$app['tribo_social'] = function($app) {
+    $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav flush--bottom']]);
+
+    $menu->addChild('Facebook', [ 'uri' => 'https://www.facebook.com/TriboInteractive' ] );
+    $menu['Facebook']->setLinkAttribute('class', 'ir geral-facebook');
+
+    $menu->addChild('Twitter', [ 'uri' => 'https://twitter.com/tribo' ]);
+    $menu['Twitter']->setLinkAttribute('class', 'ir geral-twitter');
     return $menu;
 };
 
@@ -24,4 +44,8 @@ $app['knp_menu.matcher.configure'] = $app->protect(function (Matcher $matcher) u
     $matcher->addVoter($app['tribo.voter']);
 });
 
-$app['knp_menu.menus'] = ['main' => 'tribo_menu'];
+$app['knp_menu.menus'] = [
+    'main' => 'tribo_menu',
+    'lingua' => 'tribo_lingua',
+    'social' => 'tribo_social',
+];

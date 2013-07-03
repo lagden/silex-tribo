@@ -61,3 +61,33 @@
 .middle{
     vertical-align: middle;
 }
+
+// Margins e Paddings
+// Usage: <div class="mar-10 pad-b-20">Yeahh</div>;
+@each $c in $margin_padding {
+    $margin: nth($c, 1);
+    $m: nth($c, 2);
+    $padding: nth($c, 3);
+    $pad: nth($c, 4);
+
+    $i: 0;
+    @while $i < 30 {
+        .#{$m}-#{$i}{
+            @include attr-size($margin, $i);
+        }
+        .#{$pad}-#{$i}{
+            @include attr-size($padding, $i);
+        }
+        $i: $i + 10;
+    }
+}
+
+// Font size
+// Usage: <p class="fs-10">Yeahh</p>;
+$i: 10;
+@while $i < 20 {
+    .fs-#{$i}{
+        @include attr-size('font-size', $i);
+    }
+    $i: $i + 1;
+}

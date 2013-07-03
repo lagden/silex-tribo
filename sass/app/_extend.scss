@@ -1,0 +1,4 @@
+%base-link-color{
+    @include link-colors($linkColor, $linkColor, $linkColor, $linkColor, $linkColor);
+    @include hover-link;
+}
