@@ -20,6 +20,9 @@ composer.lock
 /cache/*
 /log/*
 
+# Compass
+/public/images/sprites/geral-s*
+
 # Cpanel
 cgi-bin
 error_log
