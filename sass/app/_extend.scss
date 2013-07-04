@@ -4,4 +4,7 @@
     &.white{
         @include link-colors($white, $white, $white, $white, $white);
     }
+    &.grayLight{
+        @include link-colors($grayLight, $grayLight, $grayLight, $grayLight, $grayLight);
+    }
 }
