@@ -24,8 +24,8 @@ $default-class              : d; // default shortcut which is needed in other co
 $max-units                  : 24; // number of columns
 $col-width                  : 30px; // column width
 $gutter-width               : 20px;  // Ggutter width
-$units                      : 0 2 4 5 6 8 10 12 14 16 18 24; // only add the columns you really need
-$pad-units                  : 0 2 4 5 6 8 10 12 14 16 18 24; // only add the pad-units you really need to push/pull/append/prepend
+$units                      : 0 2 3 4 5 6 8 10 12 14 16 18 24; // only add the columns you really need
+$pad-units                  : 0 2 3 4 5 6 8 10 12 14 16 18 24; // only add the pad-units you really need to push/pull/append/prepend
 
 // ------------------------------------------------------------------------------------------------------
 // GENERATE THE GRID CLASSES

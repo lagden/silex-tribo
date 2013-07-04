@@ -11,5 +11,27 @@
                 @extend .txt-color-gray;
             }
         }
+        > .galeria{
+            @extend .g-d-12;
+            overflow: hidden;
+            .principal{
+                width: column-width(12, $col-width, $gutter-width);
+                display: block;
+                margin-bottom: $gutter-width;
+            }
+            .thumbs{
+                margin-right: -$gutter-width;
+                overflow: hidden;
+                @extend .cf;
+                .thumb{
+                    @extend .g-d-3;
+                    @extend .cursor--pointer;
+                    width: column-width(3, $col-width, $gutter-width);
+                    margin-left: 0;
+                    margin-right: $gutter-width;
+                    margin-bottom: $gutter-width;
+                }
+            }
+        }
     }
 }
