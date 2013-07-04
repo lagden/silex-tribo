@@ -53,11 +53,11 @@ class home implements ControllerProviderInterface
         $app_id = "201185700039693";
         $app_secret = "cd73e7d48fb944dcf4b46960fff71870";
 
-        $authToken = static::fetchUrl("https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id={$app_id}&client_secret={$app_secret}");
+        // $authToken = static::fetchUrl("https://graph.facebook.com/oauth/access_token?grant_type=client_credentials&client_id={$app_id}&client_secret={$app_secret}");
 
-        $json_object = json_decode(static::fetchUrl("https://graph.facebook.com/{$profile_id}/feed?{$authToken}&limit={$quantidade}"), true);
+        // $json_object = json_decode(static::fetchUrl("https://graph.facebook.com/{$profile_id}/feed?{$authToken}&limit={$quantidade}"), true);
 
-        // $json_object = json_decode( file_get_contents(__DIR__ . "/../tmp/facebook.json"), true );
+        $json_object = json_decode( file_get_contents(__DIR__ . "/../tmp/facebook.json"), true );
 
         $response = ["success"=>true, "data"=>$json_object];
 

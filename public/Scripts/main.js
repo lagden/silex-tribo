@@ -91,4 +91,53 @@
         }, 'json');
     })
 
+    var socialUpdates = {
+        facebook: {
+            init: function () {
+                var api = this;
+
+                $.ajax({
+                    url: 'index.php/facebook-updates',
+                    beforeSend: api.loading,
+                    success: api.success,
+                    error: api.error
+                });
+            },
+            success: function (res) {
+                var api = socialUpdates.facebook;
+
+                if (res.success == true) {
+                    api.render(res.data.data);
+                } else {
+                    console.log('Fallback Facebook');
+                }
+
+                api.hideLoading();
+            },
+            render: function (array) {
+                console.log('Render');
+            },
+            error: function () {
+                console.log('Facebook Ajax ERROR', arguments);
+            },
+            loading: function () {
+                // console.log('Loading');
+            },
+            hideLoading: function () {
+                // console.log('Loading');
+            }
+        },
+        twitter: {
+            init: function () {
+                console.log('Init Twitter');
+            }
+        }
+    }
+
+    $('.social-updates').each(function (i, e) {
+        var fn = $(e).attr('data-init');
+
+        socialUpdates[fn].init();
+    });
+
 })(window);
