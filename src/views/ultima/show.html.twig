@@ -10,8 +10,13 @@
         {% set grid = 24 %}
         {% if galeria|length > 0 %}
             {% set grid = 12 %}
-            <div class="g-d-12">
-                //... code galeria
+            <div class="galeria">
+                <img src="{{ app.request.basepath }}/images/tmp/{{ galeria[0].image }}" class="principal" alt="{{ dado.titulo }}">
+                <div class="thumbs">
+                    {% for item in galeria %}
+                        <img src="{{ app.request.basepath }}/images/tmp/{{ item.thumb }}" data-image="{{ app.request.basepath }}/images/tmp/{{ item.image }}" class="thumb" alt="thumb">
+                    {% endfor %}
+                </div>
             </div>
         {% endif %}
         <div class="g-d-{{ grid }} g-d-l conteudo">
