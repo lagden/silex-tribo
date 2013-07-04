@@ -11,13 +11,13 @@ bower_components
 # App_Data/*
 
 # Silex
-public/Scripts/dist
-public/Scripts/output*.js
-public/Content/main.css
+/public/Scripts/dist
+/public/Scripts/output*.js
+/public/Content/main.css
 composer.lock
-vendor
-cache/*
-log/*
+/vendor/*
+/cache/*
+/log/*
 
 # Cpanel
 cgi-bin
