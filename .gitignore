@@ -5,7 +5,7 @@ bower_components
 # ASP.NET MVC 4
 # Scripts/dist/*
 # Scripts/output*.js
-# Content/main.css
+# Content/screen.css
 # bin/*
 # obj/*
 # App_Data/*
@@ -13,7 +13,8 @@ bower_components
 # Silex
 /public/Scripts/dist
 /public/Scripts/output*.js
-/public/Content/main.css
+/public/Scripts/html5shiv*.js
+/public/Content/screen.css
 composer.lock
 /vendor/*
 /cache/*
