@@ -1,0 +1,15 @@
+.grupo-ultima{
+    > article{
+        > .conteudo{
+            h3{
+                @extend .fs-24;
+                @extend .caps;
+            }
+            p{
+                @extend .fs-15;
+                @extend .caps;
+                @extend .txt-color-gray;
+            }
+        }
+    }
+}

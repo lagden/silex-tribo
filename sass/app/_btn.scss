@@ -1,0 +1,22 @@
+.btn{
+    border: 2px solid $black;
+    &.btn-voltar{
+        @extend .bb;
+        @extend .caps;
+        @extend .inline-block;
+        @include attr-size('padding', 5);
+        @include attr-size('font-size', 12);
+        @include attr-size('line-height', 12);
+        border-color: $grayLight;
+        color: $grayLight;
+        font-weight: bold;
+        &:hover{
+            text-decoration: none;
+        }
+        i{
+            @extend .inline-block;
+            @include attr-size('line-height', 12);
+            @include attr-size('margin-right', 5);
+        }
+    }
+}
