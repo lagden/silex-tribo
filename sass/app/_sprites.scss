@@ -12,8 +12,8 @@ $geral-sprites-dimensions: true;
     padding: 0;
 }
 
-// [class^="ico-"],
-// [class*=" ico-"],
+[class^="ico-"],
+[class*=" ico-"],
 // [class^="bg-"],
 // [class*=" bg-"],
 // [class^="opts-"],
@@ -21,4 +21,10 @@ $geral-sprites-dimensions: true;
 [class^="geral-"],
 [class*=" geral-"]{
     @extend %complemento;
+}
+
+.ico-twitter {
+    @include geral-sprite('twitter-ico');
+    width: geral-sprite-width('twitter-ico');
+    height: geral-sprite-height('twitter-ico');
 }

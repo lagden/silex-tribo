@@ -89,6 +89,6 @@
                 packeryDestaquesHome.appended(elems);
             }
         }, 'json');
-    })
+    });
 
 })(window);

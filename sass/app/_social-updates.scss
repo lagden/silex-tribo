@@ -1,0 +1,43 @@
+// Social Updates Componente
+
+.social-updates {
+    margin: 0 0 20px 0;
+}
+
+.social-title {
+    background: #000;
+    color: #fff;
+    @include attr-size('font-size', 10);
+    @extend .caps;
+    float: left;
+    padding: 2px 2px 2px 10px;
+}
+
+.social-single .data {
+    @include attr-size('font-size', 13);
+    top: -20px;
+    position: absolute;
+    right: 0px;
+    font-weight: bold;
+}
+
+.social-title .ico {
+    background-color: #fff;
+    text-indent: -9999px;
+    margin: 0 0 0 14px;
+}
+
+.social-single {
+    border-top: 1px solid $black;
+    margin: -1px 0 0 0;
+    @include attr-size('font-size', 20);
+    padding: 12px 0 32px 0;
+}
+
+.social-single p {
+    margin: 0;
+}
+
+.social-single a {
+    color: #bcbcbc;
+}
