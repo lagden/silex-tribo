@@ -23,20 +23,8 @@ $geral-sprites-dimensions: true;
     @extend %complemento;
 }
 
-.ico-facebook {
-    @include geral-sprite('facebook-ico');
-    width: geral-sprite-width('facebook-ico');
-    height: geral-sprite-height('facebook-ico');
-}
-
 .ico-twitter {
     @include geral-sprite('twitter-ico');
     width: geral-sprite-width('twitter-ico');
     height: geral-sprite-height('twitter-ico');
-}
-
-.ico-arrow-right {
-    @include geral-sprite('arrow-right-white');
-    width: geral-sprite-width('arrow-right-white');
-    height: geral-sprite-height('arrow-right-white');
 }
