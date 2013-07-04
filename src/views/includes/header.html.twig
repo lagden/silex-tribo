@@ -2,7 +2,7 @@
     <div class="g-d-5">
         <div class="lingua-and-slogan">
             {{ knp_menu_render('lingua', {"compressed": true}, renderer ) }}
-            <p class="bottom fs-11 mar-0">{{ app.dados.slogan }}</p>
+            <p class="bottom fs-11 mar-0">{{ app.dados.slogan|trans }}</p>
         </div>
         <hr class="rule flush">
     </div>
@@ -12,7 +12,7 @@
         </h1>
         <hr class="rule flush">
         <nav>
-            {{ knp_menu_render('main', {"compressed": true}, renderer ) }}
+            {{ knp_menu_render('main', {"compressed": true, "template": "/includes/menu.html.twig"}, renderer ) }}
         </nav>
     </div>
     <div class="g-d-5 g-d-l text--right">

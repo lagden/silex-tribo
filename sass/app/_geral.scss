@@ -40,6 +40,12 @@ a{
     @include attr-size('height', $box-size-max-h);
 }
 
+.box-16{
+    $size: column-width(16, $col-width, $gutter-width);
+    @extend .g-d-16;
+    width: $size;
+}
+
 .load-more{
     display: block;
     padding: $gutter-width;

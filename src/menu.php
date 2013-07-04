@@ -4,14 +4,34 @@ use Knp\Menu\Matcher\Matcher;
 use Knp\Menu\Silex\KnpMenuServiceProvider;
 use Knp\Menu\Silex\Voter\RouteVoter;
 
-$app->register(new KnpMenuServiceProvider());
+$app->register(new KnpMenuServiceProvider(), [
+    'knp_menu.default_renderer' => 'twig'
+]);
+
+// var_dump(__DIR__.'/views/includes/menu.html.twig');
+
 $app['tribo_menu'] = function($app) {
     $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav nav--banner nav--fit tribo_menu flush--bottom pad-t-20 pad-b-20']]);
-    $menu->addChild('A Tribo', ['route' => 'tribo']);
-    $menu->addChild('O que fazemos', ['route' => 'fazemos']);
-    $menu->addChild('Trabalhos', ['route' => 'trabalho']);
-    $menu->addChild('Contato', ['route' => 'contato']);
-    $menu->addChild('Últimas', ['route' => 'ultima']);
+    $menu->addChild('titulo_a_tribo', ['label'=>'A Tribo', 'route' => 'tribo'])->setExtra('translation', 'titulo_a_tribo');
+
+    $menu->addChild('titulo_o_que_fazemos', ['label'=>'O que fazemos', 'route' => 'fazemos'])->setExtra('translation', 'titulo_o_que_fazemos');
+
+    if( $app['request']->get('_route') === 'trabalho_show' && $app['request']->get('slug') )
+        $menu->addChild('titulo_trabalhos', ['label'=>'Trabalhos', 'route' => "{$app['request']->get('_route')}", 'routeParameters' => ['slug'=>$app['request']->get('slug')]]);
+    else
+        $menu->addChild('titulo_trabalhos', ['label'=>'Trabalhos', 'route' => 'trabalho']);
+
+    $menu['titulo_trabalhos']->setExtra('translation', 'titulo_trabalhos');
+
+    $menu->addChild('titulo_contato', ['label'=>'Contato', 'route' => 'contato'])->setExtra('translation', 'titulo_contato');;
+
+    if( $app['request']->get('_route') === 'ultima_show' && $app['request']->get('slug') )
+        $menu->addChild('titulo_ultimas', ['label'=>'Últimas', 'route' => "{$app['request']->get('_route')}", 'routeParameters' => ['slug'=>$app['request']->get('slug')]]);
+    else
+        $menu->addChild('titulo_ultimas', ['label'=>'Últimas', 'route' => 'ultima']);
+
+    $menu['titulo_ultimas']->setExtra('translation', 'titulo_ultimas');
+
     return $menu;
 };
 

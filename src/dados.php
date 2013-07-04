@@ -2,7 +2,7 @@
 $app['title'] = "Tribo Interactive";
 $app['dados'] = [
     "nome"=>"Tribo Interactive",
-    "slogan"=>"Inteligência coletiva para marcas inteligentes.",
+    "slogan"=>"slogan",
     "local"=>[
         "headquarter"=>[
             "endereco"=>"Rua Luigi Galvani, 70 - 13º",

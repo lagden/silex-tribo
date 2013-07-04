@@ -1,8 +1,8 @@
 <footer>
     <div class="g-d-8 opacity bb pad-10">
-        <strong>{{ app.dados.nome }}</strong> {{ app.dados.slogan }}
+        <strong>{{ app.dados.nome }}</strong> {{ app.dados.slogan|trans }}
     </div>
-    <div class="g-d-8 bb pad-t-10 pad-b-10 text--center">
+    <div class="g-d-8 bb pad-t-10 pad-b-10 text--center caps">
         <strong>{{ app.dados.local.headquarter.cidade }}</strong> {{ app.dados.local.headquarter.telefone }} | <strong>{{ app.dados.local.filial.cidade }}</strong> {{ app.dados.local.filial.telefone }}
     </div>
     <div class="g-d-8 g-d-l bb pad-10 text--right"><small>© Copyright {{ app.dados.nome }} {{ "now"|date("Y") }}</small></div>
