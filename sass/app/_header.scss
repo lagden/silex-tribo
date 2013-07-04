@@ -7,11 +7,16 @@ body > main > header{
     font-size: 0;
     > li{
         @include attr-size('font-size', 12);
-        border-right: 1px solid $black;
+        background:{
+            image: image_url('separador-menu.png');
+            repeat: no-repeat;
+            position: center right;
+            color: transparent;
+        }
         text-transform: uppercase;
         font-weight: bold;
         &:last-child{
-            border-right-width: 0;
+            background-image: none;
         }
         &.current{
             a{

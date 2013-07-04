@@ -6,5 +6,7 @@
         {{ include('/home/partial/box.html.twig', {number: 20}) }}
     </div>
     <a href="#!carrega-mais-destaque" id="loadmore-destaque" class="load-more text--center" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    {{ include('/home/partial/box-facebook.html.twig') }}
+    {{ include('/home/partial/box-twitter.html.twig') }}
 </div>
 {% endblock %}

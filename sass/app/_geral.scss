@@ -2,8 +2,8 @@
 // -------------------------
 html{
     @include sans-serif;
-    background-color: $grayLighter;
-    color: $gray;
+    background-color: $white;
+    color: $black;
 }
 
 a{
@@ -12,7 +12,6 @@ a{
 
 .wrapper{
     @extend .g-d-c;
-    background-color: green;
     overflow: hidden;
 }
 
@@ -20,7 +19,6 @@ a{
     margin-right: -$gutter-width;
     margin-top: -$gutter-width;
     overflow: hidden;
-    background-color: red;
     @extend .cf;
 }
 
@@ -33,7 +31,7 @@ a{
     margin-left: 0;
     margin-right: $gutter-width;
     margin-top: $gutter-width;
-    background-color: blue;
+    background-color: $gray;
     overflow: hidden;
 }
 
@@ -45,4 +43,9 @@ a{
     display: block;
     padding: $gutter-width;
     background-color: $white;
+}
+
+.grupo > .titulo{
+    @extend .caps;
+    @include attr-size('font-size', 56);
 }

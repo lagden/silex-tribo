@@ -17,8 +17,9 @@ $app['tribo_menu'] = function($app) {
 
 $app['tribo_lingua'] = function($app) {
     $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav flush--bottom']]);
-    $menu->addChild('English', ['route' => 'homepage']);
-    $menu->addChild('Português', ['route' => 'trabalho']);
+    $menu->addChild('en', ['label'=>'English', 'route' => 'lang', 'routeParameters' => ['lang'=>'en']]);
+    $menu->addChild('pt-BR', ['label'=>'Português', 'route' => 'lang', 'routeParameters' => ['lang'=>'pt-BR']]);
+    $menu["{$app['translator']->getLocale()}"]->setAttribute('class', 'current');
     return $menu;
 };
 

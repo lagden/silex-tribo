@@ -1,0 +1,11 @@
+{# sp: http://maps.googleapis.com/maps/api/staticmap?center=-23.609168,-46.69364&markers=color:orange|-23.609168,-46.69364&zoom=16&format=png&sensor=true&size=580x370&maptype=roadmap&style=feature:landscape.natural.terrain|element:labels.icon|visibility:simplified|color:0x3d6680|weight:2.3 #}
+{# rj: http://maps.googleapis.com/maps/api/staticmap?center=-23.609168,-46.69364&markers=color:orange|-23.609168,-46.69364&zoom=16&format=png&sensor=true&size=580x370&maptype=roadmap&style=feature:landscape.natural.terrain|element:labels.icon|visibility:simplified|color:0x3d6680|weight:2.3 #}
+<article class="mapas{{ end ? ' g-d-l' : '' }}">
+    <h1>{{ info.cidade }}</h1>
+    <p>
+        <strong>{{ info.endereco }}</strong><br>
+        {{ info.cidade }} - {{ info.estado }} - CEP {{ info.cep }}<br>
+        <strong>{{ info.telefone }}</strong>
+    </p>
+    <img src="{{ app.request.basepath }}/images/map-{{ info.estado|lower }}.png" alt="{{ info.endereco }}">
+</article>

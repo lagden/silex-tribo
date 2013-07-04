@@ -14,6 +14,10 @@ class home implements ControllerProviderInterface
         ->bind( 'homepage' );
 
         $controllers
+        ->get( "/lang/{lang}", [$this, 'lang'] )
+        ->bind( 'lang' );
+
+        $controllers
         ->get( "/mais-box/{number}", [$this, 'mais'] )
         ->bind( 'mais' );
 
@@ -30,5 +34,13 @@ class home implements ControllerProviderInterface
         $boxes = $app['twig']->render( 'home/partial/box.html.twig', ['number'=>$number] );
         $response = ["success"=>true, "html"=>$boxes];
         return $app->json($response, 201);
+    }
+
+    public function lang( Application $app, $lang)
+    {
+        if (file_exists(__DIR__ . "/../locales/$lang.yml"))
+            $app['session']->set('current_language', $lang);
+
+        return $app->redirect($_SERVER['HTTP_REFERER']);
     }
 }

@@ -71,7 +71,7 @@
     $pad: nth($c, 4);
 
     $i: 0;
-    @while $i < 30 {
+    @while $i < 40 {
         .#{$m}-#{$i}{
             @include attr-size($margin, $i);
         }
@@ -82,10 +82,23 @@
     }
 }
 
+// Cores
+// Usage: <div class="bg-color-black txt-color-white">Yeahh</div>;
+@each $c in $lista_cores {
+    $n: nth($c, 1);
+    $h: nth($c, 2);
+    .bg-color-#{$n}{
+        background-color: $h;
+    }
+    .txt-color-#{$n}{
+        color: $h;
+    }
+}
+
 // Font size
 // Usage: <p class="fs-10">Yeahh</p>;
 $i: 10;
-@while $i < 20 {
+@while $i < 40 {
     .fs-#{$i}{
         @include attr-size('font-size', $i);
     }
