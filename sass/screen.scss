@@ -21,6 +21,7 @@
 @import "vendor/inuit.css/inuit";
 
 // App
+@import "vendor/flexslider";
 @import "app/extend";
 @import "app/geral";
 @import "app/btn";
@@ -30,3 +31,6 @@
 @import "app/contato";
 @import "app/ultima";
 @import "app/footer";
+
+// Home
+@import "app/home";

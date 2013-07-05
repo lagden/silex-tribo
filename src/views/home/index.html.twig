@@ -2,6 +2,8 @@
 
 {% block content %}
 <div class="wrapper">
+    {{ include('/home/partial/banner.html.twig', {banners: banners}) }}
+
     <div class="packery" id="packeryDestaquesHome">
         {{ include('/home/partial/box.html.twig', {number: 5}) }}
         {{ include('/home/partial/box-twitter.html.twig') }}
