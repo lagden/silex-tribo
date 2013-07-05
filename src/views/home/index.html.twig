@@ -3,9 +3,9 @@
 {% block content %}
 <div class="wrapper">
     <div class="packery" id="packeryDestaquesHome">
-        {{ include('/home/partial/box.html.twig', {number: 20}) }}
+        {{ include('/home/partial/box.html.twig', {number: 5}) }}
+        {{ include('/home/partial/box-twitter.html.twig') }}
     </div>
     <a href="#!carrega-mais-destaque" id="loadmore-destaque" class="load-more text--center" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
-    {{ include('/home/partial/box-twitter.html.twig') }}
 </div>
 {% endblock %}

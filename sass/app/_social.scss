@@ -1,0 +1,24 @@
+// Social Updates
+.social-updates{
+    @extend .box;
+    @include attr-size('height', $box-size-min-h);
+}
+
+.social-single {
+    @include attr-size('font-size', 15);
+    @include attr-size('height', ($box-size-min-h / 3));
+    @include attr-size('padding-bottom', $gutter-width);
+    position: relative;
+    border-top: 1px solid $black;
+    margin-top: -1px 0 0 0;
+    .data {
+        @include attr-size('right', ($gutter-width / 2));
+        position: absolute;
+        top: ($gutter-width + 2) * -1;
+        font-weight: bold;
+    }
+    p{
+        @include attr-size('padding', ($gutter-width / 2));
+        @include attr-size('margin-bottom', ($gutter-width));
+    }
+}
