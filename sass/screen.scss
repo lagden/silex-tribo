@@ -14,19 +14,19 @@
 // Add-ons
 @import "add-ons/function";
 @import "add-ons/mixin";
+@import "add-ons/sprites";
 @import "add-ons/helpers";
 
 // Vendors
 @import "vendor/inuit.css/inuit";
 
 // App
-@import "app/sprites";
 @import "app/extend";
 @import "app/geral";
 @import "app/btn";
 @import "app/box";
 @import "app/header";
+@import "app/social";
 @import "app/contato";
 @import "app/ultima";
 @import "app/footer";
-@import "app/social-updates";
