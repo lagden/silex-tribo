@@ -30,8 +30,18 @@ class home implements ControllerProviderInterface
 
     public function index( Application $app )
     {
+        // Banner
+        $banners = [
+            ['image'=>'1180x490.jpg', 'alt'=>'Primeira Imagem', 'url'=>'http://tribointeractive.com.br'],
+            ['image'=>'1180x490xC.jpg', 'alt'=>'Segunda Imagem', 'url'=>'http://felquis.com'],
+            ['image'=>'1180x490.jpg', 'alt'=>'Terceira Imagem', 'url'=>'http://fb.com/DevCast'],
+            ['image'=>'1180x490xC.jpg', 'alt'=>'Quarta Imagem', 'url'=>'http://twitter.com/felquis']
+        ];
+
+        // Tweets
         $tweets = static::twitter();
-        return $app['twig']->render( 'home/index.html.twig', ['tweets'=>$tweets] );
+
+        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners, 'tweets'=>$tweets] );
     }
 
     public function mais( Application $app, $number )

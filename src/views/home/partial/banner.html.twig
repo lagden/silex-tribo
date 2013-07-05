@@ -1,0 +1,11 @@
+<div class="flexslider banners">
+    <ul class="slides">
+        {% for banner in banners %}
+        <li>
+            <a href="{{ banner.url }}">
+                <img src="{{ app.request.basepath }}/images/tmp/{{ banner.image }}" alt="{{ banner.alt }}">
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

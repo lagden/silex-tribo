@@ -115,4 +115,13 @@
         });
     }
 
+    if ( $('.flexslider.banners').length > 0 ) {
+        $('.flexslider.banners').flexslider({
+            directionNav: false,
+            slideshowSpeed: 4000,
+            useCSS: false,
+            animation: 'slide'
+        });
+    }
+
 })(window);
