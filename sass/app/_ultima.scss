@@ -12,49 +12,44 @@
         }
     }
 
+    .flexslider.thumbs,
+    .flexslider.galeria{
+        display: block;
+    }
+
     .flexslider.galeria{
         overflow: hidden;
-        margin: 7px 0 0 0;
-
-        .principal{
-            width: column-width(12, $col-width, $gutter-width);
-            display: block;
-            margin-bottom: $gutter-width;
-        }
-
+        margin-bottom: $gutter-width;
     }
 
     .flexslider.thumbs{
         margin-right: -$gutter-width;
         position: relative;
         overflow: hidden;
-        margin: 25px 0 0 0;
         @extend .cf;
 
         .thumb{
             @extend .g-d-3;
+
         }
 
-        /*
-            Customização das setas de navegação dos thumbs
-        */
-        /* .flex-direction-nav a {
-            margin: -5px 0 0 0;
-        }
+        // .flex-direction-nav a {
+        //     margin: -5px 0 0 0;
+        // }
 
-        .flex-direction-nav .flex-prev {
-            opacity: 1;
-            @include geral-sprite('nav-left-black');
-            width: geral-sprite-width('nav-left-black');
-            height: geral-sprite-height('nav-left-black');
-        }
+        // .flex-direction-nav .flex-prev {
+        //     opacity: 1;
+        //     @include geral-sprite('nav-left-black');
+        //     width: geral-sprite-width('nav-left-black');
+        //     height: geral-sprite-height('nav-left-black');
+        // }
 
-        .flex-direction-nav .flex-next {
-            opacity: 1;
-            @include geral-sprite('nav-right-black');
-            width: geral-sprite-width('nav-right-black');
-            height: geral-sprite-height('nav-right-black');
-        } */
+        // .flex-direction-nav .flex-next {
+        //     opacity: 1;
+        //     @include geral-sprite('nav-right-black');
+        //     width: geral-sprite-width('nav-right-black');
+        //     height: geral-sprite-height('nav-right-black');
+        // }
 
         .item {
             position: relative;
@@ -62,18 +57,20 @@
         }
 
         .overlay {
+            @include transition-property(opacity);
+            @include transition-duration(.5s);
+            @include opacity(.5);
             position: absolute;
-            width: 130px;
+            width: column-width(3, $col-width, $gutter-width);
             height: 80px;
             top: 0;
             left: 0;
-            background: #000;
-            opacity: 0.5;
+            background: $black;
         }
 
         .flex-active-slide {
             .overlay {
-                opacity: 0;
+                @include opacity(0);
             }
         }
     }
