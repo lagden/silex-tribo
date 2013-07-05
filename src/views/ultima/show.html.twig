@@ -10,12 +10,26 @@
         {% set grid = 24 %}
         {% if galeria|length > 0 %}
             {% set grid = 12 %}
-            <div class="galeria">
-                <img src="{{ app.request.basepath }}/images/tmp/{{ galeria[0].image }}" class="principal" alt="{{ dado.titulo }}">
-                <div class="thumbs">
-                    {% for item in galeria %}
-                        <img src="{{ app.request.basepath }}/images/tmp/{{ item.thumb }}" data-image="{{ app.request.basepath }}/images/tmp/{{ item.image }}" class="thumb" alt="thumb">
-                    {% endfor %}
+            <div class="g-d-{{ grid }}">
+                <div class="flexslider galeria g-d-{{ grid }}" id="galeria-de-fotos">
+                    <ul class="slides">
+                        {% for item in galeria %}
+                        <li>
+                            <img src="{{ app.request.basepath }}/images/tmp/{{ item.image }}" alt="{{ dado.titulo }}">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="flexslider thumbs g-d-{{ grid }}" id="galeria-de-fotos-thumbs">
+                    <ul class="slides">
+                        {% for item in galeria %}
+                        <li class="item">
+                            <i class="overlay"></i>
+                            <img src="{{ app.request.basepath }}/images/tmp/{{ item.thumb }}" data-image="{{ app.request.basepath }}/images/tmp/{{ item.image }}" class="thumb" alt="thumb">
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         {% endif %}

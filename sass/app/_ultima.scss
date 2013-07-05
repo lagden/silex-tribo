@@ -1,37 +1,88 @@
+@import "../vendor/flexslider";
+
 .grupo-ultima{
-    > article{
-        > .conteudo{
-            h3{
-                @extend .fs-24;
-                @extend .caps;
-            }
-            p{
-                @extend .fs-15;
-                @extend .caps;
-                @extend .txt-color-gray;
+    .conteudo{
+        h3{
+            @extend .fs-24;
+            @extend .caps;
+        }
+
+        p{
+            @extend .fs-15;
+            @extend .caps;
+            @extend .txt-color-gray;
+        }
+    }
+
+    .flexslider.galeria{
+        overflow: hidden;
+        margin: 7px 0 0 0;
+
+        .principal{
+            width: column-width(12, $col-width, $gutter-width);
+            display: block;
+            margin-bottom: $gutter-width;
+        }
+
+    }
+
+    .flexslider.thumbs{
+        margin-right: -$gutter-width;
+        position: relative;
+        overflow: hidden;
+        margin: 25px 0 0 0;
+        @extend .cf;
+
+        .thumb{
+            @extend .g-d-3;
+        }
+
+        /*
+            Customização das setas de navegação dos thumbs
+        */
+        /* .flex-direction-nav a {
+            margin: -5px 0 0 0;
+        }
+
+        .flex-direction-nav .flex-prev {
+            opacity: 1;
+            @include geral-sprite('nav-left-black');
+            width: geral-sprite-width('nav-left-black');
+            height: geral-sprite-height('nav-left-black');
+        }
+
+        .flex-direction-nav .flex-next {
+            opacity: 1;
+            @include geral-sprite('nav-right-black');
+            width: geral-sprite-width('nav-right-black');
+            height: geral-sprite-height('nav-right-black');
+        } */
+
+        .item {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 130px;
+            height: 80px;
+            top: 0;
+            left: 0;
+            background: #000;
+            opacity: 0.5;
+        }
+
+        .flex-active-slide {
+            .overlay {
+                opacity: 0;
             }
         }
-        > .galeria{
-            @extend .g-d-12;
-            overflow: hidden;
-            .principal{
-                width: column-width(12, $col-width, $gutter-width);
-                display: block;
-                margin-bottom: $gutter-width;
-            }
-            .thumbs{
-                margin-right: -$gutter-width;
-                overflow: hidden;
-                @extend .cf;
-                .thumb{
-                    @extend .g-d-3;
-                    @extend .cursor--pointer;
-                    width: column-width(3, $col-width, $gutter-width);
-                    margin-left: 0;
-                    margin-right: $gutter-width;
-                    margin-bottom: $gutter-width;
-                }
-            }
-        }
+    }
+
+    .flexslider {
+        background: none;
+        border: 0;
+        box-shadow: none;
     }
 }

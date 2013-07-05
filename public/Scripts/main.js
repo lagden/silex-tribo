@@ -91,4 +91,28 @@
         }, 'json');
     });
 
+    if ( $('.flexslider.galeria').length > 0 ) {
+        $('#galeria-de-fotos-thumbs').flexslider({
+            controlNav: false,
+            animation: 'slide',
+            animationLoop: false,
+            multipleKeyboard: false,
+            maxItems: 4,
+            itemWidth: 130,
+            itemMargin: -5,
+            useCSS: false,
+            asNavFor: '#galeria-de-fotos'
+        });
+
+        $('#galeria-de-fotos').flexslider({
+            controlNav: false,
+            slideshowSpeed: 4000,
+            useCSS: false,
+            multipleKeyboard: false,
+            animationLoop: false,
+            animation: 'slide',
+            sync: '#galeria-de-fotos-thumbs'
+        });
+    }
+
 })(window);
