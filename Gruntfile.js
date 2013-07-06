@@ -20,10 +20,7 @@ module.exports = function(grunt) {
                     // GreenSock
                     'bower_components/GreenSock-JS/src/uncompressed/TweenMax.js',
                     'bower_components/GreenSock-JS/src/uncompressed/jquery.gsap.js',
-                    //Crossroads, Hasher e Signal
-                    'bower_components/js-signals/dist/signals.js',
-                    'bower_components/hasher/dist/js/hasher.js',
-                    'bower_components/crossroads.js/dist/crossroads.js',
+                    // Flexslider
                     'bower_components/flexslider/jquery.flexslider.js',
                     // Desandro
                     'public/Scripts/desandro/packery.pkgd.js'

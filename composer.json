@@ -9,7 +9,8 @@
         "symfony/config": "~2.3",
         "symfony/yaml": "~2.3",
         "monolog/monolog": "~1.0",
-        "knplabs/knp-menu": "2.0.*@dev"
+        "knplabs/knp-menu": "2.0.*@dev",
+        "chh/cache-service-provider": "~1.0"
     },
     "autoload": {
         "psr-0": {

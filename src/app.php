@@ -6,6 +6,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
+use CHH\Silex\CacheServiceProvider;
 
 $app = new Application();
 
@@ -27,6 +28,12 @@ $app->register(new MonologServiceProvider(), array(
     'monolog.logfile' => __DIR__.'/../log/app.log',
     'monolog.name'    => 'app',
     'monolog.level'   => 300
+));
+
+$app->register(new CacheServiceProvider, array(
+    'cache.options' => array("default" => array(
+        "driver" => "apc"
+    ))
 ));
 
 // Dados, Routes e Menu
