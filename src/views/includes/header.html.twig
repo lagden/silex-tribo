@@ -7,9 +7,17 @@
         <hr class="rule flush">
     </div>
     <div class="g-d-14 text--center">
+
+        {% if app.request.pathInfo == '/' %}
         <h1 class="flush">
             <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.dados.nome }}</a>
         </h1>
+        {% else %}
+        <div class="flush">
+            <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.dados.nome }}</a>
+        </div>
+        {% endif %}
+
         <hr class="rule flush">
         <nav>
             {{ knp_menu_render('main', {"compressed": true, "template": "/includes/menu.html.twig"}, renderer ) }}

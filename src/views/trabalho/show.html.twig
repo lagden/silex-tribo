@@ -1,5 +1,65 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<p>Trabalho {{ slug }}</p>
+<div class="wrapper grupo grupo-trabalhos">
+    <div class="g-d-24">
+        <div class="g-d-18">
+            <h1 class="titulo">{{ trabalho.titulo }} <small class="sub-titulo">Cliente: {{ trabalho.cliente }}</small></h1>
+        </div>
+        <div class="g-d-6 g-d-l">
+
+            {{ include('/includes/partials/btn-voltar.html.twig', { url: url('trabalho') }) }}
+
+            <div class="share-buttons">
+                <div class="label">Compartilhe</div>
+
+                <a href="#" class="ico geral-facebook">Facebook</a>
+                <a href="#" class="ico geral-twitter">Twitter</a>
+                <a href="#" class="ico geral-pinterest">Pinterest</a>
+            </div>
+
+            <!--
+                <div class="arrows-buttons">
+                    <a href="#" class="arrow-left btn"><i class="geral-nav-left-black"></i>Trabalho Anterior</a>
+                    <a href="#" class="arrow-right btn"><i class="geral-nav-right-black"></i>Próximo Trabalho</a>
+                </div>
+            -->
+        </div>
+        <div class="g-d-24">
+            <img src="{{ app.request.basepath }}/images/tmp/{{ trabalho.imagem_destaque }}" alt="" class="imagem-destaque">
+        </div>
+
+        <div class="g-d-24">
+            <div class="g-d-16 image-list">
+                {% for i in 0..3 %}
+                    <div class="g-d-8 {% if i == 1 or i == 3 %}g-d-l{% endif %} image-list-item">
+                        <img src="{{ app.request.basepath }}/images/tmp/{{ trabalho.imagens[i].imagem }}" alt="{{ trabalho.imagens[i].alt }}">
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="g-d-8 g-d-l conteudo">
+                <h2 class="titulo-secao">Sobre o projeto</h2>
+                {{ trabalho.sobre_o_projeto|raw }}
+
+                <dl class="url-projeto">
+                    <dt>URL:</dt>
+                    <dd><a href="{{ trabalho.url_projeto }}" target="_blank">{{ trabalho.url_projeto }}</a></dd>
+                </dl>
+
+                <hr class="hr">
+
+                <h2 class="titulo-secao">O que fazemos</h2>
+                {{ trabalho.o_que_fizemos|raw }}
+
+                <hr class="hr">
+
+                <h2 class="titulo-secao">Ficha técnica</h2>
+                <div class="ficha">
+                    {{ trabalho.ficha_tecnica|raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
