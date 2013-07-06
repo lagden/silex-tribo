@@ -22,7 +22,18 @@ class ultima implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        return $app['twig']->render( 'ultima/index.html.twig', array() );
+        // Lista
+        $items = [];
+        $out = exec("curl --get 'http://fenix:81/tribosite/Noticias/Listar' --data 'idioma={$app['translator']->getLocale()}'");
+        $out = json_decode($out, true);
+        if($out['success'])
+        {
+            foreach ($out['data'] as $k => $item) {
+                $items[$k] = $item;
+            }
+        }
+
+        return $app['twig']->render( 'ultima/index.html.twig', [ 'items'=>$items ] );
     }
 
     public function show( Application $app, $slug )

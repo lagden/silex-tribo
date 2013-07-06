@@ -24,11 +24,9 @@ a{
 
 
 .box{
-    // $size: column-width(8, $col-width, $gutter-width);
     @extend .g-d-8;
     @include attr-size('min-height', $box-size-min-h);
     @include attr-size('max-height', $box-size-max-h);
-    // width: $size;
     margin-left: 0;
     margin-right: $gutter-width;
     margin-top: $gutter-width;
@@ -41,9 +39,7 @@ a{
 }
 
 .box-16{
-    // $size: column-width(16, $col-width, $gutter-width);
     @extend .g-d-16;
-    // width: $size;
 }
 
 .load-more{

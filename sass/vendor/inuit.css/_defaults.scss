@@ -43,7 +43,7 @@ $global-border-box: false!default;
  * Base stuff
  */
 $base-font-size:    16px!default;
-$base-line-height:  24px!default;
+$base-line-height:  20px!default;
 
 /**
  * Base font-family.
@@ -190,7 +190,7 @@ $use-nav:           true!default;
 $use-options:       false!default;
 $use-pagination:    false!default;
 $use-breadcrumb:    false!default;
-$use-media:         false!default;
+$use-media:         true!default;
 $use-marginalia:    false!default;
 $use-island:        false!default;
 $use-block-list:    false!default;

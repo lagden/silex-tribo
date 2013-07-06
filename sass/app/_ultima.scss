@@ -1,4 +1,4 @@
-.grupo-ultima{
+.grupo-ultima-show{
     .conteudo{
         h3{
             @extend .fs-24;
@@ -23,11 +23,10 @@
     }
 
     .flexslider.thumbs{
+        @extend .cf;
         margin-right: -$gutter-width;
         position: relative;
         overflow: hidden;
-        @extend .cf;
-
         .thumb{
             @extend .g-d-3;
 
@@ -60,9 +59,9 @@
             @include transition-property(opacity);
             @include transition-duration(.5s);
             @include opacity(.5);
-            position: absolute;
             width: column-width(3, $col-width, $gutter-width);
-            height: 80px;
+            position: absolute;
+            height: $gutter-width * 4;
             top: 0;
             left: 0;
             background: $black;

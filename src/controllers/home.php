@@ -3,6 +3,8 @@ namespace controllers;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
 
@@ -33,12 +35,15 @@ class home implements ControllerProviderInterface
     public function index( Application $app )
     {
         // Banner
-        $banners = [
-            ['image'=>'1180x490.jpg', 'alt'=>'Primeira Imagem', 'url'=>'http://tribointeractive.com.br'],
-            ['image'=>'1180x490xC.jpg', 'alt'=>'Segunda Imagem', 'url'=>'http://felquis.com'],
-            ['image'=>'1180x490.jpg', 'alt'=>'Terceira Imagem', 'url'=>'http://fb.com/DevCast'],
-            ['image'=>'1180x490xC.jpg', 'alt'=>'Quarta Imagem', 'url'=>'http://twitter.com/felquis']
-        ];
+        $items = [];
+        $out = exec("curl --get 'http://fenix:81/tribosite/Home/ListarBanners' --data 'idioma={$app['translator']->getLocale()}'");
+        $out = json_decode($out, true);
+        if($out['success'])
+        {
+            foreach ($out['data'] as $k => $item) {
+                $items[$k] = $item;
+            }
+        }
 
         // Tweets
         if ($app['cache']->contains('tweets'))
@@ -51,7 +56,7 @@ class home implements ControllerProviderInterface
             $app['cache']->save('tweets', $tweets, '600');
         }
 
-        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners, 'tweets'=>$tweets] );
+        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$items, 'tweets'=>$tweets] );
     }
 
     public function mais( Application $app, $number )

@@ -1,5 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<p>Yeahhh</p>
+<section class="wrapper grupo grupo-ultima">
+    <h2 class="titulo g-d-18">{{ 'titulo_ultimas'|trans }}</h2>
+    <div class="g-d-6 g-d-l text--right">
+        paginacao
+    </div>
+    <div class=" g-d-24 cf">
+        {%- for item in items -%}
+            {{ include('/ultima/partial/box-lista.html.twig', { "item": item }  ) }}
+        {% else %}
+            //...
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

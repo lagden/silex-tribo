@@ -3,7 +3,7 @@
         {% for banner in banners %}
         <li>
             <a href="{{ banner.url }}">
-                <img src="{{ app.request.basepath }}/images/tmp/{{ banner.image }}" alt="{{ banner.alt }}">
+                <img src="{{ banner.imagem }}" alt="{{ banner.nome }}">
             </a>
         </li>
         {% endfor %}
