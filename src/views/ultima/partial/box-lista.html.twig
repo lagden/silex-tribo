@@ -1,11 +1,11 @@
 <article class="media">
     {% if item.imagem %}
-        <img src="{{ app.request.basepath }}/images/tmp/290x180.jpg" class="media__img" alt="{{ item.titulo }}">
+        <img src="{{ item.imagem }}" class="media__img" alt="{{ item.titulo }}">
     {% endif %}
     <div class="media__body">
         <h3>{{ item.titulo }}</h3>
         <p>{{ item.chamada }}</p>
-        <a class="btn btn-dark" href="{{ url('ultima_show', {slug: item.slug}) }}">
+        <a class="btn btn-info" href="{{ url('ultima_show', {slug: item.slug}) }}">
             <span>{{ 'continuar_lendo'|trans }}</span>
         </a>
     </div>

@@ -1,3 +1,31 @@
+.grupo-ultima{
+    .media{
+        @extend .bg-color-grayLighter;
+        position: relative;
+        .media__body{
+            @extend .bb;
+            padding: $gutter-width $gutter-width $gutter-width 0;
+            h3{
+                @extend .fs-24;
+                @extend .caps;
+                margin-bottom: $gutter-width;
+            }
+
+            p{
+                @extend .fs-15;
+                @extend .caps;
+                @extend .txt-color-gray;
+                margin-bottom: $gutter-width;
+            }
+            .btn{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+}
+
 .grupo-ultima-show{
     .conteudo{
         h3{
