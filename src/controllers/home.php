@@ -57,6 +57,7 @@ class home implements ControllerProviderInterface
 
     public function mais( Application $app, $number )
     {
+        // {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
         $boxes = $app['twig']->render( 'home/partial/box.html.twig', ['number'=>$number] );
         $response = ["success"=>true, "html"=>$boxes];
         return $app->json($response, 201);

@@ -10,6 +10,6 @@
         {% endfor %}
         {{ include('/home/partial/box-twitter.html.twig') }}
     </div>
-    <a href="#!carrega-mais-destaque" id="loadmore-destaque" class="load-more text--center" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    <a href="#!carrega-mais-destaque" class="loadmore text--center" data-container="packeryDestaquesHome" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
 </div>
 {% endblock %}

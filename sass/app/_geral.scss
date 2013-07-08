@@ -44,8 +44,6 @@ a{
     margin: 0;
     img{
         display: block;
-        // @include attr-size('min-height', $box-size-min-h);
-        // @include attr-size('max-height', $box-size-max-h);
     }
     .btn{
         position:absolute;
