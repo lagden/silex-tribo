@@ -5,7 +5,7 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use helpers\utils;
 
-require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
+// require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
 
 class home implements ControllerProviderInterface
 {
