@@ -38,9 +38,9 @@ $app->register(new MonologServiceProvider(), array(
 
 $app->register(new CacheServiceProvider, array(
     'cache.options' => array("default" => array(
-        "driver" => "apc",
-        // 'driver' => 'filesystem',
-        // 'directory' => sys_get_temp_dir() . '/site-tribo',
+        // "driver" => "apc",
+        'driver' => 'filesystem',
+        'directory' => sys_get_temp_dir() . '/site-tribo',
     ))
 ));
 
