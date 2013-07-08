@@ -1,0 +1,21 @@
+{% set isFull = isFull ? 'is-full' : '' %}
+<div class="{{ css }}">
+    <figure class="cap cap-bottom" data-url="{{ item.url }}">
+        {% if item.url %}
+            <a href="{{ item.url }}">
+                <img src="{{ item.imagem }}" class="" alt="{{ item.nome }}" width="{{ item.width }}" height="{{ item.height }}">
+            </a>
+        {% else %}
+            <img src="{{ item.imagem }}" class="" alt="{{ item.nome }}" width="{{ item.width }}" height="{{ item.height }}">
+        {% endif %}
+        <div class="btn btn-info extra">
+            <span>{{ item.rotulo }}</span>
+        </div>
+        {% if item.chamada %}
+            <figcaption class="caption {{ isFull }}">
+                {{ item.chamada }}asdasd adsasdas asdasds asdaa
+                <img src="{{ app.request.basepath }}/images/plus.png" class="plus" alt="+">
+            </figcaption>
+        {% endif %}
+    </figure>
+</div>

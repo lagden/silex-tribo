@@ -5,7 +5,7 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use helpers\utils;
 
-require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
+// require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
 
 class home implements ControllerProviderInterface
 {
@@ -38,6 +38,7 @@ class home implements ControllerProviderInterface
 
         // Boxes
         $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['idioma'=>$app['translator']->getLocale()], $app, 'boxes_home');
+        // var_dump($boxes);die;
 
         // Tweets
         $tweets = [];

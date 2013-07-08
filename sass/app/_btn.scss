@@ -37,7 +37,8 @@
             background-color: $white;
         }
         &.extra{
-            @include attr-size('padding', 10);
+            @include attr-size('padding-top', 5);
+            @include attr-size('padding-bottom', 5);
         }
     }
 }

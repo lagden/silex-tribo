@@ -33,7 +33,6 @@ a{
     margin-left: 0;
     margin-right: $gutter-width;
     margin-top: $gutter-width;
-    background-color: $gray;
     overflow: hidden;
 }
 
@@ -45,8 +44,8 @@ a{
     margin: 0;
     img{
         display: block;
-        @include attr-size('min-height', $box-size-min-h);
-        @include attr-size('max-height', $box-size-max-h);
+        // @include attr-size('min-height', $box-size-min-h);
+        // @include attr-size('max-height', $box-size-max-h);
     }
     .btn{
         position:absolute;
@@ -54,18 +53,29 @@ a{
         left: 0;
     }
     .caption{
+        @include attr-size('font-size', 18);
         @include attr-size('padding', $gutter-width );
+        @include attr-size('padding-right', $gutter-width * 2 );
         @include opacity(0);
         @include transition-property(all);
         @include transition-duration(.5s);
         @include transition-timing-function(ease);
+        cursor: pointer;
         line-height: normal;
         position: absolute;
-        background-color: transparent;
+        background-color: $black;
+        background-color: rgba($black, .75);
         color: $white;
         &.is-full{
             @extend .bb;
             width: 100%;
+        }
+        .plus{
+            @include attr-size('bottom', $gutter-width / 2 );
+            @include attr-size('right', $gutter-width / 2 );
+            position: absolute;
+            width: 18px;
+            height: 18px;
         }
     }
     &:hover .caption{

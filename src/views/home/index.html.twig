@@ -6,7 +6,7 @@
 
     <div class="packery" id="packeryDestaquesHome">
         {% for item in boxes %}
-            {{ include('/home/partial/box.html.twig', { "item": item}) }}
+            {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
         {% endfor %}
         {{ include('/home/partial/box-twitter.html.twig') }}
     </div>
