@@ -1,5 +1,5 @@
 {% set isFull = isFull ? 'is-full' : '' %}
-<div class="{{ css }}">
+<div{% if css %} class="{{ css }}"{% endif %}>
     <figure class="cap cap-bottom" data-url="{{ item.url }}">
         {% if item.url %}
             <a href="{{ item.url }}">
@@ -13,7 +13,7 @@
         </div>
         {% if item.chamada %}
             <figcaption class="caption {{ isFull }}">
-                {{ item.chamada }}asdasd adsasdas asdasds asdaa
+                {{ item.chamada }}
                 <img src="{{ app.request.basepath }}/images/plus.png" class="plus" alt="+">
             </figcaption>
         {% endif %}
