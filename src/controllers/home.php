@@ -3,8 +3,7 @@ namespace controllers;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use helpers\utils;
 
 require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
 
@@ -35,28 +34,24 @@ class home implements ControllerProviderInterface
     public function index( Application $app )
     {
         // Banner
-        $items = [];
-        $out = exec("curl --get 'http://fenix:81/tribosite/Home/ListarBanners' --data 'idioma={$app['translator']->getLocale()}'");
-        $out = json_decode($out, true);
-        if($out['success'])
-        {
-            foreach ($out['data'] as $k => $item) {
-                $items[$k] = $item;
-            }
-        }
+        $banners = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarBanners', ['idioma'=>$app['translator']->getLocale()], $app, 'banner_home');
+
+        // Boxes
+        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['idioma'=>$app['translator']->getLocale()], $app, 'boxes_home');
 
         // Tweets
-        if ($app['cache']->contains('tweets'))
-        {
-            $tweets = $app['cache']->fetch('tweets');
-        }
-        else
-        {
-            $tweets = static::twitter($app);
-            $app['cache']->save('tweets', $tweets, '600');
-        }
+        $tweets = [];
+        // if ($app['cache']->contains('tweets'))
+        // {
+        //     $tweets = $app['cache']->fetch('tweets');
+        // }
+        // else
+        // {
+        //     $tweets = static::twitter($app);
+        //     $app['cache']->save('tweets', $tweets, '600');
+        // }
 
-        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$items, 'tweets'=>$tweets] );
+        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners, 'tweets'=>$tweets, 'boxes'=>$boxes] );
     }
 
     public function mais( Application $app, $number )

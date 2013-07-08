@@ -39,7 +39,7 @@
             </div>
 
             <div class="g-d-8 g-d-l conteudo">
-                <h2 class="titulo-secao">Sobre o projeto</h2>
+                <h2 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h2>
                 {{ trabalho.sobre_o_projeto|raw }}
 
                 <dl class="url-projeto">
@@ -49,12 +49,12 @@
 
                 <hr class="hr">
 
-                <h2 class="titulo-secao">O que fazemos</h2>
+                <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
                 {{ trabalho.o_que_fizemos|raw }}
 
                 <hr class="hr">
 
-                <h2 class="titulo-secao">Ficha técnica</h2>
+                <h2 class="titulo-secao">{{ 'ficha_tecnica'|trans }}</h2>
                 <div class="ficha">
                     {{ trabalho.ficha_tecnica|raw }}
                 </div>

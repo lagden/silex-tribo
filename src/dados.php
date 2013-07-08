@@ -2,7 +2,6 @@
 $app['title'] = "Tribo Interactive";
 $app['dados'] = [
     "nome"=>"Tribo Interactive",
-    "slogan"=>"slogan", // chave do locale
     "local"=>[
         "headquarter"=>[
             "endereco"=>"Rua Luigi Galvani, 70 - 13º",

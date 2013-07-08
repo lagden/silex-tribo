@@ -2,12 +2,11 @@
     <div class="g-d-5">
         <div class="lingua-and-slogan">
             {{ knp_menu_render('lingua', {"compressed": true}, renderer ) }}
-            <p class="bottom fs-11 mar-0">{{ app.dados.slogan|trans }}</p>
+            <p class="bottom fs-11 mar-0">{{ 'slogan'|trans }}</p>
         </div>
         <hr class="rule flush">
     </div>
     <div class="g-d-14 text--center">
-
         {% if app.request.pathInfo == '/' %}
         <h1 class="flush">
             <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.dados.nome }}</a>

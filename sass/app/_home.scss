@@ -1,14 +1,23 @@
 .flexslider.banners {
-
-    margin-bottom: 55px;
-
-    .flex-control-nav {
-        text-align: right;
-        top: 102%;
-        right: -5px;
+    img{
+        width: 1180px;
+        height: 490px;
+        display: block;
     }
 
-    .flex-control-nav li {
-        text-align: left;
+    .flex-control-nav {
+        top: 100%;
+        text-align: right;
+        > li{
+            @extend .ir;
+            @include attr-size('margin-left', 5);
+            @include attr-size('margin-right', 5);
+            &:first-child{
+                margin-left: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
     }
 }

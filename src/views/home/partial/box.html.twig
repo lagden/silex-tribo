@@ -1,3 +1,11 @@
-{%- for i in range(0, number) -%}
-    <div class="box {{ random(['box-max', 'box-16', '']) }}">{{ random(['tribo', 'stuff', 'awesome', 'nice']) }}</div>
-{%- endfor -%}
+<div class="box">
+    <figure class="cap cap-bottom">
+        <img src="{{ item.imagem }}" class="" alt="{{ item.nome }}">
+        <div class="btn btn-info extra">
+            <span>{{ item.rotulo }}</span>
+        </div>
+        <figcaption class="caption is-full">
+            <a class="white" href="{{ item.url }}">{{ item.chamada }}</a>
+        </figcaption>
+    </figure>
+</div>

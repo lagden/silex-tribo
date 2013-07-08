@@ -22,7 +22,6 @@ a{
     @extend .cf;
 }
 
-
 .box{
     @extend .g-d-8;
     @include attr-size('min-height', $box-size-min-h);
@@ -32,6 +31,53 @@ a{
     margin-top: $gutter-width;
     background-color: $gray;
     overflow: hidden;
+}
+
+.cap{
+    @include attr-size('font-size', 13);
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0;
+    img{
+        display: block;
+        @include attr-size('min-height', $box-size-min-h);
+        @include attr-size('max-height', $box-size-max-h);
+    }
+    .btn{
+        position:absolute;
+        top: 0;
+        left: 0;
+    }
+    .caption{
+        @include attr-size('padding', $gutter-width );
+        @include opacity(0);
+        @include transition-property(all);
+        @include transition-duration(.5s);
+        @include transition-timing-function(ease);
+        line-height: normal;
+        position: absolute;
+        background-color: $black;
+        background-color: rgba($black, .75);
+        color: $white;
+        &.is-full{
+            @extend .bb;
+            width: 100%;
+        }
+    }
+    &:hover .caption{
+        @include opacity(1);
+    }
+    &.cap-bottom{
+        &:before { bottom: 10px; left: 10px; }
+        & .caption { left: 0; bottom: -30%;}
+        &:hover .caption { bottom: 0; }
+    }
+    &.cap-right{
+        &:before { bottom: 10px; right: 10px; }
+        & figcaption { bottom: 0; right: -30%; }
+        &:hover figcaption { right: 0; }
+    }
 }
 
 .box-max{

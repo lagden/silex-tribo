@@ -36,6 +36,9 @@
             @include attr-size('line-height', 11);
             background-color: $white;
         }
+        &.extra{
+            @include attr-size('padding', 10);
+        }
     }
 }
 

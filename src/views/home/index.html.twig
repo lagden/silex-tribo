@@ -5,7 +5,9 @@
     {{ include('/home/partial/banner.html.twig', {banners: banners}) }}
 
     <div class="packery" id="packeryDestaquesHome">
-        {{ include('/home/partial/box.html.twig', {number: 5}) }}
+        {% for item in boxes %}
+            {{ include('/home/partial/box.html.twig', { "item": item}) }}
+        {% endfor %}
         {{ include('/home/partial/box-twitter.html.twig') }}
     </div>
     <a href="#!carrega-mais-destaque" id="loadmore-destaque" class="load-more text--center" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
