@@ -18,6 +18,9 @@ class fazemos implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        return $app['twig']->render( 'fazemos/index.html.twig', array() );
+
+        $dados = file_get_contents(__DIR__ . '/../tmp/cases.json');
+        $dados = json_decode($dados, true);
+        return $app['twig']->render( 'fazemos/index.html.twig', array('cases'=>$dados) );
     }
 }

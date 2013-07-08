@@ -1,5 +1,25 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<p>Yeahhh</p>
+
+<div class="wrapper grupo grupo-fazemos">
+    <h1 class="titulo">O que fazemos</h1>
+    <div class="g-d-24 infografico">
+        <img src="{{ app.request.basepath }}/images/banner-fazemos.png" alt="" />
+    </div>
+
+    <div class="especial-title-wrap">
+        <h2 class="especial-title">Cases</h2>
+    </div>
+
+    <div class="packery" id="packeryCases">
+        {% if cases.success %}
+            {% for case in cases.data %}
+                {{ include('/includes/partials/box.html.twig', { "item": case, "css": "box case-list-item", "isFull": true }) }}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <a href="#!carrega-mais-destaque" class="loadmore text--center" data-container="packeryCases" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
+</div>
 {% endblock %}
