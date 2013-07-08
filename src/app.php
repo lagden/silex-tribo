@@ -2,6 +2,7 @@
 use Silex\Application;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+use \Twig_Extension_Debug;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\HttpCacheServiceProvider;
 use Silex\Provider\MonologServiceProvider;
@@ -18,6 +19,11 @@ $app->register(new TwigServiceProvider(), array(
     'twig.path'    => [ __DIR__.'/views' ],
     'twig.options' => [ 'cache' => __DIR__.'/../cache/twig', 'debug' => $debug ],
 ));
+
+$app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
+    $twig->addExtension(new Twig_Extension_Debug());
+    return $twig;
+}));
 
 $app->register(new TranslationServiceProvider(), array(
     'locale' => 'pt-BR',

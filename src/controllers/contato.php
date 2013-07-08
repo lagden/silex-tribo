@@ -3,6 +3,7 @@ namespace controllers;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use helpers\utils;
 
 class contato implements ControllerProviderInterface
 {

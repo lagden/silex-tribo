@@ -10,6 +10,10 @@ a{
     @extend %base-link-color;
 }
 
+.rule.gray{
+    color: $grayLight;
+}
+
 .wrapper{
     @extend .g-d-c;
     overflow: hidden;
@@ -57,8 +61,7 @@ a{
         @include transition-timing-function(ease);
         line-height: normal;
         position: absolute;
-        background-color: $black;
-        background-color: rgba($black, .75);
+        background-color: transparent;
         color: $white;
         &.is-full{
             @extend .bb;
@@ -98,7 +101,7 @@ a{
     margin-bottom: $gutter-width;
 }
 
-.grupo > .titulo{
+.grupo .titulo{
     @extend .caps;
     @include attr-size('font-size', 56);
     @include attr-size('line-height', 56);

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Tribo Interactive">
-    {%- set title = block('title') ? "#{block('title')} - #{app.title}" : app.title -%}
-    <title>{{- title -}}</title>
+    <title>{{ app.title }}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.basepath }}/favicon.ico">
     <link href="{{ app.request.basepath }}/Content/screen.css" rel="stylesheet" type="text/css">
     {% block css %}{% endblock %}

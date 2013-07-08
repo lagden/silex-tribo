@@ -12,26 +12,11 @@ $app->register(new KnpMenuServiceProvider(), [
 
 $app['tribo_menu'] = function($app) {
     $menu = $app['knp_menu.factory']->createItem('root', ['childrenAttributes' => ['class' => 'nav nav--banner nav--fit tribo_menu flush--bottom pad-t-20 pad-b-20']]);
-    $menu->addChild('titulo_a_tribo', ['label'=>'A Tribo', 'route' => 'tribo'])->setExtra('translation', 'titulo_a_tribo');
-
-    $menu->addChild('titulo_o_que_fazemos', ['label'=>'O que fazemos', 'route' => 'fazemos'])->setExtra('translation', 'titulo_o_que_fazemos');
-
-    if( $app['request']->get('_route') === 'trabalho_show' && $app['request']->get('slug') )
-        $menu->addChild('titulo_trabalhos', ['label'=>'Trabalhos', 'route' => "{$app['request']->get('_route')}", 'routeParameters' => ['slug'=>$app['request']->get('slug')]]);
-    else
-        $menu->addChild('titulo_trabalhos', ['label'=>'Trabalhos', 'route' => 'trabalho']);
-
-    $menu['titulo_trabalhos']->setExtra('translation', 'titulo_trabalhos');
-
-    $menu->addChild('titulo_contato', ['label'=>'Contato', 'route' => 'contato'])->setExtra('translation', 'titulo_contato');;
-
-    if( $app['request']->get('_route') === 'ultima_show' && $app['request']->get('slug') )
-        $menu->addChild('titulo_ultimas', ['label'=>'Últimas', 'route' => "{$app['request']->get('_route')}", 'routeParameters' => ['slug'=>$app['request']->get('slug')]]);
-    else
-        $menu->addChild('titulo_ultimas', ['label'=>'Últimas', 'route' => 'ultima']);
-
-    $menu['titulo_ultimas']->setExtra('translation', 'titulo_ultimas');
-
+    $menu->addChild('a_tribo', ['label'=>"{$app['translator']->trans('titulo_a_tribo')}", 'route' => 'tribo']);
+    $menu->addChild('o_que_fazemos', ['label'=>"{$app['translator']->trans('titulo_o_que_fazemos')}", 'route' => 'fazemos']);
+    $menu->addChild('trabalhos', ['label'=>"{$app['translator']->trans('titulo_trabalhos')}", 'route' => 'trabalho']);
+    $menu->addChild('contato', ['label'=>"{$app['translator']->trans('titulo_contato')}", 'route' => 'contato']);
+    $menu->addChild('ultimas', ['label'=>"{$app['translator']->trans('titulo_ultimas')}", 'route' => 'ultima']);
     return $menu;
 };
 

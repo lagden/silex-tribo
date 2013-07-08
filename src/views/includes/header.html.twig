@@ -1,30 +1,23 @@
 <header class="pad-t-20 mar-b-20">
     <div class="g-d-5">
         <div class="lingua-and-slogan">
-            {{ knp_menu_render('lingua', {"compressed": true}, renderer ) }}
+            {{- knp_menu_render('lingua', {"compressed": true}, renderer ) -}}
             <p class="bottom fs-11 mar-0">{{ 'slogan'|trans }}</p>
         </div>
         <hr class="rule flush">
     </div>
     <div class="g-d-14 text--center">
-        {% if app.request.pathInfo == '/' %}
         <h1 class="flush">
-            <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.dados.nome }}</a>
+            <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.title }}</a>
         </h1>
-        {% else %}
-        <div class="flush">
-            <a href="{{ url('homepage') }}" class="ir geral-logotipo mar-b-20 ">{{ app.dados.nome }}</a>
-        </div>
-        {% endif %}
-
         <hr class="rule flush">
         <nav>
-            {{ knp_menu_render('main', {"compressed": true, "template": "/includes/menu.html.twig"}, renderer ) }}
+            {{- knp_menu_render('main', {"compressed": true}, renderer ) -}}
         </nav>
     </div>
     <div class="g-d-5 g-d-l text--right">
         <div class="social-and-busca">
-            {{ knp_menu_render('social', {"compressed": true}, renderer ) }}
+            {{- knp_menu_render('social', {"compressed": true}, renderer ) -}}
         </div>
         <hr class="rule gray flush">
         <p class="fs-11 mar-0 caps  pad-t-20 pad-b-20">

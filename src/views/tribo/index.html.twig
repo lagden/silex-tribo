@@ -1,9 +1,21 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<section class="wrapper grupo grupo-a-tribo">
-    <article>
-        <h1 class="titulo g-d-18">{{ 'titulo_a_tribo'|trans }}</h1>
+<div class="wrapper grupo grupo-a-tribo">
+    <article class="media">
+        <div class="media__img--rev">
+            <img src="{{ app.request.basepath }}/images/tmp/580x360.jpg">
+        </div>
+        <div class="media__body">
+            <h2 class="titulo">{{ 'titulo_a_tribo'|trans }}</h2>
+            {{ 'conteudo_a_tribo'|trans|raw }}
+        </div>
     </article>
-</section>
+    <hr class="rule gray">
+    <div class="slogan">{{ 'slogan'|trans|raw }}</div>
+    <hr class="rule gray">
+    <article>
+        <h2 class="titulo">{{ 'titulo_quem_somos'|trans }}</h2>
+    </article>
+</div>
 {% endblock %}

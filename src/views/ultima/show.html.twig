@@ -11,33 +11,32 @@
         {% if item.galeria|length > 0 %}
             {% set grid = 12 %}
             <div class="g-d-{{ grid }}">
-
+                {# Slide imagens #}
                 <div class="flexslider galeria g-d-{{ grid }}" id="galeria-de-fotos">
                     <ul class="slides">
-                        {% for i in galeria %}
+                        {% for i in item.galeria %}
                         <li>
-                            <img src="{{ i.image }}" alt="{{ item.titulo }}">
+                            <img src="{{ i.imagem }}" alt="{{ item.titulo }}">
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-
+                {# Slide thumbs #}
                 <div class="flexslider thumbs g-d-{{ grid }}" id="galeria-de-fotos-thumbs">
                     <ul class="slides">
-                        {% for i in galeria %}
+                        {% for i in item.galeria %}
                         <li class="item">
                             <i class="overlay"></i>
-                            <img src="{{ i.thumb }}" data-image="{{ i.image }}" class="thumb" alt="thumb">
+                            <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" class="thumb" alt="thumb">
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-
             </div>
         {% endif %}
         <div class="g-d-{{ grid }} g-d-l conteudo">
             <h3>{{ item.titulo }}</h3>
-            {{ item.conteudo|raw }}
+            {{ item.descricao|raw }}
         </div>
     </article>
 </section>

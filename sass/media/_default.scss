@@ -38,33 +38,3 @@ $pad-units                  : 0 2 3 4 5 6 8 10 12 14 16 18 24; // only add the p
 
 // let the default grid-classes being rendered
 @include grids($default-class, $units, $max-units, $col-width, $gutter-width, $pad-units);
-
-// ------------------------------------------------------------------------------------------------------
-// OTHER DEFAULT STYLES
-
-// basically show all hide-classes
-*[class$="hide"] {
-    display: block;
-}
-#{elements-of-type(inline)} {
-    &[class$="hide"] {
-        display: inline;
-    }
-}
-// basically hide all show-classes
-*[class$="show"] {
-    display: none;
-}
-
-// behaviour of show/hide classes
-.#{$default-class}-hide {
-    display: none !important;
-}
-.#{$default-class}-show {
-    display: block !important;
-}
-#{elements-of-type(inline)} {
-    &.#{$default-class}-show {
-        display: inline !important;
-    }
-}

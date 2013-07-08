@@ -2,7 +2,7 @@
 
 {% block content %}
 <section class="wrapper grupo grupo-contato">
-    <h2 class="titulo">{{ 'titulo_contato'|trans }}</h2>
+    <h2 class="titulo">{{ 'titulo_onde_estamos'|trans }}</h2>
 
     {{ include('/contato/partial/box-mapa.html.twig', {info: app.dados.local.headquarter}) }}
     {{ include('/contato/partial/box-mapa.html.twig', {info: app.dados.local.filial, end: true}) }}
