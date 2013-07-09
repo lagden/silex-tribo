@@ -18,6 +18,6 @@ class tribo implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        return $app['twig']->render( 'tribo/index.html.twig', array() );
+        return $app['twig']->render( 'tribo/index.html.twig', [ "locale"=>$app['translator']->getLocale() ] );
     }
 }

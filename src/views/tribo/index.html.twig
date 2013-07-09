@@ -4,7 +4,8 @@
 <div class="wrapper grupo grupo-a-tribo">
     <article class="media">
         <div class="media__img--rev">
-            <img src="{{ app.request.basepath }}/images/tmp/580x360.jpg">
+            {% set item = {'rotulo': 'titulo_sobre_a_tribo', 'imagem': app.request.basepath ~ "/images/sobre-a-tribo.jpg"} %}
+            {{ include('/includes/partials/box.html.twig', { "item": item }) }}
         </div>
         <div class="media__body">
             <h2 class="titulo">{{ 'titulo_a_tribo'|trans }}</h2>
@@ -12,10 +13,23 @@
         </div>
     </article>
     <hr class="rule gray">
-    <div class="slogan">{{ 'slogan'|trans|raw }}</div>
+    <img src="{{ app.request.basepath }}/images/slogan-{{ locale }}.png" class="sloganImg" alt="{{ 'slogan'|trans|raw }}">
     <hr class="rule gray">
     <article>
         <h2 class="titulo">{{ 'titulo_quem_somos'|trans }}</h2>
+        <div class="que-somos cf">
+        {% for item in app.dados.quemsomos %}
+        <div class="g-d-5 g-d-l">
+            <figure class="cap active">
+                <img src="{{ app.request.basepath }}/images/tribo/{{ item.imagem }}" alt="{{ item.nome }}">
+                <figcaption class="caption">
+                    <strong>{{ item.nome }}</strong><br>
+                    {{ item.cargo }}
+                </figcaption>
+            </figure>
+        </div>
+        {% endfor %}
+        </div>
     </article>
 </div>
 {% endblock %}

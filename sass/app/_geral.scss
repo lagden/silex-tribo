@@ -76,14 +76,25 @@ a{
             height: 18px;
         }
     }
+    &.active .caption{
+        @extend .caps;
+        @include attr-size('font-size', 11);
+        @include attr-size('padding', $gutter-width / 2 );
+        font-weight: normal !important;
+        bottom: 0;
+        left: 0;
+    }
+    &.active .caption,
     &:hover .caption{
         @include opacity(1);
     }
+
     &.cap-bottom{
         &:before { bottom: 10px; left: 10px; }
         & .caption { left: 0; bottom: -30%;}
         &:hover .caption { bottom: 0; }
     }
+
     &.cap-right{
         &:before { bottom: 10px; right: 10px; }
         & figcaption { bottom: 0; right: -30%; }

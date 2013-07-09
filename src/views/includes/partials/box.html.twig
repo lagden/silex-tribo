@@ -3,16 +3,16 @@
     <figure class="cap cap-bottom" data-url="{{ item.url }}">
         {% if item.url %}
             <a href="{{ item.url }}">
-                <img src="{{ item.imagem }}" class="" alt="{{ item.nome }}" width="{{ item.width }}" height="{{ item.height }}">
+                <img src="{{ item.imagem }}" class="" alt="{{ item.rotulo }}" width="{{ item.width }}" height="{{ item.height }}">
             </a>
         {% else %}
-            <img src="{{ item.imagem }}" class="" alt="{{ item.nome }}" width="{{ item.width }}" height="{{ item.height }}">
+            <img src="{{ item.imagem }}" class="" alt="{{ item.rotulo }}" width="{{ item.width }}" height="{{ item.height }}">
         {% endif %}
         <div class="btn btn-info extra">
             {% if item.cliente %}
-                <span class="prefix">Cliente:</span> <span class="label">{{ item.cliente }}</span>
+                <span class="prefix">{{ 'cliente'|trans }}:</span> <span class="label">{{ item.cliente }}</span>
             {% else %}
-                <span class="label">{{ item.rotulo }}</span>
+                <span class="label">{{ item.rotulo|trans }}</span>
             {% endif %}
         </div>
         {% if item.chamada %}

@@ -26,6 +26,18 @@ $app['dados'] = [
             ],
         ]
     ],
+    "quemsomos"=>[
+        ["nome"=>"Raul Orfão", "cargo"=>"CEO", "imagem"=>"raul.jpg"],
+        ["nome"=>"Roger Rocha", "cargo"=>"VP de criação", "imagem"=>"roger.jpg"],
+        ["nome"=>"Edna Santos", "cargo"=>"Diretora de RH", "imagem"=>"edna.jpg"],
+        ["nome"=>"Denis Takahashi", "cargo"=>"Diretor de TI", "imagem"=>"denis.jpg"],
+        ["nome"=>"Leda Cichello", "cargo"=>"Diretora de novos negócios", "imagem"=>"leda.jpg"],
+        ["nome"=>"Ricardo Schreier", "cargo"=>"Diretor de criação", "imagem"=>"ricardo.jpg"],
+        ["nome"=>"Guilherme Soares", "cargo"=>"Diretor de criação", "imagem"=>"guilherme.jpg"],
+        ["nome"=>"Alessandra Orrico", "cargo"=>"Diretora de Mídia", "imagem"=>"alessandra.jpg"],
+        ["nome"=>"Renato Muller", "cargo"=>"Diretor de Planejamento", "imagem"=>"renato.jpg"],
+        ["nome"=>"Tclea Klouri", "cargo"=>"Diretora de Atendimento", "imagem"=>"tclea.jpg"]
+    ],
 ];
 
 // Twitter
