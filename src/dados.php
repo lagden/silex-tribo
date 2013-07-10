@@ -13,6 +13,14 @@ $app['dados'] = [
                 "nome"=>"Leda Cichello",
                 "email"=>"leda.cichello@tribointeractive.com.br",
             ],
+            "assessoria_de_imprensa"=>[
+                "nome"=>"Marilene Gonzales",
+                "email"=>"marilene.gonzales@tribointeractive.com.br",
+            ],
+            "trabalhe_conosco"=>[
+                "nome"=>"Leda Cichello",
+                "email"=>"leda.cichello@tribointeractive.com.br",
+            ],
         ],
         "filial"=>[
             "endereco"=>"Av. Beira Mar, 262 - Sala 802",
@@ -21,6 +29,14 @@ $app['dados'] = [
             "cep"=>"20021-060",
             "telefone"=>"+55 21 38149650",
             "negocios"=>[
+                "nome"=>"Ana Masagão",
+                "email"=>"ana.masagao@tribointeractive.com.br",
+            ],
+            "assessoria_de_imprensa"=>[
+                "nome"=>"Ana Masagão",
+                "email"=>"ana.masagao@tribointeractive.com.br",
+            ],
+            "trabalhe_conosco"=>[
                 "nome"=>"Ana Masagão",
                 "email"=>"ana.masagao@tribointeractive.com.br",
             ],
@@ -36,7 +52,7 @@ $app['dados'] = [
         ["nome"=>"Guilherme Soares", "cargo"=>"Diretor de criação", "imagem"=>"guilherme.jpg"],
         ["nome"=>"Alessandra Orrico", "cargo"=>"Diretora de Mídia", "imagem"=>"alessandra.jpg"],
         ["nome"=>"Renato Muller", "cargo"=>"Diretor de Planejamento", "imagem"=>"renato.jpg"],
-        ["nome"=>"Tclea Klouri", "cargo"=>"Diretora de Atendimento", "imagem"=>"tclea.jpg"]
+        ["nome"=>"Clea Klouri", "cargo"=>"Diretora de Atendimento", "imagem"=>"tclea.jpg"]
     ],
 ];
 

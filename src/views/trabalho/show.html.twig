@@ -22,12 +22,12 @@
                 {% for i in item.galeria %}
                     <div class="g-d-8 image-list-item">
                         {% if i.video %}
-                        <a class="fancybox-media" href="{{ i.video }}">
-                            <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
+                        <a class="fancybox-media" href="{{ i.video }}" title="{{ item.nome }}">
+                            <img src="{{ i.thumb }}" alt="{{ item.nome }}">
                         </a>
                         {% else %}
-                            <a class="fancybox-media" href="{{ i.imagem }}">
-                                <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
+                            <a class="fancybox-media" href="{{ i.imagem }}" title="{{ item.nome }}">
+                                <img src="{{ i.thumb }}" alt="{{ item.nome }}">
                             </a>
                         {% endif %}
                     </div>

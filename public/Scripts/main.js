@@ -46,6 +46,18 @@
         }, 'json');
     });
 
+    // Caption dos Boxes
+    $('.cap').on('click.caption', function(ev) {
+        ev = ev || event;
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
+        var $this = $(this);
+        var url = $(this).data('url');
+        if(url) window.location = url;
+    });
+
     // Media
     $('.fancybox-media').fancybox({
         openEffect  : 'none',

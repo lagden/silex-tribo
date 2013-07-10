@@ -7,9 +7,9 @@
     {{ include('/contato/partial/box-mapa.html.twig', {info: app.dados.local.headquarter}) }}
     {{ include('/contato/partial/box-mapa.html.twig', {info: app.dados.local.filial, end: true}) }}
 
-    {{ include('/contato/partial/box-setor.html.twig', {titulo: 'titulo_novos_negocios', info: app.dados.local}) }}
-    {{ include('/contato/partial/box-setor.html.twig', {titulo: 'titulo_assessoria_de_imprensa', info: app.dados.local}) }}
-    {{ include('/contato/partial/box-setor.html.twig', {titulo: 'titulo_trabalhe_conosco', info: app.dados.local, end: true}) }}
+    {{ include('/contato/partial/box-setor.html.twig', {key: 'negocios', titulo: 'titulo_novos_negocios', info: app.dados.local}) }}
+    {{ include('/contato/partial/box-setor.html.twig', {key: 'assessoria_de_imprensa', titulo: 'titulo_assessoria_de_imprensa', info: app.dados.local}) }}
+    {{ include('/contato/partial/box-setor.html.twig', {key: 'trabalhe_conosco', titulo: 'titulo_trabalhe_conosco', info: app.dados.local, end: true}) }}
 
 </section>
 {% endblock %}

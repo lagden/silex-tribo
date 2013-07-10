@@ -1,33 +1,4 @@
 .grupo-trabalhos {
-
-    // .btn-voltar,
-    // .share-buttons {
-    //     float: right;
-    // }
-
-    // .btn-voltar {
-    //     @include attr-size('padding', 8);
-    //     @include attr-size('padding-bottom', 7);
-    //     margin: 20px 4px 0 0;
-    // }
-
-    // .share-buttons {
-    //     margin: 22px 8px 0 0;
-
-    //     .label {
-    //         @include attr-size('font-size', 11);
-    //         color: #ababab;
-    //         float: left;
-    //         padding: 6px 10px 6px 6px;
-    //         @extend .caps;
-    //     }
-
-    //     .ico {
-    //         text-indent: -9999px;
-    //     }
-    // }
-
-    //
     .titulo {
         @include attr-size('font-size', 50);
         @extend .caps;

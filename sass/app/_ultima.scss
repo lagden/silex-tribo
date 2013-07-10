@@ -1,10 +1,25 @@
 .grupo-ultima{
+    .container-box{
+        @extend .mar-b-20;
+        .box{
+            @extend .g-d-12;
+            @include attr-size('height', 360);
+            background: red;
+        }
+    }
+    .packery{
+        margin: 0;
+    }
     .media{
         @extend .bg-color-grayLighter;
+        @extend .mar-b-20;
         @include attr-size('height', 180);
-        // width: column-width(24, $col-width, $gutter-width);
+        width: column-width(24, $col-width, $gutter-width);
         overflow: hidden;
         position: relative;
+        &:last-child{
+            margin: 0;
+        }
         .media__img{
             margin: 0;
         }

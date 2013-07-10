@@ -36,7 +36,7 @@ class ultima implements ControllerProviderInterface
 
     public function page( Application $app )
     {
-        $page = $request->get('page',1);
+        $page = $app['request']->get('page', 1);
         $items = utils::cache($app['ultimas.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
         $ultimas = "";
         foreach ($items['data'] as $item)

@@ -22,7 +22,6 @@
         @extend .txt-color-white;
         @extend .text--center;
         @extend .bb;
-        @extend .mar-b-20;
         @extend .pad-20;
         @include attr-size('min-height', 350);
         h1{

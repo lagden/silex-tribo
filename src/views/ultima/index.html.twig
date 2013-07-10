@@ -3,7 +3,15 @@
 {% block content %}
 <section class="wrapper grupo grupo-ultima">
     <h2 class="titulo">{{ 'titulo_ultimas'|trans }}</h2>
-    <div class="cf" id="ultimasLista">
+    {% if destaques %}
+        <div class="container-box">
+            {% for destaque in destaques %}
+                {% set destaque = destaque|merge({ 'rotulo': 'titulo_ultimas', 'url': url('ultima_show', { 'slug': destaque.slug }) }) %}
+                {{ include('/includes/partials/box.html.twig', { "item": destaque, "css": 'box', "isFull": true }) }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="cf packery" id="ultimasLista">
         {% for item in items %}
             {{ include('/ultima/partial/box-lista.html.twig', { "item": item }  ) }}
         {% else %}
