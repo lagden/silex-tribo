@@ -23,6 +23,10 @@ class home implements ControllerProviderInterface
         ->bind( 'twitter' );
 
         $controllers
+        ->get( "/empty-cache", [$this, 'emptyCache'] )
+        ->bind( 'empty-cache' );
+
+        $controllers
         ->get( "/lang/{lang}", [$this, 'lang'] )
         ->bind( 'lang' );
 
@@ -67,6 +71,11 @@ class home implements ControllerProviderInterface
             $app['session']->set('current_language', $lang);
 
         return $app->redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function emptyCache( Application $app )
+    {
+        return $app->json([$app['cache']->deleteAll()], 201);
     }
 
     static private function twitterGF(Application $app)

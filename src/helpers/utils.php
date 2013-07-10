@@ -9,8 +9,8 @@ class utils
     {
         if($key)
         {
-            $key = mt_rand()."{$key}_{$app['translator']->getLocale()}";
-            // $key = "{$key}_{$app['translator']->getLocale()}";
+            // $key = mt_rand()."{$key}_{$app['translator']->getLocale()}";
+            $key = "{$key}_{$app['translator']->getLocale()}";
 
             if ($app['cache']->contains($key))
             {
