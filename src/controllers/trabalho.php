@@ -28,22 +28,23 @@ class trabalho implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Listar', ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'trabalho_first');
+        $app['title'] = "{$app['translator']->trans('titulo_trabalhos')} - {$app['title']}";
+        $boxes = utils::cache($app['trabalho.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_first');
         return $app['twig']->render( 'trabalho/index.html.twig', ['boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
 
     public function page( Application $app )
     {
-        $page = $request->get('page', 1);
-        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Listar', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
-        $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
+        $page = $app['request']->get('page', 1);
+        $items = utils::cache($app['trabalho.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "trabalhos_{$page}");
+        $html = $app['twig']->render( 'trabalho/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
         $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
         return $app->json($response, 201);
     }
 
     public function show( Application $app, $slug )
     {
-        $item = utils::cache("http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Detalhe", ['slug'=>$slug, 'idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_show');
+        $item = utils::cache($app['trabalho.detalhe'], ['slug'=>$slug, 'idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_show');
         if(isset($item['data'][0]))
         {
             $item = $item['data'][0];

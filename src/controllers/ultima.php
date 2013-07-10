@@ -28,9 +28,21 @@ class ultima implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        $destaques = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/ListarDestaques', ['idioma'=>$app['translator']->getLocale()], $app, 'ultimas_destaques');
-        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar', ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'ultimas_first');
+        $app['title'] = "{$app['translator']->trans('titulo_ultimas')} - {$app['title']}";
+        $destaques = utils::cache($app['ultimas.destaque'], ['idioma'=>$app['translator']->getLocale()], $app, 'ultimas_destaques');
+        $items = utils::cache($app['ultimas.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'ultimas_first');
         return $app['twig']->render( 'ultima/index.html.twig', [ 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'], 'destaques'=>$destaques['data'] ] );
+    }
+
+    public function page( Application $app )
+    {
+        $page = $request->get('page',1);
+        $items = utils::cache($app['ultimas.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
+        $ultimas = "";
+        foreach ($items['data'] as $item)
+            $ultimas .= $app['twig']->render( 'ultima/partial/box-lista.html.twig', [ 'item'=>$item ] );
+        $response = ["success"=>true, "html"=>$ultimas, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
+        return $app->json($response, 201);
     }
 
     public function show( Application $app, $slug )
@@ -43,16 +55,5 @@ class ultima implements ControllerProviderInterface
         }
 
         return $app['twig']->render( 'ultima/show.html.twig', [ 'item'=>$item ] );
-    }
-
-    public function page( Application $app )
-    {
-        $page = $request->get('page',1);
-        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
-        $ultimas = "";
-        foreach ($items['data'] as $item)
-            $ultimas .= $app['twig']->render( 'ultima/partial/box-lista.html.twig', [ 'item'=>$item ] );
-        $response = ["success"=>true, "html"=>$ultimas, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
-        return $app->json($response, 201);
     }
 }

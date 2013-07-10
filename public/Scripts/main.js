@@ -28,6 +28,8 @@
                     elems.push(v);
                 });
 
+                console.log(r.pagina, r.paginas, elems.length, url);
+
                 if(r.pagina < r.paginas)
                     $this.data('pagina', r.pagina + 1);
                 else

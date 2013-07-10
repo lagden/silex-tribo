@@ -1,5 +1,4 @@
 <?php
-$app['pagesize'] = 5;
 $app['title'] = "Tribo Interactive";
 $app['dados'] = [
     "nome"=>"Tribo Interactive",
@@ -40,6 +39,16 @@ $app['dados'] = [
         ["nome"=>"Tclea Klouri", "cargo"=>"Diretora de Atendimento", "imagem"=>"tclea.jpg"]
     ],
 ];
+
+// Api
+$app['pagesize'] = 5;
+
+$app['trabalho.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Listar';
+$app['trabalho.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Detalhe';
+
+$app['ultimas.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar';
+$app['ultimas.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Detalhe';
+$app['ultimas.destaque'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/ListarDestaques';
 
 // Twitter
 $app['twitter.key'] = '42T8fw5GWeqLesWQ3wNksA';
