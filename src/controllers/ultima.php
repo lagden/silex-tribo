@@ -48,12 +48,11 @@ class ultima implements ControllerProviderInterface
     public function show( Application $app, $slug )
     {
         $item = utils::cache("http://www.tribointeractive.com.br:81/tribosite/Noticias/Detalhe", ['slug'=>$slug, 'idioma'=>$app['translator']->getLocale()], $app, 'ultimas_show');
-        if(isset($item[0]))
+        if(isset($item['data'][0]))
         {
-            $item = $item[0];
+            $item = $item['data'][0];
             $app['title'] = "{$item['titulo']} - {$app['title']}";
         }
-
         return $app['twig']->render( 'ultima/show.html.twig', [ 'item'=>$item ] );
     }
 }
