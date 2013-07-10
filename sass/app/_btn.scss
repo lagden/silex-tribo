@@ -8,6 +8,12 @@
         @include attr-size('padding-left', 10);
         @include attr-size('padding-right', 10);
         vertical-align: middle;
+        &.pad-r-0{
+            padding-right: 0;
+        }
+        &.pad-l-0{
+            padding-left: 0;
+        }
     }
     i{
         @extend .inline-block;
@@ -39,55 +45,6 @@
         &.extra{
             @include attr-size('padding-top', 5);
             @include attr-size('padding-bottom', 5);
-        }
-        .label {
-
-        }
-        .prefix {
-            padding-right: 0;
-            @include attr-size('margin-right', -11);
-            color: #6a6a6a;
-        }
-    }
-}
-
-.arrows-buttons {
-    .btn {
-        float: left;
-        text-indent: -9999px;
-        width: 32px;
-        height: 32px;
-        position: relative;
-        @include transition(all 0.1s linear);
-    }
-
-    .btn:hover {
-        background: #000;
-    }
-
-    .arrow-left {
-        margin: 0 4px 0 0;
-
-        .geral-nav-left-black {
-            position: absolute;
-            top: 9px;
-            left: 11px;
-        }
-
-        &:hover .geral-nav-left-black {
-            @include geral-sprite('nav-left-white');
-        }
-    }
-
-    .arrow-right {
-        .geral-nav-right-black {
-            position: absolute;
-            top: 9px;
-            left: 11px;
-        }
-
-        &:hover .geral-nav-right-black {
-            @include geral-sprite('nav-right-white');
         }
     }
 }

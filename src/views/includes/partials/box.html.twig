@@ -10,9 +10,9 @@
         {% endif %}
         <div class="btn btn-info extra">
             {% if item.cliente %}
-                <span class="prefix">{{ 'cliente'|trans }}:</span> <span class="label">{{ item.cliente }}</span>
+                <span class="pad-r-0">{{ 'cliente'|trans }}:</span> <span class="txt-color-grayLight pad-l-0">{{ item.cliente }}</span>
             {% else %}
-                <span class="label">{{ item.rotulo|trans }}</span>
+                <span>{{ item.rotulo|trans }}</span>
             {% endif %}
         </div>
         {% if item.chamada %}
