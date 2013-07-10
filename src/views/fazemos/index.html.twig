@@ -1,25 +1,23 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
 <div class="wrapper grupo grupo-fazemos">
-    <h1 class="titulo">O que fazemos</h1>
-    <div class="g-d-24 infografico">
+    <h2 class="titulo">{{ 'titulo_o_que_fazemos'|trans }}</h2>
+    <div class="infografico">
         <img src="{{ app.request.basepath }}/images/banner-fazemos.png" alt="" />
     </div>
 
-    <div class="especial-title-wrap">
-        <h2 class="especial-title">Cases</h2>
-    </div>
+    {% if cases and cases.success %}
+        <div class="especial-title-wrap">
+            <h2 class="especial-title">Cases</h2>
+        </div>
 
-    <div class="packery" id="packeryCases">
-        {% if cases.success %}
+        <div class="packery" id="packeryCases">
             {% for case in cases.data %}
-                {{ include('/includes/partials/box.html.twig', { "item": case, "css": "box case-list-item", "isFull": true }) }}
+                {% set case = case|merge({ 'rotulo': case.nome, 'url': url('trabalho_show', { 'slug': case.slug }) }) %}
+                {{ include('/includes/partials/box.html.twig', { "item": case, "css": 'box', "isFull": true }) }}
             {% endfor %}
-        {% endif %}
-    </div>
-
-    <a href="#!carrega-mais" class="loadmore text--center" data-container="packeryCases" data-url=""><i class="ir geral-refresh">Carrega mais</i></a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -57,17 +57,18 @@ $app['dados'] = [
 ];
 
 // Api
-$app['pagesize'] = 5;
+$app['pagesize'] = 6;
 
 $app['home.banner'] = 'http://www.tribointeractive.com.br:81/tribosite/Home/ListarBanners';
 $app['home.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques';
 
 $app['trabalho.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Listar';
 $app['trabalho.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Detalhe';
+$app['trabalho.cases'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/ListarCases';
 
 $app['ultimas.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar';
-$app['ultimas.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Detalhe';
 $app['ultimas.destaque'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/ListarDestaques';
+$app['ultimas.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Detalhe';
 
 // Twitter
 $app['twitter.key'] = '42T8fw5GWeqLesWQ3wNksA';

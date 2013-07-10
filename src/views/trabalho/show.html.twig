@@ -2,7 +2,7 @@
 
 {% block content %}
 <article class="wrapper grupo grupo-trabalhos">
-    <h1 class="titulo g-d-16">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h1>
+    <h2 class="titulo g-d-16">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h2>
     <div class="g-d-8 g-d-l text--right">
         <span class="caps txt-color-grayLight fs-13 pad-r-10">{{ 'compartilhar'|trans }}</span>
         <a href="#" class="ir geral-facebook">Facebook</a>
@@ -33,16 +33,21 @@
 
     {% set size = item.galeria ? 8 : 24 %}
     <div class="g-d-{{ size }} g-d-l conteudo">
-        <h2 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h2>
+        <h3 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h3>
         {{ item.descricao|raw }}
-
         <p>URL: <a href="{{ item.url }}" class="grayLight" target="_blank">{{ item.url }}</a></p>
-
         <hr class="hr">
-
-        <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
+        <h3 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h3>
         {{ item.oquefizemos|raw }}
     </div>
-
+    {% if item.relacionados %}
+        <h2 class="titulo-secao">{{ 'projetos_relacionados'|trans }}</h2>
+        <div class="container-box">
+            {% for relacionado in item.relacionados %}
+                {% set relacionado = relacionado|merge({ 'rotulo': relacionado.nome, 'url': url('trabalho_show', { 'slug': relacionado.slug }) }) %}
+                {{ include('/includes/partials/box.html.twig', { "item": relacionado, "css": 'box', "isFull": true }) }}
+            {% endfor %}
+        </div>
+    {% endif %}
 </article>
 {% endblock %}

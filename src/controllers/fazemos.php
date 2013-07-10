@@ -3,6 +3,7 @@ namespace controllers;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use helpers\utils;
 
 class fazemos implements ControllerProviderInterface
 {
@@ -18,9 +19,8 @@ class fazemos implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-
-        $dados = file_get_contents(__DIR__ . '/../tmp/cases.json');
-        $dados = json_decode($dados, true);
-        return $app['twig']->render( 'fazemos/index.html.twig', array('cases'=>$dados) );
+        $app['title'] = "{$app['translator']->trans('titulo_o_que_fazemos')} - {$app['title']}";
+        $cases = utils::cache($app['trabalho.cases'], ['idioma'=>$app['translator']->getLocale()], $app, "cases");
+        return $app['twig']->render( 'fazemos/index.html.twig', ['cases'=>$cases] );
     }
 }

@@ -44,7 +44,7 @@ class trabalho implements ControllerProviderInterface
 
     public function show( Application $app, $slug )
     {
-        $item = utils::cache($app['trabalho.detalhe'], ['slug'=>$slug, 'idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_show');
+        $item = utils::cache($app['trabalho.detalhe'], ['slug'=>$slug, 'idioma'=>$app['translator']->getLocale()], $app, "trabalhos_show_{$slug}");
         if(isset($item['data'][0]))
         {
             $item = $item['data'][0];
