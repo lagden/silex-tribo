@@ -32,10 +32,10 @@ class home implements ControllerProviderInterface
     public function index( Application $app )
     {
         // Banner
-        $banners = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarBanners', ['idioma'=>$app['translator']->getLocale()], $app, 'banner_home');
+        $banners = utils::cache($app['home.banner'], ['idioma'=>$app['translator']->getLocale()], $app, 'banner_home');
 
         // Boxes
-        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home");
+        $boxes = utils::cache($app['home.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home");
 
         // Tweets
         $tweets = [];
@@ -55,7 +55,7 @@ class home implements ControllerProviderInterface
     public function page( Application $app )
     {
         $page = $app['request']->get('page', 1);
-        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home_{$page}");
+        $items = utils::cache($app['home.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home_{$page}");
         $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
         $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
         return $app->json($response, 201);
@@ -71,11 +71,6 @@ class home implements ControllerProviderInterface
 
     static private function twitter(Application $app)
     {
-        // $connection = static::getConnectionWithAccessToken($app);
-        // $content = $connection->get("statuses/home_timeline");
-        // var_dump($content);
-        // die;
-
         $out = exec("curl --get 'https://api.twitter.com/1.1/statuses/user_timeline.json' --data 'contributor_details=false&count=2&exclude_replies=true&screen_name=tribo' --header 'Authorization: OAuth oauth_consumer_key=\"42T8fw5GWeqLesWQ3wNksA\", oauth_nonce=\"9ef0b7e07ac125cf87c56eea6b0b20b4\", oauth_signature=\"AckK7tMnlZ%2BsUBnr5thpLIoTpMU%3D\", oauth_signature_method=\"HMAC-SHA1\", oauth_timestamp=\"" . date_timestamp_get(date_create()) . "\", oauth_token=\"44358342-y48yiWS6Qf8t0CS0cylJrc25Jot03rxwctSJ0u0ax\", oauth_version=\"1.0\"'");
         $tweets = json_decode($out, true);
         if(isset($tweets['errors']))

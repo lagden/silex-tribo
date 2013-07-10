@@ -46,6 +46,15 @@
         }, 'json');
     });
 
+    // Media
+    $('.fancybox-media').fancybox({
+        openEffect  : 'none',
+        closeEffect : 'none',
+        helpers : {
+            media : {}
+        }
+    });
+
     // Slider da Home
     if ( $('.flexslider.banners').length > 0 ) {
         $('.flexslider.banners').flexslider({

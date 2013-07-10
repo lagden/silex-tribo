@@ -21,7 +21,15 @@
             <div class="g-d-16 image-list">
                 {% for i in item.galeria %}
                     <div class="g-d-8 image-list-item">
-                        <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
+                        {% if i.video %}
+                        <a class="fancybox-media" href="{{ i.video }}">
+                            <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
+                        </a>
+                        {% else %}
+                            <a class="fancybox-media" href="{{ i.imagem }}">
+                                <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
+                            </a>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
@@ -39,15 +47,6 @@
 
                 <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
                 {{ item.oquefizemos|raw }}
-
-                {#
-                <hr class="hr">
-
-                <h2 class="titulo-secao">{{ 'ficha_tecnica'|trans }}</h2>
-                <div class="ficha">
-                    {{ item.fichatecnica|raw }}
-                </div>
-                #}
             </div>
         </div>
     </div>

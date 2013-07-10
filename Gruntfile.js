@@ -23,7 +23,9 @@ module.exports = function(grunt) {
                     // Flexslider
                     'bower_components/flexslider/jquery.flexslider.js',
                     // Desandro
-                    'public/Scripts/desandro/packery.pkgd.js'
+                    'public/Scripts/desandro/packery.pkgd.js',
+                    // fancyBox
+                    'bower_components/fancyBox/jquery.fancybox.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },
