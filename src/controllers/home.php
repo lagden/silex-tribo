@@ -54,7 +54,7 @@ class home implements ControllerProviderInterface
 
     public function page( Application $app )
     {
-        $page = $app['request']->get('page',1);
+        $page = $app['request']->get('page', 1);
         $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home_{$page}");
         $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
         $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];

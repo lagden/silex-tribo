@@ -1,0 +1,3 @@
+{% for item in boxes %}
+    {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
+{% endfor %}

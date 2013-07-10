@@ -1,5 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<p>Trabalho</p>
+<section class="wrapper grupo grupo-trabalho">
+    <h2 class="titulo">{{ 'titulo_trabalhos'|trans }}</h2>
+    <div class="packery" id="packeryTrabalho">
+        {{ include('/trabalho/partial/box-lista.html.twig', { "boxes": boxes }) }}
+    </div>
+    {% if pagina < paginas %}
+        <a href="#!carrega-mais" class="loadmore text--center" data-selector=".box" data-container="packeryTrabalho" data-url="{{ url('home_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    {% endif %}
+</section>
 {% endblock %}

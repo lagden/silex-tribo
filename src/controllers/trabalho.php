@@ -3,15 +3,21 @@ namespace controllers;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use helpers\utils;
 
 class trabalho implements ControllerProviderInterface
 {
     public function connect(Application $app)
     {
         $controllers = $app['controllers_factory'];
+
         $controllers
         ->get( "/", array( $this, 'index' ) )
         ->bind( 'trabalho' );
+
+        $controllers
+        ->post( "/pagina", array( $this, 'page' ) )
+        ->bind( 'trabalho_pagina' );
 
         $controllers
         ->get( "/{slug}", array( $this, 'show') )
@@ -22,13 +28,13 @@ class trabalho implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-        return $app['twig']->render( 'trabalho/index.html.twig', array() );
+        // $destaques = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/ListarDestaques', ['idioma'=>$app['translator']->getLocale()], $app, 'ultimas_destaques');
+        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar', ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'trabalho_first');
+        return $app['twig']->render( 'trabalho/index.html.twig', ['boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
 
     public function show( Application $app, $slug )
     {
-        //var_dump($app['request']);die;
-
         $dadosFake = [
             'titulo'=>'Possante Virtual',
             'cliente'=>'Connect Parts',
@@ -47,5 +53,14 @@ class trabalho implements ControllerProviderInterface
         ];
 
         return $app['twig']->render( 'trabalho/show.html.twig', array('slug'=>$slug, 'trabalho'=>$dadosFake) );
+    }
+
+    public function page( Application $app )
+    {
+        $page = $request->get('page', 1);
+        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
+        $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
+        $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
+        return $app->json($response, 201);
     }
 }
