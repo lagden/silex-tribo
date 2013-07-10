@@ -4,13 +4,11 @@
         <i class="i ir geral-twitter-ico">Twitter</i>
     </div>
     <div class="social-update-list">
-        <div class="social-single">
-            <div class="data">14/12</div>
-            <p>Já <a class="grayLight" href="#">#pensou</a> em comprar jóias, roupas, vinhos e mais um monte de coisas com descontos incríveis e ainda receber dicas exclusivas da Julia...</p>
-        </div>
-        <div class="social-single">
-            <div class="data">21/05</div>
-            <p>Já <a class="grayLight" href="#">#pensou</a> em comprar jóias, roupas, vinhos e mais um monte de coisas com descontos incríveis e ainda receber dicas exclusivas da Julia...</p>
-        </div>
+        {% for tweet in tweets %}
+            <div class="social-single">
+                <div class="data">{{ tweet.created_at }}</div>
+                <p>{{ tweet.text|raw }}</p>
+            </div>
+        {% endfor %}
     </div>
 </div>

@@ -39,15 +39,15 @@ class home implements ControllerProviderInterface
 
         // Tweets
         $tweets = [];
-        // if ($app['cache']->contains('tweets'))
-        // {
-        //     $tweets = $app['cache']->fetch('tweets');
-        // }
-        // else
-        // {
-        //     $tweets = static::twitter($app);
-        //     $app['cache']->save('tweets', $tweets, '600');
-        // }
+        if ($app['cache']->contains('tweets'))
+        {
+            $tweets = $app['cache']->fetch('tweets');
+        }
+        else
+        {
+            $tweets = static::twitterGF($app);
+            $app['cache']->save('tweets', $tweets, '600');
+        }
 
         return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners['data'], 'tweets'=>$tweets, 'boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
@@ -69,22 +69,71 @@ class home implements ControllerProviderInterface
         return $app->redirect($_SERVER['HTTP_REFERER']);
     }
 
-    static private function twitter(Application $app)
+    static private function twitterGF(Application $app)
     {
-        $out = exec("curl --get 'https://api.twitter.com/1.1/statuses/user_timeline.json' --data 'contributor_details=false&count=2&exclude_replies=true&screen_name=tribo' --header 'Authorization: OAuth oauth_consumer_key=\"42T8fw5GWeqLesWQ3wNksA\", oauth_nonce=\"9ef0b7e07ac125cf87c56eea6b0b20b4\", oauth_signature=\"AckK7tMnlZ%2BsUBnr5thpLIoTpMU%3D\", oauth_signature_method=\"HMAC-SHA1\", oauth_timestamp=\"" . date_timestamp_get(date_create()) . "\", oauth_token=\"44358342-y48yiWS6Qf8t0CS0cylJrc25Jot03rxwctSJ0u0ax\", oauth_version=\"1.0\"'");
-        $tweets = json_decode($out, true);
-        if(isset($tweets['errors']))
-            return false;
-        else
-        {
-            $parseTweets = [];
-            foreach ($tweets as $k => $tweet)
-            {
-                $parseTweets[$k]['text'] = $tweet['text'];
-                $parseTweets[$k]['date'] = date("d/m/Y", strtotime($tweet['created_at']));
-            }
-            return $parseTweets;
+        $url                       = "https://api.twitter.com/1.1/statuses/user_timeline.json";
+
+        $oauth_access_token        = $app['twitter.access_token'];
+        $oauth_access_token_secret = $app['twitter.access_token_secret'];
+        $consumer_key              = $app['twitter.key'];
+        $consumer_secret           = $app['twitter.secret'];
+
+        $usuario                   = "tribo";
+        $quantidade                = 2;
+
+        $oauth = [
+            'count'                  => $quantidade,
+            'screen_name'            => $usuario,
+            'oauth_consumer_key'     => $consumer_key,
+            'oauth_nonce'            => time(),
+            'oauth_signature_method' => 'HMAC-SHA1',
+            'oauth_token'            => $oauth_access_token,
+            'oauth_timestamp'        => time(),
+            'oauth_version'          => '1.0'
+        ];
+
+
+        $base_info                = static::buildBaseString($url, 'GET', $oauth);
+        $composite_key            = rawurlencode($consumer_secret) . '&' . rawurlencode($oauth_access_token_secret);
+        $oauth_signature          = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
+        $oauth['oauth_signature'] = $oauth_signature;
+
+        // Make Requests
+        $header = [static::buildAuthorizationHeader($oauth), 'Expect:'];
+
+        $options = [ 
+            CURLOPT_HTTPHEADER     => $header,
+            CURLOPT_HEADER         => false,
+            CURLOPT_URL            => $url . "?count=$quantidade&screen_name=$usuario",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false
+        ];
+
+        $feed         = curl_init();
+        curl_setopt_array($feed, $options);
+        $json         = curl_exec($feed);
+        curl_close($feed);
+
+        $twitter_data = json_decode($json);
+
+        $tweets = [];
+        foreach($twitter_data as $k => $status){
+            $text = $status->text;
+            $data = $status->created_at;
+
+            $text = preg_replace('@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@', '<a class="gray" href="$1">$1</a>', $text);
+            $text = preg_replace('/@(\w+)/', '<a class="gray" href="http://twitter.com/$1">@$1</a>', $text);
+            $text = preg_replace('/#(\w+)/', ' <a class="gray" href="http://search.twitter.com/search?q=%23$1">#$1</a>', $text);
+
+            setlocale (LC_ALL, 'pt_BR','ptb');
+            $the_data = new \DateTime($data);
+            $created_at = utf8_encode(strftime('%d/%m', $the_data->format('U')));
+
+            $tweets[$k]['text'] = $text;
+            $tweets[$k]['created_at'] = $created_at;
         }
+
+        return $tweets;
     }
 
     static private function buildBaseString($baseURI, $method, $params) {

@@ -6,7 +6,7 @@
 
     <div class="packery" id="packeryDestaquesHome">
         {{ include('/home/partial/box-lista.html.twig', { "boxes": boxes }) }}
-        {# {{ include('/home/partial/box-twitter.html.twig') }} #}
+        {{ include('/home/partial/box-twitter.html.twig', { "tweets": tweets }) }}
     </div>
     {% if pagina < paginas %}
         <a href="#!carrega-mais" class="loadmore text--center" data-selector=".box" data-container="packeryDestaquesHome" data-url="{{ url('home_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
