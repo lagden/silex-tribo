@@ -14,7 +14,7 @@
     <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="imagem-destaque">
 
     {% if item.galeria %}
-        <div class="g-d-16">
+        <div class="g-d-16 mar-b-20">
             <div class="image-list">
             {% for i in item.galeria %}
                 {% if i.video %}
@@ -40,6 +40,7 @@
         <h3 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h3>
         {{ item.oquefizemos|raw }}
     </div>
+
     {% if item.relacionados %}
         <h2 class="titulo-secao">{{ 'projetos_relacionados'|trans }}</h2>
         <div class="container-box">
@@ -49,5 +50,6 @@
             {% endfor %}
         </div>
     {% endif %}
+
 </article>
 {% endblock %}

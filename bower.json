@@ -11,6 +11,7 @@
     "GreenSock-JS": "git://github.com/greensock/GreenSock-JS.git#1.9.8",
     "html5shiv": "3.6.2",
     "flexslider": "latest",
-    "fancybox": "2.1.5"
+    "fancybox": "2.1.5",
+    "swfobject": "latest"
   }
 }

@@ -4,7 +4,16 @@
 <div class="wrapper grupo grupo-fazemos">
     <h2 class="titulo">{{ 'titulo_o_que_fazemos'|trans }}</h2>
     <div class="infografico">
-        <img src="{{ app.request.basepath }}/images/banner-fazemos.png" alt="" />
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1151" height="343" id="infografico">
+            <param name="movie" value="{{ app.request.basepath }}/swf/oque_fazemos.swf" />
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="{{ app.request.basepath }}/swf/oque_fazemos.swf" width="1151" height="343">
+                <!--<![endif]-->
+                <img src="{{ app.request.basepath }}/images/banner-fazemos.png" alt="" />
+                <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+        </object>
     </div>
 
     {% if cases and cases.success %}
@@ -20,4 +29,10 @@
         </div>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    swfobject.registerObject("infografico", "11.0.0");
+</script>
 {% endblock %}
