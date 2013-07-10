@@ -118,7 +118,6 @@ a{
     @extend .caps;
     @include attr-size('font-size', 56);
     @include attr-size('line-height', 56);
-    @include attr-size('line-height', 56);
     margin-top: 0;
     margin-bottom: $gutter-width;
 }

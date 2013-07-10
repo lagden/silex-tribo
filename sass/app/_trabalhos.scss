@@ -1,15 +1,10 @@
 .grupo-trabalhos {
-    .titulo {
-        @include attr-size('font-size', 50);
-        @extend .caps;
-        margin: 0 0 10px 0;
-        line-height: 39px;
 
-        .sub-titulo {
-            display: block;
-            @include attr-size('font-size', 16);
-            color: #b8b8b8;
-        }
+    .sub-titulo {
+        @include attr-size('font-size', 16);
+        @include attr-size('line-height', 24);
+        color: $grayLight;
+        display: block;
     }
 
     .imagem-destaque {
@@ -37,27 +32,25 @@
         @include attr-size('font-size', 15);
         @extend .caps;
         margin-top: $gutter-width;
-        color: $grayLight;
+        color: $gray;
 
         p {
             margin-bottom: $gutter-width;
-
         }
 
         ul {
             margin: 0;
-        }
-
-        li {
-            list-style: none;
+            li {
+                list-style: none;
+            }
         }
     }
 
     .titulo-secao {
-        @include attr-size('font-size', 25);
         @extend .caps;
+        @include attr-size('font-size', 25);
         @include attr-size('line-height', 25);
-        margin: 0 0 22px 0;
+        margin-bottom: $gutter-width;
         color: $black;
     }
 
