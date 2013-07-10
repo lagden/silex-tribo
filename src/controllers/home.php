@@ -87,33 +87,21 @@ class home implements ControllerProviderInterface
         }
     }
 
-    static private function Linkify($text)
-    {
+    static private function buildBaseString($baseURI, $method, $params) {
+        $r = array();
+        ksort($params);
+        foreach($params as $key=>$value){
+            $r[] = "$key=" . rawurlencode($value);
+        }
+        return $method."&" . rawurlencode($baseURI) . '&' . rawurlencode(implode('&', $r));
+    }
 
-        $text = preg_replace_callback(
-            '/(https?:\/\/\S+)/gi',
-            function ($s) {
-                return '<a target="_blank" href="' + $s[0] + '">' + $s[0] + '</a>';
-            },
-            $text
-        );
-
-        $text = preg_replace_callback(
-            '/(^|)@(\w+)/gi',
-            function ($s) {
-                return '<a target="_blank" href="http://twitter.com/' + $s[0] + '">' + $s[0] + '</a>';
-            },
-            $text
-        );
-
-        $text = preg_replace_callback(
-            '/(^|)#(\w+)/gi',
-            function ($s) {
-                return '<a target="_blank" href="http://search.twitter.com/search?q=' + str_replace($s[0],'#','%23') + '">' + $s + '</a>';
-            },
-            $text
-        );
-
-        return $text;
+    static private function buildAuthorizationHeader($oauth) {
+        $r = 'Authorization: OAuth ';
+        $values = array();
+        foreach($oauth as $key=>$value)
+            $values[] = "$key=\"" . rawurlencode($value) . "\"";
+        $r .= implode(', ', $values);
+        return $r;
     }
 }

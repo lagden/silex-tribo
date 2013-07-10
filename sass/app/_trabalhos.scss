@@ -48,8 +48,10 @@
 
     .titulo-secao {
         @extend .caps;
+        @extend .clear;
         @include attr-size('font-size', 25);
         @include attr-size('line-height', 25);
+        display: block;
         margin-bottom: $gutter-width;
         color: $black;
     }
