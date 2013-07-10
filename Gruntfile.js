@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     // Desandro
                     'public/Scripts/desandro/packery.pkgd.js',
                     // fancyBox
-                    'bower_components/fancyBox/jquery.fancybox.js'
+                    'bower_components/fancybox/source/jquery.fancybox.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },
