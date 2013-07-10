@@ -7,7 +7,6 @@
         margin-right: -7px;
         .g-d-5{
             @include attr-size('min-height', 265);
-            background: red;
             margin-top: 7px !important;
             margin-right: 7px !important;
         }

@@ -29,7 +29,6 @@ class utils
 
     static public function curl($url, $data)
     {
-        $items=[];
         $query = http_build_query($data);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, "{$url}?{$query}");
@@ -41,11 +40,8 @@ class utils
 
         $out = json_decode($response, true);
         if($out['success'])
-        {
-            foreach ($out['data'] as $k => $item) {
-                $items[$k] = $item;
-            }
-        }
-        return $items;
+            return $out;
+        else
+            return [];
     }
 }

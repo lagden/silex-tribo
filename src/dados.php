@@ -1,4 +1,5 @@
 <?php
+$app['pagesize'] = 5;
 $app['title'] = "Tribo Interactive";
 $app['dados'] = [
     "nome"=>"Tribo Interactive",

@@ -5,8 +5,6 @@ use Silex\Application;
 use Silex\ControllerProviderInterface;
 use helpers\utils;
 
-// require_once __DIR__ . '/../vendor/twitteroauth/twitteroauth.php';
-
 class home implements ControllerProviderInterface
 {
     public function connect(Application $app)
@@ -17,16 +15,16 @@ class home implements ControllerProviderInterface
         ->bind( 'homepage' );
 
         $controllers
-        ->get( "/lang/{lang}", [$this, 'lang'] )
-        ->bind( 'lang' );
-
-        $controllers
-        ->get( "/mais-box/{number}", [$this, 'mais'] )
-        ->bind( 'mais' );
+        ->post( "/pagina", array( $this, 'page' ) )
+        ->bind( 'home_pagina' );
 
         $controllers
         ->get( "/twitter", [$this, 'twitter'] )
         ->bind( 'twitter' );
+
+        $controllers
+        ->get( "/lang/{lang}", [$this, 'lang'] )
+        ->bind( 'lang' );
 
         return $controllers;
     }
@@ -37,8 +35,7 @@ class home implements ControllerProviderInterface
         $banners = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarBanners', ['idioma'=>$app['translator']->getLocale()], $app, 'banner_home');
 
         // Boxes
-        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['idioma'=>$app['translator']->getLocale()], $app, 'boxes_home');
-        // var_dump($boxes);die;
+        $boxes = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home");
 
         // Tweets
         $tweets = [];
@@ -52,14 +49,15 @@ class home implements ControllerProviderInterface
         //     $app['cache']->save('tweets', $tweets, '600');
         // }
 
-        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners, 'tweets'=>$tweets, 'boxes'=>$boxes] );
+        return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners['data'], 'tweets'=>$tweets, 'boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
 
-    public function mais( Application $app, $number )
+    public function page( Application $app )
     {
-        // {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
-        $boxes = $app['twig']->render( 'home/partial/box.html.twig', ['number'=>$number] );
-        $response = ["success"=>true, "html"=>$boxes];
+        $page = $app['request']->get('page',1);
+        $items = utils::cache('http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques', ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home_{$page}");
+        $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
+        $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
         return $app->json($response, 201);
     }
 
@@ -123,61 +121,4 @@ class home implements ControllerProviderInterface
 
         return $text;
     }
-
-    static private function getConnectionWithAccessToken(Application $app) {
-        $connection = new TwitterOAuth($app['twitter.key'], $app['twitter.secret'], $app['twitter.access_token'], $app['twitter.access_token_secret']);
-        return $connection;
-    }
- 
-// $connection = getConnectionWithAccessToken("abcdefg", "hijklmnop");
-// $content = $connection->get("statuses/home_timeline");
-
-    // static private function getRequestToken( Application $app ) {
-    //     $urlParams = array (
-    //         "oauth_consumer_key" => $app['twitter.key'],
-    //         "oauth_signature_method" => "HMAC-SHA1",
-    //         "oauth_timestamp" => date_timestamp_get(date_create()),
-    //         "oauth_nonce" => md5 ( uniqid ( rand(), true ) ),
-    //         "oauth_version" => "1.0"
-    //     );
-
-    //     ksort ( $urlParams );
-
-    //     foreach ( $urlParams as $k => $v ) $joinedParams[] = "{$k} = {$v}";
-    //     $joinedParams = implode ( "&", $joinedParams );
-
-    //     $baseString = "GET&" . rawurlencode ( $app['twitter.request_token'] ) . "&" . rawurlencode ( $joinedParams );
-    //     $secret = rawurlencode ( $app['twitter.secret'] ) . "&";
-    //     $urlParams ['oauth_signature'] = rawurlencode ( static::signRequest ( $secret, $baseString ) );
-    //     ksort($urlParams);
-
-    //     // We need to build an array of headers for CURL
-    //     $urlParts = parse_url (  $app['twitter.request_token'] );
-    //     $header = array ('Expect:' );
-    //     $oauthHeader = 'Authorization: OAuth realm="' . $urlParts ['path'] . '", ';
-    //     foreach ( $urlParams as $name => $value ) {
-    //         $oauthHeader .= "{$name}=\"{$value}\", ";
-    //     }
-    //     $header [] = substr ( $oauthHeader, 0, - 2 );
-
-    //     // Ask Twitter for a request token
-    //     $ch = curl_init ( $app['twitter.request_token'] );
-    //     curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
-    //     curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-    //     curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
-    //     curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
-    //     $content = curl_exec ( $ch );
-    //     curl_close ( $ch );
-
-    //     var_dump($content);
-
-    //     // Create the url from the curl answer
-    //     parse_str($content, $output);
-    //     $url = "{$app['twitter.authorize_url']}?oauth_token=" . $output["oauth_token"];
-    //     echo $url ;
-    // }
-
-    // static private function signRequest($secret, $baseString) {
-    //     return base64_encode ( hash_hmac ( 'sha1', $baseString, $secret, TRUE ) );
-    // }
 }

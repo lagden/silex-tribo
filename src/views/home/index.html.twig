@@ -5,11 +5,11 @@
     {{ include('/home/partial/banner.html.twig', {banners: banners}) }}
 
     <div class="packery" id="packeryDestaquesHome">
-        {% for item in boxes %}
-            {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
-        {% endfor %}
-        {{ include('/home/partial/box-twitter.html.twig') }}
+        {{ include('/home/partial/box-lista.html.twig', { "boxes": boxes }) }}
+        {# {{ include('/home/partial/box-twitter.html.twig') }} #}
     </div>
-    <a href="#!carrega-mais-destaque" class="loadmore text--center" data-container="packeryDestaquesHome" data-url="{{ url('mais', {'number': 5}) }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    {% if pagina < paginas %}
+        <a href="#!carrega-mais" class="loadmore text--center" data-selector=".box" data-container="packeryDestaquesHome" data-url="{{ url('home_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    {% endif %}
 </div>
 {% endblock %}

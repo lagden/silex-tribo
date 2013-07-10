@@ -19,6 +19,7 @@ continuar_lendo: Continuar lendo
 clientes: Clientes
 cliente: Cliente
 compartilhar: Compartilhar
+nenhum_registro: Nenhum registro encontrado
 # A Tribo
 conteudo_a_tribo: |
     <p>Criamos contexto para que as marcas transmitam histórias, valores, ideias e causas. Fazemos campanhas para que se amplifiquem. Estimulamos conexões para que circulem e gerem diálogos verdadeiros com o público.</p>

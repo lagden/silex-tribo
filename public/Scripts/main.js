@@ -15,21 +15,30 @@
             ev.preventDefault();
             ev.stopPropagation();
         }
-        var url = this.getAttribute('data-url');
-        var container = this.getAttribute('data-container');
-        $.get(url, function(r) {
+        var $this = $(this);
+        var url = $this.data('url');
+        var container = $this.data('container');
+        var pagina = $this.data('pagina');
+        var selector = $this.data('selector');
+        $.post(url, {"page": pagina}, function(r) {
             if (r.success) {
                 var elems = [];
                 var $elems = $(r.html);
-                $elems.each(function(k, v) {
+                $elems.filter( selector ).each(function(k, v) {
                     elems.push(v);
                 });
 
-                $packery = $('#' + container);
-                if ($packery.length > 0) {
-                    $packery.append($elems);
-                    packery = $packery.data('packery');
-                    packery.appended(elems);
+                if(r.pagina < r.paginas)
+                    $this.data('pagina', r.pagina + 1);
+                else
+                    $this.hide();
+
+                var $currContainer = $('#' + container);
+                if ($currContainer.length > 0) {
+                    $currContainer.append($elems);
+                    var packery = $currContainer.data('packery');
+                    if(packery)
+                        packery.appended(elems);
                 }
             }
         }, 'json');

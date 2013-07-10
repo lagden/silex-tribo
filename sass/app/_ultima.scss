@@ -1,15 +1,22 @@
 .grupo-ultima{
     .media{
         @extend .bg-color-grayLighter;
+        @include attr-size('height', 180);
+        // width: column-width(24, $col-width, $gutter-width);
+        overflow: hidden;
         position: relative;
+        .media__img{
+            margin: 0;
+        }
         .media__body{
             @extend .bb;
-            padding: $gutter-width $gutter-width $gutter-width 0;
+            padding: $gutter-width;
             h3{
                 @extend .fs-24;
                 @extend .caps;
                 margin-bottom: $gutter-width;
             }
+
 
             p{
                 @extend .fs-15;

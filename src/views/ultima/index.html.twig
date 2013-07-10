@@ -2,16 +2,16 @@
 
 {% block content %}
 <section class="wrapper grupo grupo-ultima">
-    <h2 class="titulo g-d-18">{{ 'titulo_ultimas'|trans }}</h2>
-    <div class="g-d-6 g-d-l text--right">
-        paginacao
-    </div>
-    <div class=" g-d-24 cf">
-        {%- for item in items -%}
+    <h2 class="titulo">{{ 'titulo_ultimas'|trans }}</h2>
+    <div class="cf" id="ultimasLista">
+        {% for item in items %}
             {{ include('/ultima/partial/box-lista.html.twig', { "item": item }  ) }}
         {% else %}
             {{ nenhum_registro|trans }}
         {% endfor %}
     </div>
+    {% if pagina < paginas %}
+        <a href="#!carrega-mais" data-selector=".media" class="loadmore text--center" data-container="ultimasLista" data-url="{{ url('ultima_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+    {% endif %}
 </section>
 {% endblock %}

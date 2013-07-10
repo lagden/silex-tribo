@@ -22,6 +22,7 @@ a{
 .packery{
     margin-right: -$gutter-width;
     margin-top: -$gutter-width;
+    margin-bottom: $gutter-width;
     overflow: hidden;
     @extend .cf;
 }
@@ -100,14 +101,6 @@ a{
         & figcaption { bottom: 0; right: -30%; }
         &:hover figcaption { right: 0; }
     }
-}
-
-.box-max{
-    @include attr-size('height', $box-size-max-h);
-}
-
-.box-16{
-    @extend .g-d-16;
 }
 
 .loadmore{

@@ -19,6 +19,7 @@ continuar_lendo: Keep reading
 clientes: Clients
 cliente: Client
 compartilhar: Share
+nenhum_registro: No records found
 # A Tribo
 conteudo_a_tribo: |
     <p>We create context so, brands can pass on stories, values, ideas and causes. We create campaigns that amplify themselves. We promote connections that can move around and generate true dialogs with the public.</p>
