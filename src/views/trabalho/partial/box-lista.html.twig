@@ -1,3 +1,4 @@
 {% for item in boxes %}
+    {% set item = item|merge({ 'url': url('trabalho_show', { 'slug': item.slug }) }) %}
     {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
 {% endfor %}

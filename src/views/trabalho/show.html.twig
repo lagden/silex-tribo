@@ -3,60 +3,48 @@
 {% block content %}
 <div class="wrapper grupo grupo-trabalhos">
     <div class="g-d-24">
-        <div class="g-d-18">
-            <h1 class="titulo">{{ trabalho.titulo }} <small class="sub-titulo">Cliente: {{ trabalho.cliente }}</small></h1>
+        <div class="g-d-16">
+            <h1 class="titulo">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h1>
         </div>
-        <div class="g-d-6 g-d-l">
-
+        <div class="g-d-8 g-d-l text--right">
+            <span class="caps txt-color-grayLight fs-13 pad-r-10">{{ 'compartilhar'|trans }}</span>
+            <a href="#" class="ir geral-facebook">Facebook</a>
+            <a href="#" class="ir geral-twitter">Twitter</a>
+            <a href="#" class="ir geral-pinterest mar-r-10">Pinterest</a>
             {{ include('/includes/partials/btn-voltar.html.twig', { url: url('trabalho') }) }}
-
-            <div class="share-buttons">
-                <div class="label">Compartilhe</div>
-
-                <a href="#" class="ico geral-facebook">Facebook</a>
-                <a href="#" class="ico geral-twitter">Twitter</a>
-                <a href="#" class="ico geral-pinterest">Pinterest</a>
-            </div>
-
-            <!--
-                <div class="arrows-buttons">
-                    <a href="#" class="arrow-left btn"><i class="geral-nav-left-black"></i>Trabalho Anterior</a>
-                    <a href="#" class="arrow-right btn"><i class="geral-nav-right-black"></i>Próximo Trabalho</a>
-                </div>
-            -->
         </div>
         <div class="g-d-24">
-            <img src="{{ app.request.basepath }}/images/tmp/{{ trabalho.imagem_destaque }}" alt="" class="imagem-destaque">
+            <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="imagem-destaque">
         </div>
 
         <div class="g-d-24">
             <div class="g-d-16 image-list">
-                {% for i in 0..3 %}
-                    <div class="g-d-8 {% if i == 1 or i == 3 %}g-d-l{% endif %} image-list-item">
-                        <img src="{{ app.request.basepath }}/images/tmp/{{ trabalho.imagens[i].imagem }}" alt="{{ trabalho.imagens[i].alt }}">
+                {% for i in item.galeria %}
+                    <div class="g-d-8 image-list-item">
+                        <img src="{{ i.thumb }}" data-image="{{ i.imagem }}" alt="{{ item.nome }}">
                     </div>
                 {% endfor %}
             </div>
 
             <div class="g-d-8 g-d-l conteudo">
                 <h2 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h2>
-                {{ trabalho.sobre_o_projeto|raw }}
+                {{ item.descricao|raw }}
 
                 <dl class="url-projeto">
                     <dt>URL:</dt>
-                    <dd><a href="{{ trabalho.url_projeto }}" target="_blank">{{ trabalho.url_projeto }}</a></dd>
+                    <dd><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></dd>
                 </dl>
 
                 <hr class="hr">
 
                 <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
-                {{ trabalho.o_que_fizemos|raw }}
+                {{ item.oquefizemos|raw }}
 
                 <hr class="hr">
 
                 <h2 class="titulo-secao">{{ 'ficha_tecnica'|trans }}</h2>
                 <div class="ficha">
-                    {{ trabalho.ficha_tecnica|raw }}
+                    {{ item.fichatecnica|raw }}
                 </div>
             </div>
         </div>
