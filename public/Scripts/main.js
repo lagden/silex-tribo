@@ -60,10 +60,15 @@
 
     // Media
     $('.fancybox-media').fancybox({
-        openEffect  : 'none',
-        closeEffect : 'none',
+        openEffect  : 'elastic',
+        closeEffect : 'elastic',
         helpers : {
             media : {}
+        },
+        swf: {
+            wmode: 'transparent',
+            allowfullscreen   : 'true',
+            allowscriptaccess : 'always'
         }
     });
 

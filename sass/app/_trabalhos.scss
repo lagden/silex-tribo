@@ -18,23 +18,30 @@
 
     .image-list {
         margin-right: -$gutter-width;
+        overflow: hidden;
         img {
             display: block;
         }
     }
 
-    .conteudo,
     .image-list-item {
+        @extend .g-d-8;
+        margin-left: 0;
+        margin-right: $gutter-width;
         margin-top: $gutter-width;
+        overflow: hidden;
+        display: block;
     }
 
     .conteudo {
-        color: #ababab;
         @include attr-size('font-size', 15);
         @extend .caps;
+        margin-top: $gutter-width;
+        color: $grayLight;
 
         p {
-            margin: 0;
+            margin-bottom: $gutter-width;
+
         }
 
         ul {
@@ -43,14 +50,6 @@
 
         li {
             list-style: none;
-        }
-
-        .url-projeto {
-            margin: 10px 0 0 0;
-
-            a {
-                color: #ababab;
-            }
         }
     }
 
@@ -67,28 +66,5 @@
         height: 1px;
         background: image-url('dot-gray.png');
         margin: 29px 0;
-    }
-
-    dl {
-        width:100%;
-        overflow:hidden;
-        margin: 0;
-    }
-
-    dt {
-        float:left;
-        width:auto;
-        font-weight: bold;
-        color: $black;
-    }
-
-    dd {
-        float:left;
-        width:auto;
-        margin: 0 0 0 7px;
-    }
-
-    .ficha strong {
-        color: $black;
     }
 }

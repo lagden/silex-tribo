@@ -1,54 +1,48 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="wrapper grupo grupo-trabalhos">
-    <div class="g-d-24">
-        <div class="g-d-16">
-            <h1 class="titulo">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h1>
-        </div>
-        <div class="g-d-8 g-d-l text--right">
-            <span class="caps txt-color-grayLight fs-13 pad-r-10">{{ 'compartilhar'|trans }}</span>
-            <a href="#" class="ir geral-facebook">Facebook</a>
-            <a href="#" class="ir geral-twitter">Twitter</a>
-            <a href="#" class="ir geral-pinterest mar-r-10">Pinterest</a>
-            {{ include('/includes/partials/btn-voltar.html.twig', { url: url('trabalho') }) }}
-        </div>
-        <div class="g-d-24">
-            <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="imagem-destaque">
-        </div>
-
-        <div class="g-d-24">
-            <div class="g-d-16 image-list">
-                {% for i in item.galeria %}
-                    <div class="g-d-8 image-list-item">
-                        {% if i.video %}
-                        <a class="fancybox-media" href="{{ i.video }}" title="{{ item.nome }}">
-                            <img src="{{ i.thumb }}" alt="{{ item.nome }}">
-                        </a>
-                        {% else %}
-                            <a class="fancybox-media" href="{{ i.imagem }}" title="{{ item.nome }}">
-                                <img src="{{ i.thumb }}" alt="{{ item.nome }}">
-                            </a>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-
-            <div class="g-d-8 g-d-l conteudo">
-                <h2 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h2>
-                {{ item.descricao|raw }}
-
-                <dl class="url-projeto">
-                    <dt>URL:</dt>
-                    <dd><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></dd>
-                </dl>
-
-                <hr class="hr">
-
-                <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
-                {{ item.oquefizemos|raw }}
-            </div>
-        </div>
+<article class="wrapper grupo grupo-trabalhos">
+    <h1 class="titulo g-d-16">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h1>
+    <div class="g-d-8 g-d-l text--right">
+        <span class="caps txt-color-grayLight fs-13 pad-r-10">{{ 'compartilhar'|trans }}</span>
+        <a href="#" class="ir geral-facebook">Facebook</a>
+        <a href="#" class="ir geral-twitter">Twitter</a>
+        <a href="#" class="ir geral-pinterest mar-r-10">Pinterest</a>
+        {{ include('/includes/partials/btn-voltar.html.twig', { url: url('trabalho') }) }}
     </div>
-</div>
+
+    <img src="{{ item.imagem }}" alt="{{ item.nome }}" class="imagem-destaque">
+
+    {% if item.galeria %}
+        <div class="g-d-16">
+            <div class="image-list">
+            {% for i in item.galeria %}
+                {% if i.video %}
+                <a class="image-list-item fancybox-media fancybox.iframe" rel="galeria" href="{{ i.video }}" title="{{ item.nome }}">
+                    <img src="{{ i.thumb }}" alt="{{ item.nome }}">
+                </a>
+                {% else %}
+                    <a class="image-list-item fancybox-media" rel="galeria" href="{{ i.imagem }}" title="{{ item.nome }}">
+                        <img src="{{ i.thumb }}" alt="{{ item.nome }}">
+                    </a>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% set size = item.galeria ? 8 : 24 %}
+    <div class="g-d-{{ size }} g-d-l conteudo">
+        <h2 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h2>
+        {{ item.descricao|raw }}
+
+        <p>URL: <a href="{{ item.url }}" class="grayLight" target="_blank">{{ item.url }}</a></p>
+
+        <hr class="hr">
+
+        <h2 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h2>
+        {{ item.oquefizemos|raw }}
+    </div>
+
+</article>
 {% endblock %}
