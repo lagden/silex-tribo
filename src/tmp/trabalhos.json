@@ -1,0 +1,69 @@
+{
+    "success": true,
+    "message": null,
+    "data": [{
+            "id": 9,
+            "cliente": "Nescau",
+            "nome": "Nescau",
+            "chamada": null,
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x235_C8A9BA43.jpg",
+            "width": "380",
+            "height": "235",
+            "url": "/Trabalhos"
+        }, {
+            "id": 10,
+            "cliente": "RH",
+            "nome": "Tribo Interactive admite Gui Soares",
+            "chamada": "Tribo Interactive admite Gui Soares",
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x235_E9123EFD.jpg",
+            "width": "380",
+            "height": "235",
+            "url": "/Ultimas"
+        }, {
+            "id": 11,
+            "cliente": "Clear",
+            "nome": "Clean\u0026Clear",
+            "chamada": null,
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x490_8FC233C4.jpg",
+            "width": "380",
+            "height": "490",
+            "url": "/Trabalhos"
+        }, {
+            "id": 2,
+            "cliente": "PayPal",
+            "nome": "PayPal",
+            "chamada": null,
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x235_83128931.jpg",
+            "width": "380",
+            "height": "235",
+            "url": "/Trabalhos/Sigla-Noticia"
+        }, {
+            "id": 1,
+            "cliente": "RH",
+            "nome": "Contratação Leda",
+            "chamada": "Contratação Leda",
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x490_4D19684D.jpg",
+            "width": "380",
+            "height": "490",
+            "url": "/Ultimas/Sigla-Noticia"
+        }, {
+            "id": 3,
+            "cliente": "Vale",
+            "nome": "Vale",
+            "chamada": null,
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/380x490_E25E9BFB.jpg",
+            "width": "380",
+            "height": "490",
+            "url": "/Trabalhos/Sigla-Noticia"
+        }, {
+            "id": 4,
+            "cliente": "PayPal",
+            "nome": "PayPal",
+            "chamada": "Sua Carteira digital",
+            "imagem": "http://www.tribointeractive.com.br:81/Tribosite/Conteudo/Destaques/130x80_DDEFF789.jpg",
+            "width": "130",
+            "height": "80",
+            "url": "/Trabalhos/Sigla-Noticia"
+        }
+    ]
+}
