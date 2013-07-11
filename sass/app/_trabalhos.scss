@@ -22,10 +22,11 @@
     .image-list-item {
         @extend .g-d-8;
         margin-left: 0;
-        margin-right: $gutter-width;
+        margin-right: $gutter-width - 2;
         margin-top: $gutter-width;
         overflow: hidden;
         display: block;
+        border: 1px solid rgb(233, 233, 233);
     }
 
     .conteudo {
