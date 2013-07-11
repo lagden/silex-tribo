@@ -4,7 +4,7 @@
 <div class="wrapper grupo grupo-a-tribo">
     <article class="media">
         <div class="media__img--rev">
-            {% set item = {'rotulo': 'titulo_sobre_a_tribo', 'imagem': app.request.basepath ~ "/images/sobre-a-tribo.jpg"} %}
+            {% set item = {'rotulo': 'titulo_sobre_a_tribo', 'imagem': app.request.basepath ~ "/images/sobre-a-tribo.jpg", "width": "580", "height": "213"} %}
             {{ include('/includes/partials/box.html.twig', { "item": item }) }}
         </div>
         <div class="media__body">
