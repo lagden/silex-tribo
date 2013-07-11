@@ -37,9 +37,11 @@ class home implements ControllerProviderInterface
     {
         // Banner
         $banners = utils::cache($app['home.banner'], ['idioma'=>$app['translator']->getLocale()], $app, 'banner_home');
+        if(!isset($banners['data'])) $banners = ['data'=>null, 'pagina'=>null, 'paginas'=>null ];
 
         // Boxes
         $boxes = utils::cache($app['home.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home");
+        if(!isset($boxes['data'])) $boxes = ['data'=>null, 'pagina'=>null, 'paginas'=>null ];
 
         // Tweets
         $tweets = [];
