@@ -22,12 +22,12 @@ module.exports = function(grunt) {
                     'bower_components/GreenSock-JS/src/uncompressed/jquery.gsap.js',
                     // Flexslider
                     'bower_components/flexslider/jquery.flexslider.js',
-                    // Desandro
-                    'public/Scripts/desandro/packery.pkgd.js',
+                    // Isotope
+                    'bower_components/isotope/jquery.isotope.js',
+                    // Infinite Scroll
+                    'bower_components/infinite-scroll/jquery.infinitescroll.js',
                     // fancyBox
-                    'bower_components/fancybox/source/jquery.fancybox.js',
-                    // swfobject
-                    'bower_components/swfobject/swfobject/swfobject.js'
+                    'bower_components/fancybox/source/jquery.fancybox.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },

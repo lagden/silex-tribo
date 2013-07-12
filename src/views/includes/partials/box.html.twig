@@ -1,5 +1,5 @@
 {% set isFull = isFull ? 'is-full' : '' %}
-<div{% if css %} class="{{ css }}"{% endif %}>
+<div class="element {{ css }}">
     <figure class="cap cap-bottom" data-url="{{ item.url }}">
         {% if item.url %}
             <a href="{{ item.url }}">

@@ -3,11 +3,14 @@
 {% block content %}
 <section class="wrapper grupo grupo-trabalho">
     <h2 class="titulo">{{ 'titulo_trabalhos'|trans }}</h2>
-    <div class="packery" id="packeryTrabalho">
+    <div class="packery" id="packeryTrabalho" data-maxPage="{{ paginas }}">
         {{ include('/trabalho/partial/box-lista.html.twig', { "boxes": boxes }) }}
     </div>
     {% if pagina < paginas %}
-        <a href="#!carrega-mais" class="loadmore text--center" data-selector=".box" data-container="packeryTrabalho" data-url="{{ url('trabalho_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+        <div id="page_nav" class="hidden">
+            <a href="{{ url('trabalho_pagina', { 'page': 2 }) }}" class="loadmore text--center"><i class="ir geral-refresh">Carrega mais</i></a>
+        </div>
     {% endif %}
 </section>
 {% endblock %}
+

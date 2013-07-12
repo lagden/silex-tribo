@@ -12,6 +12,7 @@
     "html5shiv": "3.6.2",
     "flexslider": "latest",
     "fancybox": "2.1.5",
-    "swfobject": "latest"
+    "isotope": "~1.5.25",
+    "infinite-scroll": "latest"
   }
 }

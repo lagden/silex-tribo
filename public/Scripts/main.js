@@ -5,45 +5,27 @@
     var $ = window.jQuery,
         $container = $('.packery');
 
-    // Packery
-    $container.packery();
+    // Isotope
+     $container.isotope({
+        itemSelector: '.element'
+    });
 
-    // Adiciona caixas no Packery
-    $('.loadmore').on('click.loadmore', function(ev) {
-        ev = ev || event;
-        if (ev) {
-            ev.preventDefault();
-            ev.stopPropagation();
+     var currentLang = $('body').data('lingua') || 'pt-BR';
+
+    // Scroll infinito
+    $container.infinitescroll({
+        navSelector: '#page_nav',
+        nextSelector: '#page_nav a',
+        itemSelector: '.element',
+        maxPage: $container.data('maxPage'),
+        loading: {
+            msgText: (currentLang == 'pt-BR') ? "<em>Carregando...</em>" : "<em>Loading the next set of posts...</em>",
+            finishedMsg: (currentLang == 'pt-BR') ? 'Não há mais páginas para carregar.' : 'No more pages to load.',
+            img: 'http://i.imgur.com/qkKy8.gif'
         }
-        var $this = $(this);
-        var url = $this.data('url');
-        var container = $this.data('container');
-        var pagina = $this.data('pagina');
-        var selector = $this.data('selector');
-        $.post(url, {"page": pagina}, function(r) {
-            if (r.success) {
-                var elems = [];
-                var $elems = $(r.html);
-                $elems.filter( selector ).each(function(k, v) {
-                    elems.push(v);
-                });
-
-                console.log(r.pagina, r.paginas, elems.length, url);
-
-                if(r.pagina < r.paginas)
-                    $this.data('pagina', r.pagina + 1);
-                else
-                    $this.hide();
-
-                var $currContainer = $('#' + container);
-                if ($currContainer.length > 0) {
-                    $currContainer.append($elems);
-                    var packery = $currContainer.data('packery');
-                    if(packery)
-                        packery.appended(elems);
-                }
-            }
-        }, 'json');
+    },
+    function(newElements) {
+        $container.isotope('appended', $(newElements));
     });
 
     // Caption dos Boxes
@@ -60,15 +42,17 @@
 
     // Media
     $('.fancybox-media').fancybox({
-        openEffect  : 'elastic',
-        closeEffect : 'elastic',
-        helpers : {
-            media : {}
-        },
+        openEffect: 'elastic',
+        closeEffect: 'elastic',
         swf: {
             wmode: 'transparent',
-            allowfullscreen   : 'true',
-            allowscriptaccess : 'always'
+            allowfullscreen: 'true',
+            allowscriptaccess: 'always'
+        },
+        ajax: {
+            headers: {
+                'X-fancyBox': true
+            }
         }
     });
 

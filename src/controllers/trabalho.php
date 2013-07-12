@@ -16,7 +16,7 @@ class trabalho implements ControllerProviderInterface
         ->bind( 'trabalho' );
 
         $controllers
-        ->post( "/pagina", array( $this, 'page' ) )
+        ->get( "/pagina/{page}", array( $this, 'page' ) )
         ->bind( 'trabalho_pagina' );
 
         $controllers
@@ -33,13 +33,11 @@ class trabalho implements ControllerProviderInterface
         return $app['twig']->render( 'trabalho/index.html.twig', ['boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
 
-    public function page( Application $app )
+    public function page( Application $app, $page )
     {
-        $page = $app['request']->get('page', 1);
         $items = utils::cache($app['trabalho.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "trabalhos_{$page}");
-        $html = $app['twig']->render( 'trabalho/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
-        $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
-        return $app->json($response, 201);
+        sleep(2);
+        return $app['twig']->render( 'trabalho/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
     }
 
     public function show( Application $app, $slug )
