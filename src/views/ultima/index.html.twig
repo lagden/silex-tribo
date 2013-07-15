@@ -19,7 +19,9 @@
         {% endfor %}
     </div>
     {% if pagina < paginas %}
-        <a href="#!carrega-mais" data-selector=".media" class="loadmore text--center" data-container="ultimasLista" data-url="{{ url('ultima_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+        <div id="page_nav" class="hidden">
+            <a href="{{ url('ultima_pagina', { 'page': 2 }) }}" class="loadmore text--center"><i class="ir geral-refresh">Carrega mais</i></a>
+        </div>
     {% endif %}
 </section>
 {% endblock %}

@@ -21,11 +21,12 @@ a{
 
 .container-box,
 .packery{
+    @extend .cf;
+    position: relative;
     margin-right: -$gutter-width;
     margin-top: -$gutter-width;
     margin-bottom: $gutter-width;
     overflow: hidden;
-    @extend .cf;
 }
 
 .box{

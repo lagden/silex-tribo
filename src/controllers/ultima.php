@@ -16,7 +16,7 @@ class ultima implements ControllerProviderInterface
         ->bind( 'ultima' );
 
         $controllers
-        ->post( "/pagina", array( $this, 'page' ) )
+        ->get( "/pagina/{page}", array( $this, 'page' ) )
         ->bind( 'ultima_pagina' );
 
         $controllers
@@ -34,15 +34,15 @@ class ultima implements ControllerProviderInterface
         return $app['twig']->render( 'ultima/index.html.twig', [ 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'], 'destaques'=>$destaques['data'] ] );
     }
 
-    public function page( Application $app )
+    public function page( Application $app, $page )
     {
-        $page = $app['request']->get('page', 1);
         $items = utils::cache($app['ultimas.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
+        sleep(2);
         $ultimas = "";
         foreach ($items['data'] as $item)
             $ultimas .= $app['twig']->render( 'ultima/partial/box-lista.html.twig', [ 'item'=>$item ] );
-        $response = ["success"=>true, "html"=>$ultimas, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
-        return $app->json($response, 201);
+
+        return $ultimas;
     }
 
     public function show( Application $app, $slug )

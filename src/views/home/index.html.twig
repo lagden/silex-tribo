@@ -9,7 +9,9 @@
         {{ include('/home/partial/box-twitter.html.twig', { "tweets": tweets }) }}
     </div>
     {% if pagina < paginas %}
-        <a href="#!carrega-mais" class="loadmore text--center" data-selector=".box" data-container="packeryDestaquesHome" data-url="{{ url('home_pagina') }}" data-pagina="{{ pagina + 1 }}"><i class="ir geral-refresh">Carrega mais</i></a>
+        <div id="page_nav" class="hidden">
+            <a href="{{ url('home_pagina', { 'page': 2 }) }}" class="loadmore text--center"><i class="ir geral-refresh">Carrega mais</i></a>
+        </div>
     {% endif %}
 </div>
 {% endblock %}

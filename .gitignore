@@ -12,16 +12,11 @@ bower_components
 
 # Silex
 /public/Scripts/dist
-/public/Scripts/output*.js
-/public/Scripts/html5shiv*.js
-/public/Content/screen.css
+/public/Scripts/output.dev.js
 composer.lock
 /vendor/*
 /cache/*
 /log/*
-
-# Compass
-/public/images/sprites/geral-s*
 
 # Cpanel
 cgi-bin

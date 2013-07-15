@@ -15,7 +15,7 @@ class home implements ControllerProviderInterface
         ->bind( 'homepage' );
 
         $controllers
-        ->post( "/pagina", array( $this, 'page' ) )
+        ->get( "/pagina/{page}", array( $this, 'page' ) )
         ->bind( 'home_pagina' );
 
         $controllers
@@ -58,13 +58,11 @@ class home implements ControllerProviderInterface
         return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners['data'], 'tweets'=>$tweets, 'boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
     }
 
-    public function page( Application $app )
+    public function page( Application $app, $page )
     {
-        $page = $app['request']->get('page', 1);
-        $items = utils::cache($app['home.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "boxes_home_{$page}");
-        $html = $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
-        $response = ["success"=>true, "html"=>$html, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas']];
-        return $app->json($response, 201);
+        $items = utils::cache($app['home.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "home_{$page}");
+        sleep(2);
+        return $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
     }
 
     public function lang( Application $app, $lang)

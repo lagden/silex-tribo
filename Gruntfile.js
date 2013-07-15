@@ -88,7 +88,7 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: ['public/Scripts/main.js'],
-                tasks: ['concat', 'uglify:ie'],
+                tasks: ['concat', 'uglify:ie', 'clean'],
                 options: {
                     livereload: true
                 }
@@ -100,6 +100,13 @@ module.exports = function(grunt) {
                     livereload: true
                 }
             }
+        },
+        // Clean
+        clean: {
+            options: {
+              force: true
+            },
+            dist: ['public/Scripts/dist']
         }
     });
 
@@ -107,5 +114,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.registerTask('default', ['concat', 'uglify', 'compass:prod']);
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.registerTask('default', ['concat', 'uglify', 'clean', 'compass:prod']);
 };
