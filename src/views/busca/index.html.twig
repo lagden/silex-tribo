@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<section class="wrapper grupo grupo-ultima">
+    <h2 class="titulo">{{ 'titulo_busca'|trans }}</h2>
+    <div class="cf packery" id="ultimasLista">
+        {% for item in items %}
+            {{ include('/busca/partial/box-lista.html.twig', { "item": item }  ) }}
+        {% else %}
+            {{ nenhum_registro|trans }}
+        {% endfor %}
+    </div>
+    {% if pagina < paginas %}
+        <div id="page_nav" class="hidden">
+            <a href="{{ url('busca_pagina', { 'page': 2 }) }}" class="loadmore text--center"><i class="ir geral-refresh">Carrega mais</i></a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

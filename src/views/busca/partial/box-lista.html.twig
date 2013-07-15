@@ -1,0 +1,13 @@
+<article class="element media">
+    {% if item.imagem %}
+        <img src="{{ item.imagem }}" class="media__img" alt="{{ item.titulo }}">
+    {% endif %}
+    <div class="media__body">
+        <h3>{{ item.tipo }} :: {{ item.titulo }}</h3>
+        <p>{{ item.descricao }}</p>
+        <a class="btn btn-info extra" href="{{ item.url }}">
+            <span>{{ 'continuar_lendo'|trans }}</span>
+        </a>
+    </div>
+</article>
+

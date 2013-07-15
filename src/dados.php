@@ -73,6 +73,10 @@ $app['ultimas.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Notic
 $app['categorias.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/ListarCategorias';
 $app['clientes.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/ListarClientes';
 
+$app['busca.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Busca';
+$app['busca.palavras'] = 'http://www.tribointeractive.com.br:81/tribosite/Busca/ListarPalavras';
+
+
 // Twitter
 $app['twitter.key'] = '42T8fw5GWeqLesWQ3wNksA';
 $app['twitter.secret'] = 'x05yNCG61V6MeycrZ5GVFAmkFkj28V99DuCrIvcjl8';

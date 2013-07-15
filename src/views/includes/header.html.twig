@@ -16,6 +16,9 @@
     <div class="g-d-5 g-d-l text--right">
         <div class="social-and-busca">
             {{- knp_menu_render('social', {"compressed": true}, renderer ) -}}
+            <form action="{{ url('busca') }}" method="post">
+                <input type="text" name="q" value="{{ 'label_busca'|trans }}" />
+            </form>             
         </div>
         <hr class="rule gray flush">
         <p class="fs-11 mar-0 caps  pad-t-20 pad-b-20">
