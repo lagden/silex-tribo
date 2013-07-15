@@ -44,7 +44,7 @@ class trabalho implements ControllerProviderInterface
     public function page( Application $app, $page )
     {
         $items = utils::cache($app['trabalho.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "trabalhos_{$page}");
-        sleep(2);
+        
         return $app['twig']->render( 'trabalho/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
     }
 

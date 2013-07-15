@@ -19,7 +19,7 @@ class utils
             else
             {
                 $items = static::curl($url, $data);
-                $app['cache']->save($key, $items, '3600');
+                // $app['cache']->save($key, $items, '3600');
             }
         }
         else

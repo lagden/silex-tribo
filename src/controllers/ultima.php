@@ -37,7 +37,7 @@ class ultima implements ControllerProviderInterface
     public function page( Application $app, $page )
     {
         $items = utils::cache($app['ultimas.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "ultimas_{$page}");
-        sleep(2);
+        
         $ultimas = "";
         foreach ($items['data'] as $item)
             $ultimas .= $app['twig']->render( 'ultima/partial/box-lista.html.twig', [ 'item'=>$item ] );

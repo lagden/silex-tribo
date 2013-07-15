@@ -4,8 +4,6 @@ namespace controllers;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 use helpers\utils;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class busca implements ControllerProviderInterface
@@ -15,11 +13,11 @@ class busca implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers
-        ->post( "/", array( $this, 'index' ) )
+        ->get( "/", array( $this, 'index' ) )
         ->bind( 'busca' );
 
         $controllers
-        ->get( "/pagina/{page}", array( $this, 'page' ) )
+        ->get( "/pagina/{page}/{q}", array( $this, 'page' ) )
         ->bind( 'busca_pagina' );
 
         return $controllers;
@@ -28,24 +26,22 @@ class busca implements ControllerProviderInterface
     public function index( Application $app )
     {
 
-        $app['palavra'] =$_POST['q'];
+        $palavra = $app['request']->get('q');
 
         $app['title'] = "{$app['translator']->trans('titulo_buscas')} - {$app['title']}";
-        $items = utils::cache($app['busca.lista'], ['q'=>$app['palavra'], 'page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'busca_first');
-        return $app['twig']->render( 'busca/index.html.twig', [ 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'] ] );
+        $items = utils::cache($app['busca.lista'], ['q'=>$palavra, 'page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'busca_first');
+        return $app['twig']->render( 'busca/index.html.twig', [ 'q'=>$palavra, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'] ] );
     }
 
-    public function page( Application $app, $page )
+    public function page( Application $app, $page, $q )
     {
-        //$app['palavra'] =$_POST['q'];
 
-        $items = utils::cache($app['buscas.lista'], ['q'=>$app['palavra'], 'page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "buscas_{$page}");
-        sleep(2);
+        $items = utils::cache($app['busca.lista'], ['q'=>$q, 'page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "buscas_{$page}");
+        
         $buscas = "";
         foreach ($items['data'] as $item)
             $buscas .= $app['twig']->render( 'busca/partial/box-lista.html.twig', [ 'item'=>$item ] );
 
         return $buscas;
     }
-
 }

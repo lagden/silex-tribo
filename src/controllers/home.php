@@ -61,7 +61,7 @@ class home implements ControllerProviderInterface
     public function page( Application $app, $page )
     {
         $items = utils::cache($app['home.lista'], ['page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "home_{$page}");
-        sleep(2);
+        
         return $app['twig']->render( 'home/partial/box-lista.html.twig', [ 'boxes'=>$items['data'] ] );
     }
 
