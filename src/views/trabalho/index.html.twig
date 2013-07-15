@@ -2,20 +2,22 @@
 
 {% block content %}
 <section class="wrapper grupo grupo-trabalho">
-    <h2 class="titulo g-d-16">{{ 'titulo_trabalhos'|trans }}</h2>
-    <div class="g-d-8 g-d-l text--right">
-        <select class="theCombo theComboFilter">
-            <option value="*">{{ 'clientes'|trans }}</option>
-            {% for item in clientes %}
-                <option value=".{{ item.slug }}">{{ item.nome }}</option>
-            {% endfor %}
-        </select>
-        <select class="theCombo theComboFilter">
-            <option value="*">{{ 'categorias'|trans }}</option>
-            {% for item in categorias %}
-                <option value=".{{ item.slug }}">{{ item.nome }}</option>
-            {% endfor %}
-        </select>
+    <div class="cf">
+        <h2 class="titulo g-d-14">{{ 'titulo_trabalhos'|trans }}</h2>
+        <div class="g-d-10 g-d-l text--right">
+            <select class="theCombo theComboFilter">
+                <option value="*">{{ 'clientes'|trans }}</option>
+                {% for item in clientes %}
+                    <option value=".{{ item.slug }}">{{ item.nome }}</option>
+                {% endfor %}
+            </select>
+            <select class="theCombo theComboFilter">
+                <option value="*">{{ 'categorias'|trans }}</option>
+                {% for item in categorias %}
+                    <option value=".{{ item.slug }}">{{ item.nome }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
     <div class="packery" id="packeryTrabalho" data-maxPage="{{ paginas }}">
         {{ include('/trabalho/partial/box-lista.html.twig', { "boxes": boxes }) }}

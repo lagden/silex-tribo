@@ -4,6 +4,7 @@ html{
     @include sans-serif;
     background-color: $white;
     color: $black;
+    height: 101%
 }
 
 a{
@@ -27,6 +28,7 @@ a{
     margin-top: -$gutter-width;
     margin-bottom: $gutter-width;
     overflow: hidden;
+    min-width: 100%;
 }
 
 .box{

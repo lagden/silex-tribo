@@ -11,13 +11,15 @@
     });
 
     // Combo Isotope Filter
-    var $theComboFilter = $('.theComboFilter').on('change.filterIsotope', function(ev) {
+    var $theComboFilter = $('.theComboFilter');
+    $theComboFilter.on('change.filterIsotope', function(ev) {
         ev = ev || event;
         if (ev) {
             ev.preventDefault();
             ev.stopPropagation();
         }
         var selector = this.value
+        cleanup(this, selector);
         $container
             .isotope({
                 filter: selector
@@ -108,6 +110,12 @@
             animation: 'slide',
             sync: '#galeria-de-fotos-thumbs'
         });
+    }
+
+    function cleanup(that, value){
+        $theComboFilter.val('*');
+        $(that).val(value);
+        combo.theCombo('change');
     }
 
 })(window);
