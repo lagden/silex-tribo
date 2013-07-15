@@ -29,8 +29,16 @@ class trabalho implements ControllerProviderInterface
     public function index( Application $app )
     {
         $app['title'] = "{$app['translator']->trans('titulo_trabalhos')} - {$app['title']}";
-        $boxes = utils::cache($app['trabalho.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_first');
-        return $app['twig']->render( 'trabalho/index.html.twig', ['boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
+        $categorias = utils::cache($app['categorias.lista'], ['idioma'=>$app['translator']->getLocale()], $app, 'categorias');
+        $clientes = utils::cache($app['clientes.lista'], ['idioma'=>$app['translator']->getLocale()], $app, 'trabalhos_first');
+        $boxes = utils::cache($app['trabalho.lista'], ['page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'clientes');
+        return $app['twig']->render( 'trabalho/index.html.twig', [
+            'boxes'=>$boxes['data'],
+            'pagina'=>$boxes['pagina'],
+            'paginas'=>$boxes['paginas'],
+            'categorias'=>$categorias['data'],
+            'clientes'=>$clientes['data'],
+        ]);
     }
 
     public function page( Application $app, $page )

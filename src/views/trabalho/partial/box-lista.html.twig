@@ -1,4 +1,4 @@
 {% for item in boxes %}
     {% set item = item|merge({ 'url': url('trabalho_show', { 'slug': item.slug }) }) %}
-    {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box', "isFull": true }) }}
+    {{ include('/includes/partials/box.html.twig', { "item": item, "css": 'box ' ~ item.categorias|join(' ') ~ ' ' ~ item.clienteSlug, "isFull": true }) }}
 {% endfor %}

@@ -6,27 +6,48 @@
         $container = $('.packery');
 
     // Isotope
-     $container.isotope({
+    $container.isotope({
         itemSelector: '.element'
     });
 
-     var currentLang = $('body').data('lingua') || 'pt-BR';
+    // Combo Isotope Filter
+    var $theComboFilter = $('.theComboFilter');
+    $theComboFilter.on('change.filterIsotope', function(ev) {
+        ev = ev || event;
+        if (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+        }
+        var selector = this.value
+        cleanup(this, selector);
+        $container
+            .isotope({
+                filter: selector
+            })
+            .isotope('reLayout');
+    });
+
+    // The Combo
+    var combo = $('.theCombo').theCombo();
+
+    var currentLang = $('body').data('lingua') || 'pt-BR';
 
     // Scroll infinito
     $container.infinitescroll({
-        navSelector: '#page_nav',
-        nextSelector: '#page_nav a',
-        itemSelector: '.element',
-        maxPage: $container.data('maxPage'),
-        loading: {
-            msgText: (currentLang == 'pt-BR') ? "<em>Carregando...</em>" : "<em>Loading the next set of posts...</em>",
-            finishedMsg: (currentLang == 'pt-BR') ? 'Não há mais páginas para carregar.' : 'No more pages to load.',
-            img: 'http://i.imgur.com/qkKy8.gif'
-        }
-    },
-    function(newElements) {
-        $container.isotope('appended', $(newElements));
-    });
+            navSelector: '#page_nav',
+            nextSelector: '#page_nav a',
+            itemSelector: '.element',
+            maxPage: $container.data('maxPage'),
+            loading: {
+                msgText: (currentLang == 'pt-BR') ? "<em>Carregando...</em>" : "<em>Loading the next set of posts...</em>",
+                finishedMsg: (currentLang == 'pt-BR') ? 'Não há mais páginas para carregar.' : 'No more pages to load.',
+                img: 'http://i.imgur.com/qkKy8.gif'
+            }
+        },
+        function(newElements) {
+            $container.isotope('appended', $(newElements));
+            $theComboFilter.trigger('change.filterIsotope');
+        });
 
     // Caption dos Boxes
     $('.cap').on('click.caption', function(ev) {
@@ -37,7 +58,7 @@
         }
         var $this = $(this);
         var url = $(this).data('url');
-        if(url) window.location = url;
+        if (url) window.location = url;
     });
 
     // Media
@@ -57,7 +78,7 @@
     });
 
     // Slider da Home
-    if ( $('.flexslider.banners').length > 0 ) {
+    if ($('.flexslider.banners').length > 0) {
         $('.flexslider.banners').flexslider({
             directionNav: false,
             slideshowSpeed: 4000,
@@ -67,7 +88,7 @@
     }
 
     // Slider da Últimas
-    if ( $('.flexslider.galeria').length > 0 ) {
+    if ($('.flexslider.galeria').length > 0) {
         $('#galeria-de-fotos-thumbs').flexslider({
             controlNav: false,
             animation: 'slide',
@@ -89,6 +110,12 @@
             animation: 'slide',
             sync: '#galeria-de-fotos-thumbs'
         });
+    }
+
+    function cleanup(that, value){
+        $theComboFilter.val('*');
+        $(that).val(value);
+        combo.theCombo('change');
     }
 
 })(window);

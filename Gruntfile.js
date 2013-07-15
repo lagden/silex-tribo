@@ -27,7 +27,9 @@ module.exports = function(grunt) {
                     // Infinite Scroll
                     'bower_components/infinite-scroll/jquery.infinitescroll.js',
                     // fancyBox
-                    'bower_components/fancybox/source/jquery.fancybox.js'
+                    'bower_components/fancybox/source/jquery.fancybox.js',
+                    // theCombo
+                    'bower_components/jquery.theCombo.js/jquery.theCombo.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },

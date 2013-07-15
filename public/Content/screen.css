@@ -315,7 +315,7 @@ html { font-size: 14px; line-height: 1.5em; }
 .invisible { visibility: hidden; }
 
 /* line 44, ../../sass/add-ons/_helpers.scss */
-.bb, .cap .caption.is-full, .btn, .grupo-contato > .mapas, .grupo-contato > .setores, .grupo-ultima .media .media__body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.bb, .cap .caption.is-full, .theCombo, .btn, .grupo-contato > .mapas, .grupo-contato > .setores, .grupo-ultima .media .media__body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 /* line 48, ../../sass/add-ons/_helpers.scss */
 .clear, .grupo-trabalhos .titulo-secao { clear: both; float: none; }
@@ -324,7 +324,7 @@ html { font-size: 14px; line-height: 1.5em; }
 .cursor--pointer { cursor: pointer; }
 
 /* line 57, ../../sass/add-ons/_helpers.scss */
-.inline-block, .btn span, .btn i, .btn.btn-voltar, .btn.btn-info { display: inline-block; *display: inline; *zoom: 1; }
+.inline-block, .theCombo, .btn span, .btn i, .btn.btn-voltar, .btn.btn-info { display: inline-block; *display: inline; *zoom: 1; }
 
 /* line 61, ../../sass/add-ons/_helpers.scss */
 .middle { vertical-align: middle; }
@@ -1466,64 +1466,67 @@ a.grayLight:hover { color: #c4c4c4; }
 a.grayLight:active { color: #c4c4c4; }
 
 /* line 3, ../../sass/app/_geral.scss */
-html { font-family: false, "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: white; color: black; }
+html { font-family: false, "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: white; color: black; height: 101%; }
 
-/* line 13, ../../sass/app/_geral.scss */
+/* line 14, ../../sass/app/_geral.scss */
 .rule.gray { color: #c4c4c4; }
 
-/* line 17, ../../sass/app/_geral.scss */
+/* line 18, ../../sass/app/_geral.scss */
 .wrapper { overflow: hidden; }
 
-/* line 23, ../../sass/app/_geral.scss */
-.container-box, .packery { position: relative; margin-right: -20px; margin-top: -20px; margin-bottom: 20px; overflow: hidden; }
+/* line 24, ../../sass/app/_geral.scss */
+.container-box, .packery { position: relative; margin-right: -20px; margin-top: -20px; margin-bottom: 20px; overflow: hidden; min-width: 100%; }
 
-/* line 32, ../../sass/app/_geral.scss */
+/* line 34, ../../sass/app/_geral.scss */
 .box, .social-updates { min-height: 235px; min-height: 14.6875rem; max-height: 490px; max-height: 30.625rem; margin-left: 0; margin-right: 20px; margin-top: 20px; overflow: hidden; }
 
-/* line 42, ../../sass/app/_geral.scss */
+/* line 44, ../../sass/app/_geral.scss */
 .cap { font-size: 13px; font-size: 0.8125rem; overflow: hidden; display: block; position: relative; margin: 0; }
-/* line 48, ../../sass/app/_geral.scss */
+/* line 50, ../../sass/app/_geral.scss */
 .cap img { display: block; }
-/* line 51, ../../sass/app/_geral.scss */
+/* line 53, ../../sass/app/_geral.scss */
 .cap .btn { position: absolute; top: 0; left: 0; }
-/* line 56, ../../sass/app/_geral.scss */
+/* line 58, ../../sass/app/_geral.scss */
 .cap .caption { font-size: 18px; font-size: 1.125rem; padding: 20px; padding: 1.25rem; padding-right: 40px; padding-right: 2.5rem; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition-property: all; -moz-transition-property: all; -o-transition-property: all; transition-property: all; -webkit-transition-duration: 0.5s; -moz-transition-duration: 0.5s; -o-transition-duration: 0.5s; transition-duration: 0.5s; -webkit-transition-timing-function: ease; -moz-transition-timing-function: ease; -o-transition-timing-function: ease; transition-timing-function: ease; cursor: pointer; line-height: normal; position: absolute; background-color: black; background-color: rgba(0, 0, 0, 0.75); color: white; }
-/* line 70, ../../sass/app/_geral.scss */
+/* line 72, ../../sass/app/_geral.scss */
 .cap .caption.is-full { width: 100%; }
-/* line 74, ../../sass/app/_geral.scss */
+/* line 76, ../../sass/app/_geral.scss */
 .cap .caption .plus { bottom: 10px; bottom: 0.625rem; right: 10px; right: 0.625rem; position: absolute; width: 18px; height: 18px; }
-/* line 82, ../../sass/app/_geral.scss */
+/* line 84, ../../sass/app/_geral.scss */
 .cap.active .caption { font-size: 11px; font-size: 0.6875rem; padding: 10px; padding: 0.625rem; font-weight: normal !important; bottom: 0; left: 0; }
-/* line 91, ../../sass/app/_geral.scss */
+/* line 93, ../../sass/app/_geral.scss */
 .cap.active .caption, .cap:hover .caption { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
-/* line 96, ../../sass/app/_geral.scss */
-.cap.cap-bottom:before { bottom: 10px; left: 10px; }
-/* line 97, ../../sass/app/_geral.scss */
-.cap.cap-bottom .caption { left: 0; bottom: -30%; }
 /* line 98, ../../sass/app/_geral.scss */
+.cap.cap-bottom:before { bottom: 10px; left: 10px; }
+/* line 99, ../../sass/app/_geral.scss */
+.cap.cap-bottom .caption { left: 0; bottom: -30%; }
+/* line 100, ../../sass/app/_geral.scss */
 .cap.cap-bottom:hover .caption { bottom: 0; }
-/* line 102, ../../sass/app/_geral.scss */
-.cap.cap-right:before { bottom: 10px; right: 10px; }
-/* line 103, ../../sass/app/_geral.scss */
-.cap.cap-right figcaption { bottom: 0; right: -30%; }
 /* line 104, ../../sass/app/_geral.scss */
+.cap.cap-right:before { bottom: 10px; right: 10px; }
+/* line 105, ../../sass/app/_geral.scss */
+.cap.cap-right figcaption { bottom: 0; right: -30%; }
+/* line 106, ../../sass/app/_geral.scss */
 .cap.cap-right:hover figcaption { right: 0; }
 
-/* line 108, ../../sass/app/_geral.scss */
+/* line 110, ../../sass/app/_geral.scss */
 .loadmore { display: block; padding: 20px; background-color: white; }
 
-/* line 114, ../../sass/app/_geral.scss */
+/* line 116, ../../sass/app/_geral.scss */
 .grupo { margin-bottom: 20px; }
 
-/* line 118, ../../sass/app/_geral.scss */
+/* line 120, ../../sass/app/_geral.scss */
 .grupo .titulo { font-size: 56px; font-size: 3.5rem; line-height: 56px; line-height: 3.5rem; margin-top: 0; margin-bottom: 20px; }
 
-/* line 126, ../../sass/app/_geral.scss */
+/* line 128, ../../sass/app/_geral.scss */
 .flexslider { background: none; border: 0; box-shadow: none; }
 
 /**** Infinite Scroll ****/
-/* line 134, ../../sass/app/_geral.scss */
+/* line 136, ../../sass/app/_geral.scss */
 #infscr-loading { position: fixed; text-align: center; bottom: 30px; left: 42%; z-index: 100; background: white; background: rgba(255, 255, 255, 0.9); padding: 20px; color: #222; font-size: 15px; font-weight: bold; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+
+/* line 1, ../../sass/app/_combo.scss */
+.theCombo { -webkit-background-clip: padding; -moz-background-clip: padding; background-clip: padding-box; white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; word-wrap: break-word; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; vertical-align: top; overflow: hidden; padding: 5px; padding-right: 30px; background-image: url('../images/combo-5.png?1373916838'); background-repeat: no-repeat; background-position: right center; background-color: white; border: 2px solid black; color: black; cursor: pointer; text-align: left; top: auto; right: auto; left: auto; bottom: auto; max-width: 200px; min-width: 150px; }
 
 /* line 1, ../../sass/app/_btn.scss */
 .btn { border: 2px solid black; font-weight: bold; }
