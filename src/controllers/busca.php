@@ -28,18 +28,18 @@ class busca implements ControllerProviderInterface
     public function index( Application $app )
     {
 
-        $q = $_POST['q'];
+        $app['palavra'] =$_POST['q'];
 
         $app['title'] = "{$app['translator']->trans('titulo_buscas')} - {$app['title']}";
-        $items = utils::cache($app['busca.lista'], ['q'=>$q, 'page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'busca_first');
+        $items = utils::cache($app['busca.lista'], ['q'=>$app['palavra'], 'page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'busca_first');
         return $app['twig']->render( 'busca/index.html.twig', [ 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'] ] );
     }
 
     public function page( Application $app, $page )
     {
-        $q = $_POST['q'];
+        //$app['palavra'] =$_POST['q'];
 
-        $items = utils::cache($app['buscas.lista'], ['q'=>$q, 'page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "buscas_{$page}");
+        $items = utils::cache($app['buscas.lista'], ['q'=>$app['palavra'], 'page'=>$page, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, "buscas_{$page}");
         sleep(2);
         $buscas = "";
         foreach ($items['data'] as $item)

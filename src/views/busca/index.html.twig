@@ -3,6 +3,11 @@
 {% block content %}
 <section class="wrapper grupo grupo-ultima">
     <h2 class="titulo">{{ 'titulo_busca'|trans }}</h2>
+    
+    <div >
+        {{ resultado_busca|trans }} : {{ palavra }}
+    </div>
+
     <div class="cf packery" id="ultimasLista">
         {% for item in items %}
             {{ include('/busca/partial/box-lista.html.twig', { "item": item }  ) }}
