@@ -57,7 +57,7 @@ $app['dados'] = [
 ];
 
 // Api
-$app['pagesize'] = 1;
+$app['pagesize'] = 6;
 
 $app['home.banner'] = 'http://www.tribointeractive.com.br:81/tribosite/Home/ListarBanners';
 $app['home.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Home/ListarDestaques';
