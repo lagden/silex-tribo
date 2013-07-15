@@ -15,7 +15,7 @@
         {% for item in items %}
             {{ include('/ultima/partial/box-lista.html.twig', { "item": item }  ) }}
         {% else %}
-            {{ nenhum_registro|trans }}
+            {{ 'nenhum_registro'|trans }}
         {% endfor %}
     </div>
     {% if pagina < paginas %}
