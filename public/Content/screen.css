@@ -315,7 +315,7 @@ html { font-size: 14px; line-height: 1.5em; }
 .invisible { visibility: hidden; }
 
 /* line 44, ../../sass/add-ons/_helpers.scss */
-.bb, .cap .caption.is-full, .btn, .grupo-contato > .mapas, .grupo-contato > .setores, .grupo-ultima .media .media__body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.bb, .cap .caption.is-full, .theCombo, .btn, .grupo-contato > .mapas, .grupo-contato > .setores, .grupo-ultima .media .media__body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 /* line 48, ../../sass/add-ons/_helpers.scss */
 .clear, .grupo-trabalhos .titulo-secao { clear: both; float: none; }
@@ -324,7 +324,7 @@ html { font-size: 14px; line-height: 1.5em; }
 .cursor--pointer { cursor: pointer; }
 
 /* line 57, ../../sass/add-ons/_helpers.scss */
-.inline-block, .btn span, .btn i, .btn.btn-voltar, .btn.btn-info { display: inline-block; *display: inline; *zoom: 1; }
+.inline-block, .theCombo, .btn span, .btn i, .btn.btn-voltar, .btn.btn-info { display: inline-block; *display: inline; *zoom: 1; }
 
 /* line 61, ../../sass/add-ons/_helpers.scss */
 .middle { vertical-align: middle; }
@@ -1524,6 +1524,9 @@ html { font-family: false, "Helvetica Neue", Helvetica, Arial, sans-serif; backg
 /**** Infinite Scroll ****/
 /* line 134, ../../sass/app/_geral.scss */
 #infscr-loading { position: fixed; text-align: center; bottom: 30px; left: 42%; z-index: 100; background: white; background: rgba(255, 255, 255, 0.9); padding: 20px; color: #222; font-size: 15px; font-weight: bold; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+
+/* line 1, ../../sass/app/_combo.scss */
+.theCombo { -webkit-background-clip: padding; -moz-background-clip: padding; background-clip: padding-box; white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; word-wrap: break-word; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; vertical-align: top; overflow: hidden; padding: 5px; padding-right: 30px; background-image: url('../images/combo.png?1373905964'); background-repeat: no-repeat; background-position: right 5px center; background-color: white; border: 2px solid black; color: black; cursor: pointer; text-align: left; }
 
 /* line 1, ../../sass/app/_btn.scss */
 .btn { border: 2px solid black; font-weight: bold; }

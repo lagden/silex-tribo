@@ -1,0 +1,21 @@
+.theCombo{
+    @extend .bb;
+    @extend .inline-block;
+    @include background-clip(padding-box);
+    @include force-wrap;
+    @include ellipsis;
+    vertical-align: top;
+    overflow: hidden;
+    padding: 5px;
+    padding-right: 30px;
+    background:{
+        image: image_url('combo.png');
+        repeat: no-repeat;
+        position: right 5px center;
+        color: $white;
+    }
+    border: 2px solid $black;
+    color: $black;
+    cursor: pointer;
+    text-align: left;
+}

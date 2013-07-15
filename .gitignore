@@ -13,10 +13,12 @@ bower_components
 # Silex
 /public/Scripts/dist
 /public/Scripts/output.dev.js
-composer.lock
+composer.*
 /vendor/*
 /cache/*
 /log/*
+
+!composer.json
 
 # Cpanel
 cgi-bin
