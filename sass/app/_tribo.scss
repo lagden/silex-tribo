@@ -11,6 +11,11 @@
             @include attr-size('min-height', 265);
             margin-top: 7px !important;
             margin-right: 7px !important;
+
+
+            .cap .caption{
+                cursor: auto !important;
+            }
         }
     }
 }

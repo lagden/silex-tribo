@@ -37,7 +37,9 @@
     <div class="g-d-{{ size }} g-d-l conteudo">
         <h3 class="titulo-secao">{{ 'sobre_o_projeto'|trans }}</h3>
         {{ item.descricao|raw }}
-        <p>URL: <a href="{{ item.url }}" class="grayLight" target="_blank">{{ item.url }}</a></p>
+        {% if item.url %}
+            <p>URL: <a href="{{ item.url }}" class="grayLight" target="_blank">{{ item.url }}</a></p>
+        {% endif %}
         <hr class="hr">
         <h3 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h3>
         {{ item.oquefizemos|raw }}
