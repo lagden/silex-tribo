@@ -131,68 +131,44 @@ a{
     box-shadow: none;
 }
 
-/**** Infinite Scroll ****/
-
 #infscr-loading {
+  @include attr-size('font-size', 15);
+  @include attr-size('padding', 20);
+  @include border-radius(10px);
   position: fixed;
   text-align: center;
   bottom: 30px;
   left: 42%;
   z-index: 100;
-  background: white;
-  background: hsla( 0, 0%, 100%, 0.9 );
-  padding: 20px;
-  color: #222;
-  font-size: 15px;
+  background: $white;
+  background: rgba($white, 0.7);
+  color: $gray;
   font-weight: bold;
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
 }
 
-/*
-.loading{
-    $size: 2000px;
-    $to: -100%;
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($white, .5);
-    overflow: hidden;
-    z-index: 10;
-    .left,
-    .right{
-        position: fixed;
-        width: $size;
-        height: $size;
-        top: 50%;
-        margin-top: -($size / 2);
-    }
-    .left{
-        left: $to;
-        background-color: rgba($black, .5);
-    }
-    .right{
-        right: $to;
-        background-color: rgba($orange, .5);
-    }
-    .skew{
-        @include rotate( 45deg );
-    }
-    .logoLoading{
-        $loading_size: 300px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: $loading_size;
-        height: $loading_size;
-        z-index: 11;
-        margin-left: -($loading_size / 2);
-        margin-top: -($loading_size / 2);
-        background: transparent image-url('loading.png') no-repeat center center;
+.frmBusca{
+    position: relative;
+    .inputBusca{
+        @extend .caps;
+        @extend .bb;
+        @include attr-size('font-size', 13);
+        @include attr-size('height', 25);
+        @include attr-size('line-height', 25);
+        @include attr-size('padding', 3);
+        padding-right: $gutter-width;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        border: 0;
+        background:{
+            color: transparent;
+            image: image_url('busca.png');
+            repeat: no-repeat;
+            position: right center;
+        }
+        &:focus{
+            outline: none;
+        }
     }
 }
-// */

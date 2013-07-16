@@ -16,10 +16,10 @@
     <div class="g-d-5 g-d-l text--right">
         <div class="social-and-busca">
             {{- knp_menu_render('social', {"compressed": true}, renderer ) -}}
-            <form action="{{ url('busca') }}" method="get">
-                <input type="text" name="q" placeholder="{{ 'label_busca'|trans }}" />
-            </form>             
         </div>
+        <form action="{{ url('busca') }}" method="get" class="frmBusca">
+            <input type="text" name="q" class="inputBusca" placeholder="{{ 'label_busca'|trans }}">
+        </form>
         <hr class="rule gray flush">
         <p class="fs-11 mar-0 caps  pad-t-20 pad-b-20">
             <strong>{{ app.dados.local.headquarter.cidade }}</strong> {{ app.dados.local.headquarter.telefone }}<br>
