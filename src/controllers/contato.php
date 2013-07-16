@@ -19,6 +19,7 @@ class contato implements ControllerProviderInterface
 
     public function index( Application $app )
     {
+        $app['title'] = "{$app['translator']->trans('titulo_contato')} - {$app['title']}";
         return $app['twig']->render( 'contato/index.html.twig', array() );
     }
 }

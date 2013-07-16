@@ -25,10 +25,9 @@ class busca implements ControllerProviderInterface
 
     public function index( Application $app )
     {
-
         $palavra = $app['request']->get('q');
 
-        $app['title'] = "{$app['translator']->trans('titulo_buscas')} - {$app['title']}";
+        $app['title'] = "{$palavra} - {$app['translator']->trans('titulo_busca')} - {$app['title']}";
         $items = utils::cache($app['busca.lista'], ['q'=>$palavra, 'page'=>1, 'pagesize'=>$app['pagesize'], 'idioma'=>$app['translator']->getLocale()], $app, 'busca_first');
         return $app['twig']->render( 'busca/index.html.twig', [ 'q'=>$palavra, 'pagina'=>$items['pagina'], 'paginas'=>$items['paginas'], 'items'=>$items['data'] ] );
     }
