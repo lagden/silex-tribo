@@ -5,7 +5,7 @@
     <h2 class="titulo g-d-16">{{ item.nome }} <small class="sub-titulo">Cliente: {{ item.cliente }}</small></h2>
     <div class="g-d-8 g-d-l text--right">
         <span class="caps txt-color-grayLight fs-13 pad-r-10">{{ 'compartilhar'|trans }}</span>
-        {% set urlDaPagina = "http:" ~ url('trabalho_show', {'slug':item.nome}, true)|url_encode %}
+        {% set urlDaPagina = "http:" ~ url('trabalho_show', {'slug':item.slug}, true)|url_encode %}
         <a href="http://www.facebook.com/sharer/sharer.php?u={{ urlDaPagina }}" class="ir geral-facebook" target="_blank">Facebook</a>
         <a href="http://twitter.com/intent/tweet?url={{ urlDaPagina }}?&amp;via={{ "tribo"|url_encode }}&amp;text={{ item.nome|url_encode }}" class="ir geral-twitter" target="_blank">Twitter</a>
         <a href="http://pinterest.com/pin/create/button/?url={{ urlDaPagina }}&amp;media={{ item.imagem|url_encode }}&amp;description={{ item.descricao|url_encode }}" class="ir geral-pinterest mar-r-10" target="_blank">Pinterest</a>
