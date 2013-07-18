@@ -53,6 +53,6 @@ class ultima implements ControllerProviderInterface
             $item = $item['data'][0];
             $app['title'] = "{$item['titulo']} - {$app['title']}";
         }
-        return $app['twig']->render( 'ultima/show.html.twig', [ 'item'=>$item ] );
+        return $app['twig']->render( 'ultima/show.html.twig', [ 'item'=>$item, 'slug'=>$slug ] );
     }
 }

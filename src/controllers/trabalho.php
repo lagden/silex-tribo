@@ -56,6 +56,6 @@ class trabalho implements ControllerProviderInterface
             $item = $item['data'][0];
             $app['title'] = "{$item['nome']} - {$app['title']}";
         }
-        return $app['twig']->render( 'trabalho/show.html.twig', [ 'item'=>$item ] );
+        return $app['twig']->render( 'trabalho/show.html.twig', [ 'item'=>$item, 'slug'=>$slug ] );
     }
 }
