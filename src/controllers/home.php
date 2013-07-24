@@ -52,7 +52,7 @@ class home implements ControllerProviderInterface
         }
         else
         {
-            $tweets = static::parse(Twitter::search('tribo interactive', 2, 'recent'));
+            $tweets = static::parse(Twitter::search('tribointeractive OR "tribo interactive"', 2, 'recent'));
             $app['cache']->save('tweets', $tweets, '600');
         }
 
