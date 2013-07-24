@@ -4,6 +4,7 @@ namespace controllers;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 use helpers\utils;
+use vendor\Twitter;
 
 class home implements ControllerProviderInterface
 {
@@ -51,7 +52,7 @@ class home implements ControllerProviderInterface
         }
         else
         {
-            $tweets = static::twitterGF($app);
+            $tweets = static::parse(Twitter::search('tribo interactive', 2));
             $app['cache']->save('tweets', $tweets, '600');
         }
 
@@ -78,56 +79,13 @@ class home implements ControllerProviderInterface
         return $app->json([$app['cache']->deleteAll()], 201);
     }
 
-    static private function twitterGF(Application $app)
+    static private function parse($r)
     {
-        $url                       = "https://api.twitter.com/1.1/statuses/user_timeline.json";
-
-        $oauth_access_token        = $app['twitter.access_token'];
-        $oauth_access_token_secret = $app['twitter.access_token_secret'];
-        $consumer_key              = $app['twitter.key'];
-        $consumer_secret           = $app['twitter.secret'];
-
-        $usuario                   = "tribo";
-        $quantidade                = 2;
-
-        $oauth = [
-            'count'                  => $quantidade,
-            'screen_name'            => $usuario,
-            'oauth_consumer_key'     => $consumer_key,
-            'oauth_nonce'            => time(),
-            'oauth_signature_method' => 'HMAC-SHA1',
-            'oauth_token'            => $oauth_access_token,
-            'oauth_timestamp'        => time(),
-            'oauth_version'          => '1.0'
-        ];
-
-
-        $base_info                = static::buildBaseString($url, 'GET', $oauth);
-        $composite_key            = rawurlencode($consumer_secret) . '&' . rawurlencode($oauth_access_token_secret);
-        $oauth_signature          = base64_encode(hash_hmac('sha1', $base_info, $composite_key, true));
-        $oauth['oauth_signature'] = $oauth_signature;
-
-        // Make Requests
-        $header = [static::buildAuthorizationHeader($oauth), 'Expect:'];
-
-        $options = [ 
-            CURLOPT_HTTPHEADER     => $header,
-            CURLOPT_HEADER         => false,
-            CURLOPT_URL            => $url . "?count=$quantidade&screen_name=$usuario",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_SSL_VERIFYPEER => false
-        ];
-
-        $feed         = curl_init();
-        curl_setopt_array($feed, $options);
-        $json         = curl_exec($feed);
-        curl_close($feed);
-
-        $twitter_data = json_decode($json);
+        $data = json_decode($r);
 
         $tweets = [];
-        foreach($twitter_data as $k => $status){
-            $text = $status->text;
+        foreach($data->statuses as $k => $status){
+            $text = "@{$status->user->screen_name}: {$status->text}";
             $data = $status->created_at;
 
             $text = preg_replace('@(https?://([-\w\.]+)+(/([\w/_\.]*(\?\S+)?(#\S+)?)?)?)@', '<a class="gray" href="$1">$1</a>', $text);
@@ -141,25 +99,6 @@ class home implements ControllerProviderInterface
             $tweets[$k]['text'] = $text;
             $tweets[$k]['created_at'] = $created_at;
         }
-
         return $tweets;
-    }
-
-    static private function buildBaseString($baseURI, $method, $params) {
-        $r = array();
-        ksort($params);
-        foreach($params as $key=>$value){
-            $r[] = "$key=" . rawurlencode($value);
-        }
-        return $method."&" . rawurlencode($baseURI) . '&' . rawurlencode(implode('&', $r));
-    }
-
-    static private function buildAuthorizationHeader($oauth) {
-        $r = 'Authorization: OAuth ';
-        $values = array();
-        foreach($oauth as $key=>$value)
-            $values[] = "$key=\"" . rawurlencode($value) . "\"";
-        $r .= implode(', ', $values);
-        return $r;
     }
 }
