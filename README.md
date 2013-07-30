@@ -35,3 +35,5 @@ Geram os arquivos `output.js` e o `screen.css`.
 - Plínio
 
 ## Deploy
+
+    git push deploy master
