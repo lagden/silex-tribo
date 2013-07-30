@@ -37,8 +37,8 @@ $app['dados'] = [
                 "email"=>"ana.masagao@tribointeractive.com.br",
             ],
             "trabalhe_conosco"=>[
-                "nome"=>"Ana Masagão",
-                "email"=>"ana.masagao@tribointeractive.com.br",
+                "nome"=>"Andreia Quinteiro",
+                "email"=>"andreia.quinteiro@tribointeractive.com.br",
             ],
         ]
     ],
