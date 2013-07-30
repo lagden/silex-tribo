@@ -18,8 +18,8 @@ $app['dados'] = [
                 "email"=>"marilene.gonzales@tribointeractive.com.br",
             ],
             "trabalhe_conosco"=>[
-                "nome"=>"Leda Cichello",
-                "email"=>"leda.cichello@tribointeractive.com.br",
+                "nome"=>"Andreia Quinteiro",
+                "email"=>"andreia.quinteiro@tribointeractive.com.br",
             ],
         ],
         "filial"=>[

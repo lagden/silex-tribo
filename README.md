@@ -33,3 +33,5 @@ Geram os arquivos `output.js` e o `screen.css`.
 - Pablo
 - Gui
 - Plínio
+
+## Deploy
