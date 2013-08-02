@@ -35,7 +35,9 @@ module.exports = function(grunt) {
             },
             app: {
                 src: [
-                    'public/Scripts/main.js'],
+                    'public/Scripts/main.js',
+                    'public/Scripts/grid.js'
+                ],
                 dest: 'public/Scripts/dist/base.js'
             },
             dev: {
@@ -89,7 +91,7 @@ module.exports = function(grunt) {
         // Watch
         watch: {
             js: {
-                files: ['public/Scripts/main.js'],
+                files: ['public/Scripts/main.js','public/Scripts/grid.js'],
                 tasks: ['concat', 'uglify:ie', 'clean'],
                 options: {
                     livereload: true

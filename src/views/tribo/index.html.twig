@@ -15,21 +15,39 @@
     <hr class="rule gray">
     <img src="{{ app.request.basepath }}/images/slogan-{{ locale }}.png" class="sloganImg" alt="{{ 'slogan'|trans|raw }}">
     <hr class="rule gray">
-    <article>
+    <article id="quemSomos">
         <h2 class="titulo">{{ 'titulo_quem_somos'|trans }}</h2>
-        <div class="que-somos cf">
-        {% for item in app.dados.quemsomos %}
-        <div class="g-d-5 g-d-l">
-            <figure class="cap active">
-                <img src="{{ app.request.basepath }}/images/tribo/{{ item.imagem }}" alt="{{ item.nome }}">
+        <div class="que-somos">
+        {%- for item in app.dados.quemsomos -%}
+        <div class="team">
+            <figure>
+                <img src="{{ app.request.basepath }}/images/tribo/{{ item.imagem }}.jpg" alt="{{ item.nome }}">
+                {# <img src="{{ app.request.basepath }}/images/tmp/{{ item.imagem }}" alt="{{ item.nome }}"> #}
                 <figcaption class="caption">
                     <strong>{{ item.nome }}</strong><br>
                     {{ item.cargo }}
                 </figcaption>
             </figure>
+            <div class="teamDetail hidden">
+                <div class="media">
+                    <img class="media__img" src="{{ app.request.basepath }}/images/tribo/{{ item.imagem }}_aberto.jpg" alt="{{ item.nome }}">
+                    {# <img class="media__img" src="{{ app.request.basepath }}/images/tmp/{{ item.imagem }}" alt="{{ item.nome }}"> #}
+                    <div class="media__body">
+                        <h3>{{ item.nome }}</h3>
+                        <h4>{{ item.cargo }}</h4>
+
+                        {{ item.cv|raw }}
+                    </div>
+                </div>
+            </div>
         </div>
-        {% endfor %}
+        {%- endfor -%}
         </div>
     </article>
 </div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    var likeAGoogleImages = new LikeAGoogleImages('#quemSomos', '> .que-somos:eq(0) > .team', '> .teamDetail:eq(0)');
+</script>  
 {% endblock %}

@@ -3,18 +3,73 @@
         margin-bottom: $gutter-width;
     }
 
+    $size: $gutter-width;
+
     .que-somos{
-        margin-top: -7px !important;
-        margin-right: -7px !important;
+        margin-top: -$size !important;
+        margin-right: -$size !important;
 
-        .g-d-5{
-            @include attr-size('min-height', 265);
-            margin-top: 7px !important;
-            margin-right: 7px !important;
+        .team{
+            @include attr-size('min-width', 380);
+            @include attr-size('min-height', 235);
+            @include inline-block();
+            cursor: pointer;
+            vertical-align: top;
+            margin-top: $size !important;
+            margin-right: $size !important;
 
+            figure{
+                position: relative;
+                margin: 0;
+                padding: 0;
+                z-index: 11;
+                &.seta{
+                    @extend %arrow;
+                    @extend %arrow--center;
+                    &:after{
+                        border-bottom-color: $grayLighter !important;
+                    }
+                    &:before,
+                    &:after{
+                        bottom: -$size !important;
+                    }
+                }
 
-            .cap .caption{
-                cursor: auto !important;
+                img{
+                    display: block;
+                }
+                .caption{
+                    @include attr-size('font-size', 13);
+                }
+            }
+            .teamDetail{
+                @extend .bb;
+                @include opacity(0);
+                position: absolute;
+                top: auto;
+                left: 0;
+                width: 100%;
+                padding: $gutter-width * 2;
+                background-color: $grayLighter;
+                margin-top: $size;
+                z-index: 10;
+                h3{
+                    @include attr-size('font-size', 24);
+                    margin: 0;
+                    padding: 0;
+                }
+                h4{
+                    @include attr-size('font-size', 18);
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: $gutter-width;
+                }
+                li,p{
+                    @include attr-size('font-size', 14);
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: $gutter-width / 2;
+                }
             }
         }
     }

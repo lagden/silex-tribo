@@ -41,6 +41,32 @@ a{
     overflow: hidden;
 }
 
+.caption{
+    @include attr-size('font-size', 18);
+    @include attr-size('padding', $gutter-width );
+    @include attr-size('padding-right', $gutter-width * 2 );
+    line-height: normal;
+    background-color: $black;
+    background-color: rgba($black, .75);
+    color: $white;
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    &.is-full{
+        @extend .bb;
+        width: 100%;
+    }
+    .plus{
+        @include attr-size('bottom', $gutter-width / 2 );
+        @include attr-size('right', $gutter-width / 2 );
+        position: absolute;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
 .cap{
     @include attr-size('font-size', 13);
     overflow: hidden;
@@ -56,19 +82,11 @@ a{
         left: 0;
     }
     .caption{
-        @include attr-size('font-size', 18);
-        @include attr-size('padding', $gutter-width );
-        @include attr-size('padding-right', $gutter-width * 2 );
         @include opacity(0);
         @include transition-property(all);
         @include transition-duration(.5s);
         @include transition-timing-function(ease);
         cursor: pointer;
-        line-height: normal;
-        position: absolute;
-        background-color: $black;
-        background-color: rgba($black, .75);
-        color: $white;
         &.is-full{
             @extend .bb;
             width: 100%;
