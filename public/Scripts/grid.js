@@ -20,6 +20,7 @@
             ev.preventDefault();
             ev.stopPropagation();
             var $this = $(this);
+            if($this.data('size') == undefined) $this.data('size', $this.outerHeight());
             if($this.hasClass('opened')){
                 that.hide();
             } else {
@@ -48,11 +49,10 @@
 
     LikeAGoogleImages.prototype.show = function(el) {
         var detail = el.find(this.detail),
-            elSize = el.outerHeight(),
+            elSize = el.data('size'),
             size;
 
         if(detail.length > 0){
-            el.data('size', elSize);
             size = this.getOuterHeight(detail) + elSize;
             TweenMax.to(el, 0.1, {"height": size, onComplete: function(){
                 detail.removeClass('hidden').prev().addClass('seta');
