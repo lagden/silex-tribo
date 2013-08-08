@@ -10,7 +10,7 @@ currentBranch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(
 /bin/env -i /usr/bin/git checkout master
 /bin/env -i /usr/bin/git reset --hard
 /bin/env -i /usr/bin/git pull origin master
-/bin/env -i /usr/bin/git checkout ${currentBranch}
+`/bin/env -i /usr/bin/git checkout ${currentBranch}`
 
 echo "                                "
 echo "< Deploy finalizado... Yeahh!! >"
