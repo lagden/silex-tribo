@@ -1,21 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-ssh -T Administrador@fenix 'bash -s' <<EOF
+ssh -T Administrador@fenix <<EOF
 
 # Tribo@5506
 
 cd /cygdrive/d/Web/sitetribo;
-mkdir -p /cygdrive/d/Web/tmp.branch
-touch /cygdrive/d/Web/tmp.branch/sitetribo.branch;
 
-/bin/env -i /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/" > /cygdrive/d/Web/tmp.branch/sitetribo.branch;
+# Pega o branch atual
+k=\$(/usr/bin/env -i /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/");
 
-# /bin/env -i /usr/bin/git stash
-# /bin/env -i /usr/bin/git checkout master
-# /bin/env -i /usr/bin/git reset --hard
-# /bin/env -i /usr/bin/git pull origin master
-
-/bin/env -i /cygdrive/d/Web/sitetribo/bin/branch;
+/usr/bin/env -i /usr/bin/git stash
+/usr/bin/env -i /usr/bin/git checkout master
+/usr/bin/env -i /usr/bin/git reset --hard
+/usr/bin/env -i /usr/bin/git pull origin master
+/usr/bin/env -i /usr/bin/git checkout \$k
 
 echo "                                "
 echo "< Deploy finalizado... Yeahh!! >"

@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-
-
-echo $(cat /cygdrive/d/Web/tmp.branch/sitetribo.branch)
