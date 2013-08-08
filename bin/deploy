@@ -1,0 +1,28 @@
+#!/bin/bash
+
+ssh -T ssh Administrador@fenix <<EOF
+
+# Tribo@5506
+
+cd /cygdrive/d/Web/sitetribo
+currentBranch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"`
+/bin/env -i /usr/bin/git stash
+/bin/env -i /usr/bin/git checkout master
+/bin/env -i /usr/bin/git reset --hard
+/bin/env -i /usr/bin/git pull origin master
+/bin/env -i /usr/bin/git checkout ${currentBranch}
+
+echo "                                "
+echo "< Deploy finalizado... Yeahh!! >"
+echo "------------------------------  "
+echo "        \   ^__^                "
+echo "         \  (oo)\_______        "
+echo "            (__)\       )\/\    "
+echo "                ||----w |       "
+echo "                ||     ||       "
+echo "                                "
+
+exit 0
+EOF
+
+exit 0
