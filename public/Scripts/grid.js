@@ -34,6 +34,7 @@
         var that = this,
             detail;
 
+        TweenMax.to(this.filhos, 0.5, {"alpha": 1});
         this.filhos.filter('.opened').each(function(i, it){
             var el = $(it);
             detail = el.find(that.detail);
@@ -50,7 +51,8 @@
     LikeAGoogleImages.prototype.show = function(el) {
         var detail = el.find(this.detail),
             elSize = el.data('size'),
-            size;
+            size,
+            that = this;
 
         if(detail.length > 0){
             size = this.getOuterHeight(detail) + elSize;
@@ -58,6 +60,7 @@
                 detail.removeClass('hidden').prev().addClass('seta');
                 TweenMax.to(detail, 0.5, {"alpha": 1, onComplete: function(){
                     el.addClass('opened');
+                    TweenMax.to(that.filhos.filter(':not(.opened)'), 0.5, {"alpha": .5});
                 }});
             }});
         }
