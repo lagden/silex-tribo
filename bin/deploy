@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh -T ssh Administrador@fenix <<EOF
+ssh -T Administrador@fenix <<EOF
 
 # Tribo@5506
 
