@@ -58,7 +58,7 @@ $app['dados'] = [
 <p>Graduado em Comunicação Social pela ESPM – Escola Superior de Propagana e Marketing de São Paulo, participou da Oficina de Teledramaturgia da Rede Globo e da Oficina de Roteiro da EICTV – Escuela Internacional de Cine y TV, em Cuba.</p>
 <p>É professor de Criação Publicitária para a Web na Miami Ad School.</p>"
         ],
-        ["nome"=>"Edna Santos", "cargo"=>"Diretora de RH", "imagem"=>"edna",
+        ["nome"=>"Edna Santos", "cargo"=>"Diretora Adm/Fin e Operações", "imagem"=>"edna",
             "cv"=>"<p>Formada em Publicidade e Propaganda pela FIAM – Faculdades Integradas Alcântara Machado, e em Contabilidade pela FECAP – Fundação Escola de Comércio Álvares Penteado. Começou sua trajetória profissional na área de pesquisa, na Leda (atual Ibope) e desde 1980 passou a atuar na área administrativa e financeira de agências publicitárias, tendo participado do desenvolvimento e implantação do software de gestão operacional das empresas. Entre elas, Proeme, DPZ, W/Brasil, Registrada, Lage Magy e Escala SP</p>"
         ],
         ["nome"=>"Leonardo M. da Cunha", "cargo"=>"Diretor de TI", "imagem"=>"leonardo",
@@ -86,10 +86,17 @@ $app['dados'] = [
 </ul>"
         ],
         ["nome"=>"Guilherme Soares", "cargo"=>"Diretor de criação", "imagem"=>"guilherme",
-            "cv"=>""
+            "cv"=>"
+<p>Com passagem anterior pela Dlktsn Digital Shop – produtora digital full-service do Grupo Delicatessen – Gui Soares atuará na Tribo em parceria com o Diretor de Criação Ricardo Scheirer, atendendo a todos os clientes do portfólio agência, com projetos voltados principalmente para Nestlé e PayPal.</p>"
         ],
         ["nome"=>"Alessandra Orrico", "cargo"=>"Diretora de Mídia", "imagem"=>"alessandra",
-            "cv"=>""
+            "cv"=>"
+<p>Mais de 15 anos de experiência em projetos digitais integrados com os meios tradicionais em clientes de diversos portes e segmentos. Focada em planejamento e execução de estratégias de marketing digital e comunicação integrada online.</p>
+<p>Grande conhecimento em manuseio e análises de Pesquisas de Mídia.</p>
+<p>Domínio em ações nas plataformas de Busca (SEM), Business Intelligence e Estratégias de Social Media atrelando captação + engajamento.</p>
+<p>Desenvolvimento do planejamento estratégico, tático de mídia online e off-line e projeção de KPIs.</p>
+<p>Desenvolvimento de campanhas publicitárias/promocionais e programas de relacionamento com consumidor final e canais de distribuição (CRM e E-CRM).</p>
+<p>Principais contas atendidas e gerenciadas na Tribo Interactive: Grupo EBX, GSK Glaxo Smith Kline, Nestlé, Vale, NET, Paypal, Herbalife, Positron.</p>"
         ],
         ["nome"=>"Renato Muller", "cargo"=>"Diretor de Planejamento", "imagem"=>"renato",
             "cv"=>"<p>Formado em Publicidade e Propaganda pela Cásper Líbero, com especialização em Planejamento de comunicação na Miami Ad School, tem 12 anos de experiência no mercado de comunicação trabalhando com propaganda, promoção e internet. Com passagens pela Lew'Lara\TBWA e Rumba, já trabalhou com os clientes Nissan, SABESP, Aruba, Citroën, Porto Seguro.</p>"
@@ -108,7 +115,7 @@ $app['dados'] = [
 <li>análise de resultados, com recomendações de continuidade.</li>
 </ul>"
         ],
-        ["nome"=>"Ana Maria Masagão", "cargo"=>"Diretor de Inteligência de novos negócios", "imagem"=>"ana",
+        ["nome"=>"Ana Maria Masagão", "cargo"=>"Diretor de Inteligência de Novos Negócios", "imagem"=>"ana",
             "cv"=>"
 <p>É graduada em Nutrição pela Faculdade de Saúde Pública da USP e se especializou em gerência de projetos web com cursos preparatórios para certificação PMO.</p>
 <p>Foi Gerente de E-Business da Sadia e Analista Sênior responsável pela área de Internet na Nestlé. Atuou como membro do Comitê de Internet  da ABA - Associação Brasileira de Anunciantes pela Nestlé e Sadia. Como Diretora de Operações da Tribo gerenciou projetos de web de empresas como Nestlé; NET; KIA; Siemens; Abbot; Pfizer; Vale; Johnson & Johnson; JMacedo.</p>"
