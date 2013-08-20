@@ -50,7 +50,7 @@ $app['dados'] = [
 <p>Em 18 anos de atividade como publicitário, foi diretor de criação associado da Z+G Grey e redator na DPZ, tendo atuado também nas house agencies da Editora Abril e da Folha de São Paulo. Entre os clientes atendidos, destacam-se Mercedes-Benz do Brasil, Bayer, Procter & Gamble, Danone, Automóveis Daewoo, Nossa Caixa, BCN, Polenghi, Biscoitos Triunfo e Brinquedos Estrela.</p>
 <p>Atualmente é professor de Criação Publicitária da ESPM – Escola Superior de Propaganda e Marketing – de São Paulo e membro do Conselho de Ética do CONAR.</p>"
         ],
-        ["nome"=>"Roger Rocha", "cargo"=>"VP de criação", "imagem"=>"roger",
+        ["nome"=>"Roger Rocha", "cargo"=>"VP de Criação", "imagem"=>"roger",
             "cv"=>"
 <p>Também conhecido como Roger Rocha, é Sócio e Diretor de Criação da Tribo Interactive onde, há 10 anos, desenvolve projetos de comunicação na web para empresas de grande porte, dirigindo a equipe de Experiência do Usuário que engloba os seguintes núcleos: Criação Publicitária, Interfaces, Arquitetura de Informação e Usabilidade, Conteúdo e Produção Multimídia.</p>
 <p>Ao longo de sua atuação na empresa, chefiou o desenvolvimento de conteúdo interativo e multimídia, campanhas, sites, hot sites e portais para clientes em vários segmentos, públicos e privados, como Johnson & Johnson, Nestlé, The Coca-Cola Company, McDonald’s, Nissan, Kia Motors, Pfizer, Net, SESC SP, SENAC SP, SECOM – Secretraria de Comunicação Social da Presidência da República, Ministério do Turismo, ABA – Associação Brasileira de Anunciantes, entre outros.</p>
@@ -64,7 +64,7 @@ $app['dados'] = [
         ["nome"=>"Leonardo M. da Cunha", "cargo"=>"Diretor de TI", "imagem"=>"leonardo",
             "cv"=>"<p>Gestor de TI com mais de 15 anos de experiência, experiência abrangente em vários segmentos de mercado. Forte habilidade de negociação, alinhando a estratégia da empresa e as necessidades do cliente interno à linguagem da equipe técnica de TI.  Implementação de metodologias de Mercado (PMI, ITIL), determinação de métricas e SLAs. Vasta experiência em implantação/migração de sistemas ERPs (SAP, JDE, Oracle, Datasul, Microsiga, Peoplesoft) atuando em empresas como ADP, Danone, Lego e Tishman Speyer, desenvolvimento de aplicações/integrações. Sólida experiência em projetos de interatividade e plataformas internet, dentre eles os de venda de títulos de capitalização do Banco do Brasil, a implantação da operação do \"comprafacil.com.br\", do primeiro site da Sociedade Brasileira de Oftalmologia, entre outros.</p>"
         ],
-        ["nome"=>"Leda Cichello", "cargo"=>"Diretora de novos negócios", "imagem"=>"leda",
+        ["nome"=>"Leda Cichello", "cargo"=>"Diretora de Novos Negócios", "imagem"=>"leda",
             "cv"=>"
 <p>Pioneira na área digital, na qual atua desde 1997, sua trajetória inclui a formação e direção geral de equipes especializadas, no Brasil e na América Latina.</p>
 <p>Com grande expertise no mercado publicitário, Leda conta com passagens por agências como JWT, Wunderman, PA Publicidade, do Grupo Pão de Açúcar, TBWA e Propeg. Trabalhou também na Rede Globo, como executiva da área comercial digital da emissora.</p>
@@ -72,7 +72,7 @@ $app['dados'] = [
 <p>Foi responsável ainda pela consolidação da comunicação de importantes marcas da indústria nacional, como diferencial competitivo para ganho de mkt share.</p>
 <p>O seu portfólio inclui cases expressivos de diversos segmentos como: alimentos e bebidas, automóveis, higiene pessoal, imobiliário, indústria farmacêutica, supermercados, telefonia e tecnologia, entre outros.</p>"
         ],
-        ["nome"=>"Ricardo Schreier", "cargo"=>"Diretor de criação", "imagem"=>"ricardo",
+        ["nome"=>"Ricardo Schreier", "cargo"=>"Diretor de Criação", "imagem"=>"ricardo",
             "cv"=>"
 <p>Participação em projetos de clientes como: Nestlé, Johnson & Johson, Vale, EBX, Liberty Seguros, GSK, Herbalife, Kia, Herbalife, Cosan, PayPal entre outros.</p>
 <ul>
@@ -85,7 +85,7 @@ $app['dados'] = [
 <li>Participação no board de Planejamento da Tribo Interactive.</li>
 </ul>"
         ],
-        ["nome"=>"Guilherme Soares", "cargo"=>"Diretor de criação", "imagem"=>"guilherme",
+        ["nome"=>"Guilherme Soares", "cargo"=>"Diretor de Criação Associado", "imagem"=>"guilherme",
             "cv"=>"
 <p>Com passagem anterior pela Dlktsn Digital Shop – produtora digital full-service do Grupo Delicatessen – Gui Soares atuará na Tribo em parceria com o Diretor de Criação Ricardo Scheirer, atendendo a todos os clientes do portfólio agência, com projetos voltados principalmente para Nestlé e PayPal.</p>"
         ],
@@ -115,7 +115,7 @@ $app['dados'] = [
 <li>análise de resultados, com recomendações de continuidade.</li>
 </ul>"
         ],
-        ["nome"=>"Ana Maria Masagão", "cargo"=>"Diretor de Inteligência de Novos Negócios", "imagem"=>"ana",
+        ["nome"=>"Ana Masagão", "cargo"=>"Diretora de Inteligência de Negócios", "imagem"=>"ana",
             "cv"=>"
 <p>É graduada em Nutrição pela Faculdade de Saúde Pública da USP e se especializou em gerência de projetos web com cursos preparatórios para certificação PMO.</p>
 <p>Foi Gerente de E-Business da Sadia e Analista Sênior responsável pela área de Internet na Nestlé. Atuou como membro do Comitê de Internet  da ABA - Associação Brasileira de Anunciantes pela Nestlé e Sadia. Como Diretora de Operações da Tribo gerenciou projetos de web de empresas como Nestlé; NET; KIA; Siemens; Abbot; Pfizer; Vale; Johnson & Johnson; JMacedo.</p>"

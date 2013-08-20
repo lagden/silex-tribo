@@ -4,7 +4,7 @@ ssh -T Administrador@fenix <<EOF
 
 # Tribo@5506
 
-cd /cygdrive/d/Web/sitetribo;
+cd /cygdrive/d/Web/sitetribo
 
 # Pega o branch atual
 k=\$(/usr/bin/env -i /usr/bin/git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/");
