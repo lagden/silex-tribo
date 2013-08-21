@@ -40,9 +40,11 @@
         {% if item.url %}
             <p>URL: <a href="{{ item.url }}" class="grayLight" target="_blank">{{ item.url }}</a></p>
         {% endif %}
+        {#
         <hr class="hr">
         <h3 class="titulo-secao">{{ 'o_que_fizemos'|trans }}</h3>
         {{ item.oquefizemos|raw }}
+        #}
     </div>
 
     {% if item.relacionados %}
