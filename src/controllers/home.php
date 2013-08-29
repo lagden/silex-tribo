@@ -46,14 +46,15 @@ class home implements ControllerProviderInterface
 
         // Tweets
         $tweets = [];
-        if ($app['cache']->contains('tweets'))
+        if ($app['cache']->contains('tweets_user'))
         {
-            $tweets = $app['cache']->fetch('tweets');
+            $tweets = $app['cache']->fetch('tweets_user');
         }
         else
         {
-            $tweets = static::parse(Twitter::search('tribointeractive OR "tribo interactive"', 2, 'recent'));
-            $app['cache']->save('tweets', $tweets, '600');
+            // $tweets = static::parse(Twitter::search('tribointeractive OR "tribo interactive"', 2, 'recent'));
+            $tweets = static::parse(Twitter::user('tribo', 2, 'recent'), true);
+            $app['cache']->save('tweets_user', $tweets, '600');
         }
 
         return $app['twig']->render( 'home/index.html.twig', ['banners'=>$banners['data'], 'tweets'=>$tweets, 'boxes'=>$boxes['data'], 'pagina'=>$boxes['pagina'], 'paginas'=>$boxes['paginas'] ] );
@@ -79,12 +80,14 @@ class home implements ControllerProviderInterface
         return $app->json([$app['cache']->deleteAll()], 201);
     }
 
-    static private function parse($r)
+    static private function parse($r, $user=false)
     {
         $data = json_decode($r);
 
+        $loop = $user ? $data : $data->statuses;
+
         $tweets = [];
-        foreach($data->statuses as $k => $status){
+        foreach($loop as $k => $status){
             $text = "@{$status->user->screen_name}: {$status->text}";
             $data = $status->created_at;
 
@@ -99,6 +102,7 @@ class home implements ControllerProviderInterface
             $tweets[$k]['text'] = $text;
             $tweets[$k]['created_at'] = $created_at;
         }
+
         return $tweets;
     }
 }

@@ -19,6 +19,17 @@ class Twitter
         return static::request($url, $querystring);
     }
 
+    static public function user($screen_name, $count=4, $result_type='mixed')
+    {
+        $querystring = [
+            'screen_name' => $screen_name,
+            'result_type' => $result_type,
+            'count' => $count,
+        ];
+        $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+        return static::request($url, $querystring);
+    }
+
     static private function request($url, $querystring)
     {
         $baseOauth = [
