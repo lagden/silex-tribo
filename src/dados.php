@@ -18,8 +18,8 @@ $app['dados'] = [
                 "email"=>"marilene.gonzales@tribointeractive.com.br",
             ],
             "trabalhe_conosco"=>[
-                "nome"=>"Andreia Quinteiro",
-                "email"=>"andreia.quinteiro@tribointeractive.com.br",
+                // "nome"=>"Andreia Quinteiro",
+                "email"=>"portfolio@tribointeractive.com.br",
             ],
         ],
         "filial"=>[
@@ -32,13 +32,13 @@ $app['dados'] = [
                 "nome"=>"Ana Masagão",
                 "email"=>"ana.masagao@tribointeractive.com.br",
             ],
-            "assessoria_de_imprensa"=>[
-                "nome"=>"Ana Masagão",
-                "email"=>"ana.masagao@tribointeractive.com.br",
-            ],
+            // "assessoria_de_imprensa"=>[
+            //     "nome"=>"Ana Masagão",
+            //     "email"=>"ana.masagao@tribointeractive.com.br",
+            // ],
             "trabalhe_conosco"=>[
-                "nome"=>"Andreia Quinteiro",
-                "email"=>"andreia.quinteiro@tribointeractive.com.br",
+                // "nome"=>"Andreia Quinteiro",
+                "email"=>"portfolio_rj@tribointeractive.com.br",
             ],
         ]
     ],
@@ -119,6 +119,33 @@ $app['dados'] = [
             "cv"=>"
 <p>É graduada em Nutrição pela Faculdade de Saúde Pública da USP e se especializou em gerência de projetos web com cursos preparatórios para certificação PMO.</p>
 <p>Foi Gerente de E-Business da Sadia e Analista Sênior responsável pela área de Internet na Nestlé. Atuou como membro do Comitê de Internet  da ABA - Associação Brasileira de Anunciantes pela Nestlé e Sadia. Como Diretora de Operações da Tribo gerenciou projetos de web de empresas como Nestlé; NET; KIA; Siemens; Abbot; Pfizer; Vale; Johnson & Johnson; JMacedo.</p>"
+        ],
+        ["nome"=>"Ana Telles", "cargo"=>"Diretora de Arquitetura da Informação", "imagem"=>"telles",
+            "cv"=>"
+<p>Pós-Graduação<br>
+FIT - Faculdade Impacta Tecnologia e I-Group Conhecimento Estratégico<br>
+MBA Planejamento Estratégico e Marketing Interativo, concluído em fevereiro de 2009
+</p>
+<p>Graduação<br>
+Universidade Anhembi Morumbi<br>
+Design Digital/Criação e Desenvolvimento de Web Sites, concluído em dezembro de 2001
+</p>
+<p>
+Resumo das qualificações:
+<ul>
+<li>Consultora na área de arquitetura de informação, usabilidade e planejamento estratégico de projetos digitais, com mais de 10 anos de experiência no mercado de Internet;</li>
+<li>Atuação em projetos de grande porte - portais corporativos, sites de serviços e e-commerce, Intranets e Extranets - em diversos setores;</li>
+<li>Planejamento para portais corporativos e Intranets em Microsoft SharePoint;</li>
+<li>Arquitetura de informação, usabilidade e acessibilidade para sites;</li>
+<li>Produção de benchmarks segmentados;</li>
+<li>Desenvolvimento de novos produtos e serviços com foco em qualidade e inovação;</li>
+<li>Implementação de atividades e coordenação de execução;</li>
+<li>Larga experiência em interface direta com os clientes, incluindo altos executivos;</li>
+<li>Search Engine Optimization (SEO);</li>
+<li>Certificação em metodologias Scrum e Moebius;</li>
+<li>Participação em eventos corporativos no exterior: Jordânia, Inglaterra, França.</li>
+</ul>
+</p>"
         ],
     ],
 ];

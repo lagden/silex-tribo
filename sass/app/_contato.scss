@@ -27,6 +27,7 @@
         h1{
             @extend .fs-34;
             @extend .caps;
+            @include attr-size('min-height', 105);
         }
         p{
             @extend .fs-13;

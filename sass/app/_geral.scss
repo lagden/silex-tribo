@@ -173,6 +173,7 @@ a{
         @include attr-size('height', 25);
         @include attr-size('line-height', 25);
         @include attr-size('padding', 3);
+        cursor: auto;
         padding-right: $gutter-width;
         position: absolute;
         width: 100%;

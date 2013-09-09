@@ -33,9 +33,11 @@ $app['tribo_social'] = function($app) {
 
     $menu->addChild('Facebook', [ 'uri' => 'https://www.facebook.com/TriboInteractive' ] );
     $menu['Facebook']->setLinkAttribute('class', 'ir geral-facebook');
+    $menu['Facebook']->setLinkAttribute('target', '_blank');
 
     $menu->addChild('Twitter', [ 'uri' => 'https://twitter.com/tribo' ]);
     $menu['Twitter']->setLinkAttribute('class', 'ir geral-twitter');
+    $menu['Twitter']->setLinkAttribute('target', '_blank');
     return $menu;
 };
 

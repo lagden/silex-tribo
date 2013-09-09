@@ -640,7 +640,7 @@ html { font-size: 14px; line-height: 1.5em; }
 /** Force overly long spans of text to truncate, e.g.:  `@include truncate(100%);`  Where `$truncation-boundary` is a united measurement. */
 /** CSS arrows!!! But... before you read on, you might want to grab a coffee...  This mixin creates a CSS arrow on a given element. We can have the arrow appear in one of 12 locations, thus:  01    02    03 +------------------+ 12 |                  | 04 |                  | 11 |                  | 05 |                  | 10 |                  | 06 +------------------+ 09    08    07  You pass this position in along with a desired arrow color and optional border color, for example:  `@include arrow(top, left, red)`  for just a single, red arrow, or:  `@include arrow(bottom, center, red, black)`  which will create a red triangle with a black border which sits at the bottom center of the element. Call the mixin thus:  .foo{ background-color:#BADA55; border:1px solid #ACE; @include arrow(top, left, #BADA55, #ACE); }  */
 /** Media query mixin.  It’s not great practice to define solid breakpoints up-front, preferring to modify your design when it needs it, rather than assuming you’ll want a change at ‘mobile’. However, as inuit.css is required to take a hands off approach to design decisions, this is the closest we can get to baked-in responsiveness. It’s flexible enough to allow you to set your own breakpoints but solid enough to be frameworkified.  We define some broad breakpoints in our vars file that are picked up here for use in a simple media query mixin. Our options are:  palm lap lap-and-up portable desk desk-wide  Not using a media query will, naturally, serve styles to all devices.  `@include media-query(palm){ [styles here] }`  We work out your end points for you: */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 /* ========================================================================== HTML5 display definitions ========================================================================== */
 /* Correct `block` display not defined in IE 8/9. */
 /* line 22, ../../sass/vendor/inuit.css/generic/_normalize.scss */
@@ -1122,7 +1122,7 @@ li > ul, li > ol { margin-bottom: 0; }
 
 /** Text alignment */
 /* line 26, ../../sass/vendor/inuit.css/generic/_helper.scss */
-.text--left { text-align: left !important; }
+.text--left { text-align: left  !important; }
 
 /* line 27, ../../sass/vendor/inuit.css/generic/_helper.scss */
 .text--center, .grupo-contato > .mapas, .grupo-contato > .setores { text-align: center !important; }
@@ -1553,12 +1553,14 @@ html { font-family: false, "Helvetica Neue", Helvetica, Arial, sans-serif; backg
 /* line 167, ../../sass/app/_geral.scss */
 .frmBusca { position: relative; }
 /* line 169, ../../sass/app/_geral.scss */
-.frmBusca .inputBusca { font-size: 13px; font-size: 0.8125rem; height: 25px; height: 1.5625rem; line-height: 25px; line-height: 1.5625rem; padding: 3px; padding: 0.1875rem; padding-right: 20px; position: absolute; width: 100%; left: 0; bottom: 0; border: 0; background-color: transparent; background-image: url('../images/busca.png?1374681811'); background-repeat: no-repeat; background-position: right center; }
-/* line 188, ../../sass/app/_geral.scss */
+.frmBusca .inputBusca { font-size: 13px; font-size: 0.8125rem; height: 25px; height: 1.5625rem; line-height: 25px; line-height: 1.5625rem; padding: 3px; padding: 0.1875rem; cursor: auto; padding-right: 20px; position: absolute; width: 100%; left: 0; bottom: 0; border: 0; background-color: transparent; background-image: url('../images/busca.png?1374681811'); background-repeat: no-repeat; background-position: right center; }
+/* line 189, ../../sass/app/_geral.scss */
 .frmBusca .inputBusca:focus { outline: none; }
 
 /* line 1, ../../sass/app/_combo.scss */
-.theCombo { -webkit-background-clip: padding; -moz-background-clip: padding; background-clip: padding-box; white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; word-wrap: break-word; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; vertical-align: top; overflow: hidden; padding: 5px; padding-right: 30px; background-image: url('../images/combo-5.png?1374681811'); background-repeat: no-repeat; background-position: right center; background-color: white; border: 2px solid black; color: black; cursor: pointer; text-align: left; top: auto; right: auto; left: auto; bottom: auto; max-width: 200px; min-width: 150px; }
+.theCombo { -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-background-clip: padding; -moz-background-clip: padding; background-clip: padding-box; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; word-wrap: break-word; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; vertical-align: top; overflow: hidden; padding: 5px; padding-right: 30px; background-image: url('../images/combo-5.png?1374681811'); background-repeat: no-repeat; background-position: right center; background-color: white; border: 2px solid black; color: black; cursor: pointer; text-align: left; top: auto; right: auto; left: auto; bottom: auto; max-width: 200px; min-width: 150px; outline: none; }
+/* line 30, ../../sass/app/_combo.scss */
+.theCombo:focus { outline: none; }
 
 /* line 1, ../../sass/app/_btn.scss */
 .btn { border: 2px solid black; font-weight: bold; }
@@ -1730,6 +1732,8 @@ body > main > header { overflow: hidden; }
 .grupo-contato > .mapas img { display: block; }
 /* line 19, ../../sass/app/_contato.scss */
 .grupo-contato > .setores { min-height: 350px; min-height: 21.875rem; }
+/* line 27, ../../sass/app/_contato.scss */
+.grupo-contato > .setores h1 { min-height: 105px; min-height: 6.5625rem; }
 
 /* line 1, ../../sass/app/_ultima.scss */
 .grupo-ultima { margin-bottom: 0; }

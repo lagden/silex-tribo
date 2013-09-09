@@ -5,10 +5,12 @@
         <strong class="caps">{{ info.headquarter[key].nome }}</strong><br>
         <a class="white caps" href="mailto:{{ info.headquarter.negocios.email }}">{{ info.headquarter[key].email }}</a>
     </p>
+    {% if info.filial[key] %}
     <div class="mar-10">...</div>
     <p>
         <strong class="txt-color-orange caps">{{ info.filial.cidade }}</strong><br>
         <strong class="caps">{{ info.filial[key].nome }}</strong><br>
         <a class="white caps" href="mailto:{{ info.filial.negocios.email }}">{{ info.filial[key].email }}</a>
     </p>
+    {% endif %}
 </article>

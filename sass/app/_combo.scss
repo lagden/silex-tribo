@@ -1,7 +1,9 @@
 .theCombo{
     @extend .bb;
     @extend .inline-block;
+    @include appearance(none);
     @include background-clip(padding-box);
+    @include border-radius(0);
     @include force-wrap;
     @include ellipsis;
     vertical-align: top;
@@ -24,4 +26,8 @@
     bottom: auto;
     max-width: 200px;
     min-width: 150px;
+    outline: none;
+    &:focus{
+        outline: none;
+    }
 }
