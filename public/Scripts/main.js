@@ -118,4 +118,6 @@
         combo.theCombo('change');
     }
 
+    window.$container = $container;
+
 })(window);

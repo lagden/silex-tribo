@@ -120,32 +120,12 @@ $app['dados'] = [
 <p>É graduada em Nutrição pela Faculdade de Saúde Pública da USP e se especializou em gerência de projetos web com cursos preparatórios para certificação PMO.</p>
 <p>Foi Gerente de E-Business da Sadia e Analista Sênior responsável pela área de Internet na Nestlé. Atuou como membro do Comitê de Internet  da ABA - Associação Brasileira de Anunciantes pela Nestlé e Sadia. Como Diretora de Operações da Tribo gerenciou projetos de web de empresas como Nestlé; NET; KIA; Siemens; Abbot; Pfizer; Vale; Johnson & Johnson; JMacedo.</p>"
         ],
-        ["nome"=>"Ana Telles", "cargo"=>"Diretora de Arquitetura da Informação", "imagem"=>"telles",
+        ["nome"=>"Anna Telles", "cargo"=>"Diretora de Arquitetura da Informação", "imagem"=>"telles",
             "cv"=>"
-<p>Pós-Graduação<br>
-FIT - Faculdade Impacta Tecnologia e I-Group Conhecimento Estratégico<br>
-MBA Planejamento Estratégico e Marketing Interativo, concluído em fevereiro de 2009
-</p>
-<p>Graduação<br>
-Universidade Anhembi Morumbi<br>
-Design Digital/Criação e Desenvolvimento de Web Sites, concluído em dezembro de 2001
-</p>
-<p>
-Resumo das qualificações:
-<ul>
-<li>Consultora na área de arquitetura de informação, usabilidade e planejamento estratégico de projetos digitais, com mais de 10 anos de experiência no mercado de Internet;</li>
-<li>Atuação em projetos de grande porte - portais corporativos, sites de serviços e e-commerce, Intranets e Extranets - em diversos setores;</li>
-<li>Planejamento para portais corporativos e Intranets em Microsoft SharePoint;</li>
-<li>Arquitetura de informação, usabilidade e acessibilidade para sites;</li>
-<li>Produção de benchmarks segmentados;</li>
-<li>Desenvolvimento de novos produtos e serviços com foco em qualidade e inovação;</li>
-<li>Implementação de atividades e coordenação de execução;</li>
-<li>Larga experiência em interface direta com os clientes, incluindo altos executivos;</li>
-<li>Search Engine Optimization (SEO);</li>
-<li>Certificação em metodologias Scrum e Moebius;</li>
-<li>Participação em eventos corporativos no exterior: Jordânia, Inglaterra, França.</li>
-</ul>
-</p>"
+<p>Atua na área de UX, arquitetura de informação, usabilidade e planejamento estratégico de projetos digitais. </p>
+<p>Com mais de 13 anos de experiência no mercado de internet; graduada em Design Digital, pós-graduada em Planejamento Estratégico e Marketing Interativo, com certificação em metodologias Moebius e Scrum, conta também com larga experiência no desenvolvimento de projetos em Microsoft SharePoint. </p>
+<p>Participou nos últimos anos de projetos de grande porte (portais, intranets, extranets e sistemas), em diversos setores, destacando setor de mineração, finanças, relações com investidores, educação, classificados on-line, mercado imobiliário e construção civil, telecomunicações, farmacêutico, entretenimento, eventos, governança corporativa, gestão de conhecimento, entre outros. </p>
+<p>Lidera o núcleo de User Experience da Tribo, composto por arquitetos de informação, analistas de usabilidade e especialistas em BI e SEO.</p>"
         ],
     ],
 ];
@@ -159,6 +139,7 @@ $app['home.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Home/Lista
 $app['trabalho.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Listar';
 $app['trabalho.detalhe'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/Detalhe';
 $app['trabalho.cases'] = 'http://www.tribointeractive.com.br:81/tribosite/Trabalhos/ListarCases';
+$app['trabalho.cases.categoria'] = 'http://www.tribointeractive.com.br:81/Tribosite/Trabalhos/ListarCasesPorCategoria';
 
 $app['ultimas.lista'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/Listar';
 $app['ultimas.destaque'] = 'http://www.tribointeractive.com.br:81/tribosite/Noticias/ListarDestaques';

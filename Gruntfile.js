@@ -29,7 +29,9 @@ module.exports = function(grunt) {
                     // fancyBox
                     'bower_components/fancybox/source/jquery.fancybox.js',
                     // theCombo
-                    'bower_components/jquery.theCombo.js/jquery.theCombo.js'
+                    'bower_components/jquery.theCombo.js/jquery.theCombo.js',
+                    // swfobject
+                    'bower_components/swfobject/swfobject/src/swfobject.js'
                 ],
                 dest: 'public/Scripts/dist/vendor.js'
             },

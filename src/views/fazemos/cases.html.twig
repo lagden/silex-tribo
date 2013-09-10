@@ -1,0 +1,4 @@
+{% for case in cases.data %}
+    {% set case = case|merge({ 'rotulo': case.nome, 'url': url('trabalho_show', { 'slug': case.slug }) }) %}
+    {{ include('/includes/partials/box.html.twig', { "item": case, "css": 'box', "isFull": true }) }}
+{% endfor %}

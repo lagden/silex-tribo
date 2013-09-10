@@ -4,36 +4,38 @@
 <div class="wrapper grupo grupo-fazemos">
     <h2 class="titulo">{{ 'titulo_o_que_fazemos'|trans }}</h2>
     <div class="infografico">
-        {% set swf = app.request.basepath ~ '/swf/oque_fazemos-' ~ app.translator.getLocale()|lower ~ '.swf' %}
-        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1151" height="343" id="infografico">
-            <param name="movie" value="{{ swf }}" />
-            <!--[if !IE]>-->
-            <object type="application/x-shockwave-flash" data="{{ swf }}" width="1151" height="343">
-                <!--<![endif]-->
-                <img src="{{ app.request.basepath }}/images/banner-fazemos.png" alt="" />
-                <!--[if !IE]>-->
-            </object>
-            <!--<![endif]-->
-        </object>
+        <div id="infograficoDiv"></div>
     </div>
-
-    {% if cases and cases.success %}
-        <div class="especial-title-wrap">
-            <h2 class="especial-title">Cases</h2>
-        </div>
-
-        <div class="packery" id="packeryCases">
-            {% for case in cases.data %}
-                {% set case = case|merge({ 'rotulo': case.nome, 'url': url('trabalho_show', { 'slug': case.slug }) }) %}
-                {{ include('/includes/partials/box.html.twig', { "item": case, "css": 'box', "isFull": true }) }}
-            {% endfor %}
-        </div>
-    {% endif %}
+    <div class="especial-title-wrap">
+        <h2 class="especial-title">Cases</h2>
+    </div>
+    <div class="packery" id="packeryCases"></div>
 </div>
 {% endblock %}
 
 {% block script %}
+{% set swf = app.request.basepath ~ '/swf/oque_fazemos-' ~ app.translator.getLocale()|lower ~ '.swf' %}
 <script type="text/javascript">
-    swfobject.registerObject("infografico", "11.0.0");
+    console.log('{{ swf }}');
+    var params = {
+        allowScriptAccess: "always"
+    };
+    var atts = {
+        id: "infografico"
+    };
+    swfobject.embedSWF("{{ swf }}", "infograficoDiv", "1150", "450", "9", null, null, params, atts);
+
+    function cases(p)
+    {
+        $.post("{{ url('cases') }}", {
+            'categoria': p
+        }).done(function(res) {
+            $res = $(res);
+            var $el = $container.find(".element");
+            $container.isotope( 'remove', $el, function(){
+                $container.isotope( 'insert', $res );
+            });
+        });
+    }
 </script>
 {% endblock %}
