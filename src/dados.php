@@ -120,7 +120,7 @@ $app['dados'] = [
 <p>É graduada em Nutrição pela Faculdade de Saúde Pública da USP e se especializou em gerência de projetos web com cursos preparatórios para certificação PMO.</p>
 <p>Foi Gerente de E-Business da Sadia e Analista Sênior responsável pela área de Internet na Nestlé. Atuou como membro do Comitê de Internet  da ABA - Associação Brasileira de Anunciantes pela Nestlé e Sadia. Como Diretora de Operações da Tribo gerenciou projetos de web de empresas como Nestlé; NET; KIA; Siemens; Abbot; Pfizer; Vale; Johnson & Johnson; JMacedo.</p>"
         ],
-        ["nome"=>"Anna Telles", "cargo"=>"Diretora de Arquitetura da Informação", "imagem"=>"telles",
+        ["nome"=>"Anna Telles", "cargo"=>"Diretora de User Experience", "imagem"=>"telles",
             "cv"=>"
 <p>Atua na área de UX, arquitetura de informação, usabilidade e planejamento estratégico de projetos digitais. </p>
 <p>Com mais de 13 anos de experiência no mercado de internet; graduada em Design Digital, pós-graduada em Planejamento Estratégico e Marketing Interativo, com certificação em metodologias Moebius e Scrum, conta também com larga experiência no desenvolvimento de projetos em Microsoft SharePoint. </p>
