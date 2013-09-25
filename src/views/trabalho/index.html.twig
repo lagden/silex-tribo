@@ -11,12 +11,6 @@
                     <option value=".{{ item.slug }}">{{ item.nome }}</option>
                 {% endfor %}
             </select>
-            <select class="theCombo theComboFilter">
-                <option value="*">{{ 'categorias'|trans }}</option>
-                {% for item in categorias %}
-                    <option value=".{{ item.slug }}">{{ item.nome }}</option>
-                {% endfor %}
-            </select>
         </div>
     </div>
     <div class="packery" id="packeryTrabalho" data-maxPage="{{ paginas }}">

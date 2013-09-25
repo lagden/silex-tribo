@@ -115,7 +115,7 @@
     function cleanup(that, value){
         $theComboFilter.val('*');
         $(that).val(value);
-        combo.theCombo('change');
+        if(combo) combo.theCombo('change');
     }
 
     window.$container = $container;

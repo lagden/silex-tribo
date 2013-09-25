@@ -14,7 +14,7 @@
     "fancybox": "2.1.5",
     "isotope": "~1.5.25",
     "infinite-scroll": "latest",
-    "jquery.theCombo.js": "~0.4.2",
+    "jquery.theCombo.js": "~0.4.*",
     "swfobject": "*"
   }
 }
