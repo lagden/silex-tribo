@@ -7,5 +7,7 @@
         {{ info.cidade }} - {{ info.estado }} - CEP {{ info.cep }}<br>
         <strong>{{ info.telefone }}</strong>
     </p>
+    {%  set xxx = url(app.request.basepath ~ '/images/xxx.jpg', {absolute: true}) %}
+    {{ xxx }}
     <img src="{{ app.request.basepath }}/images/map-{{ info.estado|lower }}.png" alt="{{ info.endereco }}">
 </article>

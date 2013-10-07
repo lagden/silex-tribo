@@ -1,24 +1,21 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+{% set video_full_path = 'http://' ~ app.request.host ~ app.request.basepath ~ '/Content/videos/' ~ video_file ~ '.mp4' %}
 <div class="wrapper grupo grupo-videos">
-    <div id="containerVideo"></div>
+    <div id="containerVideo">
+        <object width="1024" height="768">
+            <param name="movie" value="http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf"></param>
+            <param name="flashvars" value="src={{ video_full_path }}&controlBarMode=floating"></param>
+            <param name="allowFullScreen" value="true"></param>
+            <param name="allowscriptaccess" value="always"></param>
+            <embed src="http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="1024" height="768" flashvars="src={{ video_full_path }}&controlBarMode=floating"></embed>
+        </object>
+    </div>
 </div>
 {% endblock %}
 
-{% set video_full_path = app.request.basepath ~ '/Content/videos/' ~ video_file ~ '.mp4' %}
 {% block script %}
 <script type="text/javascript">
-    var params = {
-        allowScriptAccess: "always"
-    };
-    var atts = {
-        id: "containerVideo"
-    };
-    var flashVars = {
-        src:'{{ video_full_path }}',
-        controlBarMode: 'floating'
-    }
-    swfobject.embedSWF("http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf", "containerVideo", "1024", "768", "10.0", null, flashVars, params, atts);
 </script>
 {% endblock %}
