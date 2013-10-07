@@ -1,8 +1,7 @@
-{% extends 'layout.html.twig' %}
 
-{% block content %}
 {% set video_full_path = 'http://' ~ app.request.host ~ app.request.basepath ~ '/Content/videos/' ~ video_file ~ '.mp4' %}
-<div class="wrapper grupo grupo-videos">
+<div style="width: 100%; text-align: center;">
+    <img src="{{app.request.basepath ~ '/images/tribo_preto.jpg'}}" alt="" class="tribo" />
     <div id="containerVideo">
         <object width="1024" height="768">
             <param name="movie" value="http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf"></param>
@@ -13,9 +12,3 @@
         </object>
     </div>
 </div>
-{% endblock %}
-
-{% block script %}
-<script type="text/javascript">
-</script>
-{% endblock %}
