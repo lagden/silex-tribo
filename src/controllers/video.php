@@ -14,6 +14,10 @@ class video implements ControllerProviderInterface
         ->get( "/{slug}", array( $this, 'index' ) )
         ->bind( 'video' );
 
+        $controllers
+        ->get( "/full/{slug}", array( $this, 'comTemplate' ) )
+        ->bind( 'video' );
+
         return $controllers;
     }
 
@@ -21,5 +25,11 @@ class video implements ControllerProviderInterface
     {
         $app['title'] = "{$app['title']}";
         return $app['twig']->render( 'video/index.html.twig', ['video_file' => $slug] );
+    }
+
+    public function comTemplate( Application $app, $slug )
+    {
+        $app['title'] = "{$app['title']}";
+        return $app['twig']->render( 'video/com-template.html.twig', ['video_file' => $slug] );
     }
 }
