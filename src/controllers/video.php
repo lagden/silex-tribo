@@ -10,12 +10,13 @@ class video implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $controllers = $app['controllers_factory'];
-        $controllers
-        ->get( "/{slug}", array( $this, 'index' ) )
-        ->bind( 'video' );
 
         $controllers
         ->get( "/full/{slug}", array( $this, 'comTemplate' ) )
+        ->bind( 'video_comTemplate' );
+
+        $controllers
+        ->get( "/{slug}", array( $this, 'index' ) )
         ->bind( 'video' );
 
         return $controllers;
